@@ -35,3 +35,48 @@ function DiaDaSemana(d, m, a) {
 
     return false;
 }
+
+function Mod(x, y) {
+    if (y >= 0 && x > 0) {
+
+        let s = x;
+
+        while (y <= s) {
+            s = s - y;
+        }
+
+        return s;
+
+    }
+
+}
+
+function SomaNaturais(n) {
+    if (n >= 1) {
+
+        let i = 2;
+        let s = 1;
+
+        while (i <= n) {
+            s = s + i;
+            i = i + 1;
+        }
+
+        return s;
+
+    }
+}
+
+function Fatorial(n) {
+    if (n >= 1) {
+        let i = 2;
+        let f = 1;
+
+        while (i <= n) {
+            f = f * i;
+            i = i + 1;
+        }
+
+        return f;
+    }
+}
