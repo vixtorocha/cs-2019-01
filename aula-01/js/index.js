@@ -317,9 +317,9 @@ function Fibonacci(n) {
 
 //20. Cadastro de Pessoas Físicas.
 function CPF(d) {
-    // Checar se o vetor d tem 11 casas
+    // Checar se o vetor d tem 11 casas. D precisa ser uma string.
+
     if (d.length == 11) {
-        console.log("Condição aceita!");
 
         let j = d[0] + d[1] + d[2] + d[3] + d[4] + d[5] + d[6] + d[7] + d[8];
         let k = d[1] + d[2] + d[3] + d[4] + d[5] + d[6] + d[7] + d[8] + d[9];
@@ -337,7 +337,20 @@ function CPF2(d) {
 
     // Checar se o vetor d tem 11 casas
     if (d.length == 11) {
-        console.log("Condição aceita!");
+        let c = 8;
+        let p = d[9];
+        let s = d[9];
+
+        while (c >= 1) {
+            p = p + d[c];
+            s = s + p;
+            c = c - 1;
+        }
+
+        j = (s % 11) % 10;
+        k = ((s - p + d[10]) % 11) % 10;
+
+        return (j == d[10] && k == d[11]);
 
     }
 }
