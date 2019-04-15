@@ -1,7 +1,7 @@
 public class Principal {
 
     public static void main(String[] args) {
-        System.out.println(Mod(5, 3));
+        System.out.println(Pi(50));
     }
 
     // 1. Função que verifica se a propriedade 3025 é verdade para um número.
@@ -77,5 +77,128 @@ public class Principal {
         }
 
         return s;
+    }
+
+    // 6. Retorna o Fatorial de um número n
+    public static int Fatorial(int n) {
+        if (!(n >= 1)) {
+            throw new IllegalArgumentException("O parâmetro deve ser maior ou igual a 1");
+        }
+
+        int i = 2;
+        int f = 1;
+
+        while (n >= i) {
+            f = f * i;
+            i = i + 1;
+        }
+
+        return f;
+    }
+
+    // 7. Produto de inteiros usando somas
+    public static int Produto(int a, int b) {
+        if (!(a >= 0 || b >= 0)) {
+            throw new IllegalArgumentException("Ambos os valores precisam ser maior ou igual a zero.");
+        }
+
+        int i, s;
+        int totalParcelas = a;
+        int parecela = b;
+
+        if (b < a) {
+            totalParcelas = b;
+            parecela = a;
+        }
+
+        i = 1;
+        s = 0;
+
+        while (i <= totalParcelas) {
+            s = s + parecela;
+            i = i + 1;
+        }
+
+        return s;
+    }
+
+    // 8. Potências Usando Somas
+    public static int Potencia(int x, int y) {
+        if (!(x >= 0 || y >= 0)) {
+            throw new IllegalArgumentException("Ambos os valores precisam ser maiores ou iguals a 0");
+        }
+
+        int potencia = 1;
+        int i = 1;
+
+        while (y >= i) {
+            potencia = Produto(potencia, x);
+            i = i + 1;
+        }
+
+        return potencia;
+    }
+
+    // 9. Valor de pi com n termos somatórios
+    public static float Pi(float n) {
+        if (!(n >= 1)) {
+            throw new IllegalArgumentException(
+                    "Para calcular o valor de pi, N deve ter um input de maior ou igual a 1.");
+        }
+
+        float i = 1;
+        float s = -1;
+        float d = -1;
+        float p = 0;
+
+        while (n >= i) {
+            d = d + 2;
+            s = -1 * s;
+            p = p + (4 * s) / d;
+            i = i + 1;
+        }
+
+        return p;
+    }
+
+    // 10. Logaritmo Natural
+    public static float LogaritmoNatural(float n, float k) {
+        if (!(n >= 1 || k >= 2)) {
+            throw new IllegalArgumentException("N deve ser maior ou igual a 1 e k deve ser maior ou igual a 2.");
+        }
+        float i = 2;
+        float e = 1 + n;
+        float numerador = n;
+        float denominador = 1;
+
+        while (k >= 1) {
+            numerador = numerador * numerador;
+            denominador = denominador * i;
+            e = e + numerador / denominador;
+            i = i + 1;
+        }
+
+        return e;
+    }
+
+    // 12. Razão áurea. quanto maior o k maior a precisão.
+    public static float RazaoAurea(float x, float y, float k) {
+        if (!(x >= 0 || y > x || k > 0)) {
+            throw new IllegalArgumentException("x deve ser >= 0, y > x e k > 0");
+        }
+
+        float c = y;
+        float a = x;
+        float i = 1;
+        float t;
+
+        while (k >= i) {
+            t = c;
+            c = c + a;
+            a = t;
+            i = i + 1;
+        }
+
+        return c / a;
     }
 }
