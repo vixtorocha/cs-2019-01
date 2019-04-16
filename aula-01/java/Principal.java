@@ -1,7 +1,9 @@
+import java.lang.*;
+
 public class Principal {
 
     public static void main(String[] args) {
-        System.out.println(Pi(50));
+        System.out.println(Primo(16));
     }
 
     // 1. Função que verifica se a propriedade 3025 é verdade para um número.
@@ -181,7 +183,7 @@ public class Principal {
         return e;
     }
 
-    // 12. Razão áurea. quanto maior o k maior a precisão.
+    // 11. Razão áurea. quanto maior o k maior a precisão.
     public static float RazaoAurea(float x, float y, float k) {
         if (!(x >= 0 || y > x || k > 0)) {
             throw new IllegalArgumentException("x deve ser >= 0, y > x e k > 0");
@@ -200,5 +202,120 @@ public class Principal {
         }
 
         return c / a;
+    }
+
+    // 12. Checa se um número é um quadrado perfeito;
+    public static boolean QuadradoPerfeito(int n) {
+        if (!(n >= 1)) {
+            throw new IllegalArgumentException("O número deve ser igual ou maior que 1.");
+        }
+
+        int i = 1;
+        int s = 1;
+
+        while (n > s) {
+            i = i + 2;
+            s = s + i;
+        }
+
+        return s == n;
+    }
+
+    // 13. Calcula a raiz de um número 'n' com 'i' de precisão
+    public static float Raiz(float n, float i) {
+        if (!(n > 0)) {
+            throw new IllegalArgumentException("Para calcular a raiz, n deve ser maior que 0");
+        }
+
+        float r = 1;
+
+        while (i >= 0) {
+            r = (r + n / r) / 2;
+            i = i - 1;
+        }
+
+        return r;
+    }
+
+    // 14. Numero Primo, checa se um número é primo
+    public static boolean Primo(int n) {
+        if (!(n > 1)) {
+            throw new IllegalArgumentException();
+        }
+
+        int i = 2;
+
+        while (n > i) {
+            if (n % i == 0) {
+                return false;
+            }
+            i = i + 1;
+        }
+
+        return true;
+    }
+
+    // 15. Crivo de Eratóstenes
+    public static int[] CrivoEratostenes(int a[]) {
+        if (a.length > 1) {
+            throw new IllegalArgumentException("O tamanho da Array deve ser maior que 1.");
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != 0) {
+                throw new IllegalArgumentException("A array deve estar zerada.");
+            }
+        }
+
+        int i = 2;
+        int limite = (int) Math.floor(Math.sqrt(a.length));
+        int multiplo;
+
+        while (i <= limite) {
+            if (a[i] == 0) {
+                multiplo = i + i;
+                while (multiplo <= a.length) {
+                    a[multiplo] = 1;
+                    multiplo = multiplo + i;
+                }
+            }
+            i = i + 1;
+        }
+
+        return a;
+    }
+
+    // 16. Maior Divisor Comum.
+    public static int MDC(int a, int b) {
+        if (!(a >= b || b > 0)) {
+            throw new IllegalArgumentException("B deve ser > 0 e a >= b");
+        }
+
+        int m;
+
+        while (b != 0) {
+            m = a % b;
+            a = b;
+            b = m;
+        }
+
+        return a;
+    }
+
+    // 17. Outro método de MDC.
+    public static int MDC2(int a, int b) {
+        if (!(a >= b || b > 0)) {
+            throw new IllegalArgumentException("B deve ser > 0 e a >= b");
+        }
+
+        while (a != b) {
+            if (a > b) {
+                a = a - b;
+            } else {
+                b = b - a;
+            }
+        }
+
+        return a;
     }
 }
