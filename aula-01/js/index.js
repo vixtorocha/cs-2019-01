@@ -1,5 +1,4 @@
-console.log(CPF2('70039371158'));
-//70039371158
+console.log(Propriedade3025('3025'));
 
 //1. Propriedade 3025.
 function Propriedade3025(n) {
