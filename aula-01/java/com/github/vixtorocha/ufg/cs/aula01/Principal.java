@@ -49,7 +49,7 @@ public class Principal {
     // 3. Função que retorna o dia da semana. Começando por 0, que ´se
     // segunda-feira.
     public static int DiaDaSemana(int d, int m, int a) {
-        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1753) {
+        if (dataInvalida(d, m, a)) {
             throw new IllegalArgumentException("a data não está no formato correto");
         }
 
@@ -60,6 +60,10 @@ public class Principal {
 
         int s = d + (2 * m) + (3 * (m + 1)) / 5 + a + (a / 4) - (a / 100) + (a / 400);
         return s % 7;
+    }
+
+    private static boolean dataInvalida(int d, int m, int a) {
+        return d < 1 || d > 31 || m < 1 || m > 12 || a < 1753;
     }
 
     // 4 Calcula o resto da divisão de X por Y.
