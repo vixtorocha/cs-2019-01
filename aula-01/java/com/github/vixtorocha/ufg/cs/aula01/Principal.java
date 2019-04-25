@@ -91,7 +91,7 @@ public class Principal {
         int i = 2;
         int s = 1;
 
-        while (n >= i) {
+        while (i <= n) {
             s += i;
             i += 1;
         }
