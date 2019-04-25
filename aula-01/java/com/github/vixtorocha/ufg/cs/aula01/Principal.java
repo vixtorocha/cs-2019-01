@@ -118,7 +118,7 @@ public class Principal {
 
     // 7. Produto de inteiros usando somas
     public static int Produto(int a, int b) {
-        if (!(a >= 0 || b >= 0)) {
+        if (a < 0 && b < 0) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maior ou igual a zero.");
         }
 
