@@ -101,7 +101,7 @@ public class Principal {
 
     // 6. Retorna o Fatorial de um número n
     public static int Fatorial(int n) {
-        if (!(n >= 1)) {
+        if (n < 1) {
             throw new IllegalArgumentException("O parâmetro deve ser maior ou igual a 1");
         }
 
