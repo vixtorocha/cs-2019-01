@@ -1,5 +1,3 @@
-console.log(Propriedade3025('3025'));
-
 //1. Propriedade 3025.
 function Propriedade3025(n) {
     if (!(n >= 0 || n <= 9999)) {
