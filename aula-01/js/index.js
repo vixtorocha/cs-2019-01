@@ -374,11 +374,13 @@ function Fibonacci(n) {
 
 //20. Cadastro de Pessoas Físicas. d é lido como uma string.
 function CPF(d) {
-    // Checar se o vetor d tem 11 casas. FALTA D precisa ser uma string.
     if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
+    if (typeof d != "string") {
+        throw new TypeError("string é esperada");
+    }
 
     let j = parseInt(d[0]) + 2 * parseInt(d[1]) + 3 * parseInt(d[2]) + 4 * parseInt(d[3]) + 5 * parseInt(d[4]) + 6 * parseInt(d[5]) + 7 * parseInt(d[6]) + 8 * parseInt(d[7]) + 9 * parseInt(d[8]);
     let k = parseInt(d[1]) + 2 * parseInt(d[2]) + 3 * parseInt(d[3]) + 4 * parseInt(d[4]) + 5 * parseInt(d[5]) + 6 * parseInt(d[6]) + 7 * parseInt(d[7]) + 8 * parseInt(d[8]) + 9 * parseInt(d[9]);
