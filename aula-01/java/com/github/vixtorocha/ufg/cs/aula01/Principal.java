@@ -63,6 +63,7 @@ public class Principal {
     }
 
     private static boolean dataInvalida(int d, int m, int a) {
+        // FIXME retorna true para 31/04/2019
         return d < 1 || d > 31 || m < 1 || m > 12 || a < 1753;
     }
 
