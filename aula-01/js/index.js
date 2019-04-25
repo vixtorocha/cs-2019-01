@@ -11,7 +11,8 @@ function propriedade3025(n) {
         throw new RangeError("O parâmetro deve estar entre 0 e 9999.");
     }
 
-    let i, j;
+    let i;
+    let j;
 
     i = Math.floor(n / 100);
     j = Math.floor(n % 100);
