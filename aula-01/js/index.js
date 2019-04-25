@@ -13,8 +13,8 @@ function propriedade3025(n) {
 
     let i, j;
 
-    i = parseInt(n / 100);
-    j = parseInt(n % 100);
+    i = Math.floor(n / 100);
+    j = Math.floor(n % 100);
     return (i + j) * (i + j) == n;
 }
 
