@@ -374,8 +374,8 @@ function Fibonacci(n) {
 
 //20. Cadastro de Pessoas Físicas. d é lido como uma string.
 function CPF(d) {
-    // Checar se o vetor d tem 11 casas. D precisa ser uma string.
-    if (d.length != 11) {
+    // Checar se o vetor d tem 11 casas. FALTA D precisa ser uma string.
+    if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
