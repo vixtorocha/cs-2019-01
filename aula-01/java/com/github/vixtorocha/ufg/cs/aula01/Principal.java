@@ -31,7 +31,7 @@ public class Principal {
     }
 
     // 2. Função que verifica se a propriedade 153 é verdade para um inteiro.
-    public static boolean Propriedade153(int n) {
+    public static boolean Propriedade153(final int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
         }
