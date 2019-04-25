@@ -21,7 +21,7 @@ public class Principal {
      * @throws IllegalArgumentException Se o argumento fornecido não está na
      * faixa permitida.
      */
-    public static boolean Propriedade3025(int n) {
+    public static boolean propriedade3025(int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
         }
