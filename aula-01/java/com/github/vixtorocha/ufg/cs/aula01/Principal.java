@@ -14,12 +14,10 @@ public class Principal {
      * "Propriedade 3025".
      *
      * @param n Número que possivelmente satisfaz a propriedade.
-     *
      * @return {@code true} se e somente se o argumento fornecido satisfaz a
      * "propriedade 3025".
-     *
      * @throws IllegalArgumentException Se o argumento fornecido não está na
-     * faixa permitida.
+     *                                  faixa permitida.
      */
     public static boolean propriedade3025(int n) {
         if (n < 0 || n > 9999) {
@@ -71,7 +69,8 @@ public class Principal {
     public static int Mod(int x, int y) {
         if (y < 0 || x <= 0) {
             throw new IllegalArgumentException(
-                    "O primeiro valor deve ser maior que zero e o segundo deve ser maior ou igual a zero.");
+                    "O primeiro valor deve ser maior que zero e o segundo "
+                            + "deve ser maior ou igual a zero.");
         }
 
         int s = x;
