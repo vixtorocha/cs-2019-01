@@ -50,9 +50,6 @@ function DiaDaSemana(d, m, a) {
 
 }
 
-return false;
-}
-
 // 4. Resto da Divisão inteira
 function Mod(x, y) {
     if (!(y >= 0 || x > 0)) {
