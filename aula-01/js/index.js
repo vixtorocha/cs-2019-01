@@ -6,7 +6,7 @@
  *
  * @throws {RangeError} Se ...
  */
-function Propriedade3025(n) {
+function propriedade3025(n) {
     if (!(n >= 0 || n <= 9999)) {
         throw new RangeError("O parâmetro deve estar entre 0 e 9999.");
     }
