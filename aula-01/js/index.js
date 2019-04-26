@@ -1,6 +1,7 @@
-console.log(Propriedade3025('3025'));
+//Console log para testes usando o node.
+console.log(CPF2('06569683110'));
 
-//1. Propriedade 3025.
+//1. Propriedade 3025. Verifica se a propriedade é válida para um inteiro.
 function Propriedade3025(n) {
     if (!(n >= 0 || n <= 9999)) {
         throw new RangeError("O parâmetro deve estar entre 0 e 9999.");
@@ -8,65 +9,64 @@ function Propriedade3025(n) {
 
     let i, j;
 
+    //a função parseInt será necessária por que javascript retornará um valor em float que atrapalha o bom funcionamento da função. parseInt converte para o tipo inteiro.
     i = parseInt(n / 100);
     j = parseInt(n % 100);
     return (i + j) * (i + j) == n;
 }
 
-//2. Propriedade 153
+//2. Propriedade 153. Verifica se a propriedade 153 é válida para um inteiro.
 function Propriedade153(n) {
     if (!(n >= 100 || n <= 999)) {
         throw new RangeError("O parâmetro deve estar entre 100 e 999.");
     }
 
+    // A função parseInt converte para um inteiro.
     c = parseInt(n / 100);
     du = parseInt(n % 100);
     d = parseInt(du / 10);
     u = parseInt(du % 10);
 
-    return (c * c * c) + (d * d * d) + (u * u * u) == n;
+    let resultado = (c * c * c) + (d * d * d) + (u * u * u);
+
+    return resultado == n;
 }
 
 //3. Calcula o dia da semana, começando por 0 (segunda-feira)
-function DiaDaSemana(d, m, a) {
-    if (!(d >= 1 && d <= 31 && m >= 1 && m <= 12 && a > 1753)) {
+function DiaDaSemana(dia, mes, ano) {
+    if (!(dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano > 1753)) {
         throw new RangeError("d deve estar entre 1 e 31. m deve estar entre 1 e 12. e o ano deve ser maior que 1753");
     }
 
-    let s;
-
-    if (m == 1 || m == 2) {
-        m = m + 12;
-        a = a - 1;
+    if (mes == 1 || mes == 2) {
+        mes = mes + 12;
+        ano = ano - 1;
     }
 
-    s = d + (2 * m) + (3 * (m + 1) / 5) + a + (a / 4) - (a / 100) + (a / 400);
+    let resultadoParcial = dia + (2 * mes) + (3 * (mes + 1) / 5) + ano + (ano / 4) - (ano / 100) + (ano / 400);
 
-    return (s % 7);
+    return (resultadoParcial % 7);
 
 }
 
-return false;
-}
-
-// 4. Resto da Divisão inteira
-function Mod(x, y) {
-    if (!(y >= 0 || x > 0)) {
-        throw new RangeError("Y deve ser ser maior ou igual a 0, X deve ser maior que 0");
+// 4. Resto da Divisão inteira de um numerador com um denominador
+function Mod(numerador, denominador) {
+    if (!(denominador >= 0 || numerador > 0)) {
+        throw new RangeError("O denominador deve ser ser maior ou igual a 0, O numerador deve ser maior que 0");
     }
 
-    let s = x;
+    let resultado = numerador;
 
-    while (y <= s) {
-        s = s - y;
+    while (denominador <= resultado) {
+        resultado = resultado - denominador;
     }
 
-    return s;
+    return resultado;
 }
 
-//5. Soma dos números naturais até n
+//5. Soma dos números naturais de 1 até n.
 function SomaNaturais(n) {
-    if (!(n >= 1)) {
+    if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
 
@@ -123,42 +123,42 @@ function Produto(a, b) {
     return s;
 }
 
-//8. Potências usando soma.
-function Potencia(x, y) {
-    if (!(x >= 0 && y >= 0)) {
+//8. Função que resolve uma potência através de soma, usando a função de produto criada anteriormente.
+function Potencia(base, expoente) {
+    if (!(base >= 0 && expoente >= 0)) {
         throw new RangeError("X e Y devem ser maior ou igual a 0");
     }
 
     let potencia = 1;
     let i = 1;
 
-    while (i <= y) {
-        potencia = Produto(potencia, x);
+    while (i <= expoente) {
+        potencia = Produto(potencia, base);
         i = i + 1;
     }
 
     return potencia;
 }
 
-//9. Calcula o pi, 'n' determina a precisão.
-function Pi(n) {
-    if (!(n >= 1)) {
+//9. Calcula o pi.
+function Pi(precisao) {
+    if (!(precisao >= 1)) {
         throw new RangeError("n deve ser maior ou igual a 1.");
     }
 
     let i = 1;
     let s = -1;
     let d = -1;
-    let p = 0;
+    let pi = 0;
 
-    while (i <= n) {
+    while (i <= precisao) {
         d = d + 2;
         s = -1 * s;
-        p = p + 4 * s / d;
+        pi = pi + 4 * s / d;
         i = i + 1;
     }
 
-    return p;
+    return pi;
 }
 
 
@@ -219,32 +219,33 @@ function QuadradoPerfeito(n) {
     return s == n;
 }
 
-// 13. Raíz Quadrada. n é o radicando e i é a precisão
-function Raiz(n, i) {
-    if (n > 0) {
+// 13. Raíz Quadrada. Precisa do radicando e da precisão como parâmetro
+function Raiz(radicando, precisao) {
+    if (radicando > 0) {
         throw new RangeError("n deve ser maior que 0.");
     }
 
-    let r = 1;
+    let resultado = 1;
 
-    while (i >= 0) {
-        r = (r + n / r) / 2;
-        i = i - 1
+    while (precisao >= 0) {
+        resultado = (resultado + radicando / resultado) / 2;
+        precisao = precisao - 1
     }
 
-    return r;
+    return resultado;
 }
 
-//14. Número Primo. Checa se um número n é primo
-function Primo(n) {
-    if (!(n > 1)) {
+//14. Número Primo. Checa se um número é primo
+function Primo(numero) {
+    if (!(numero > 1)) {
         throw new RangeError("n deve ser maior que 1.");
     }
 
     i = 2;
 
-    while (n > i) {
-        if (n % i == 0) {
+    while (numero > i) {
+        //checa se o número tem outro divisor além de 1 e ele mesmo.
+        if (numero % i == 0) {
             return false;
         }
         i = i + 1
@@ -253,7 +254,7 @@ function Primo(n) {
     return true;
 }
 
-// 15. Crivo de Eratóstenes ????? PERGUNTAR PRO PROFESSOR SOBRE O RETURN.
+// 15. Crivo de Eratóstenes.
 function CrivoEratostenes(s, n) {
     if (s.length > 1) {
         throw new Error("O tamanho da Array deve ser maior que 1.");
@@ -296,16 +297,19 @@ function CrivoEratostenes(s, n) {
 }
 
 //16. Maior Divisor Comum
-
 function MDC(a, b) {
     if (a >= b && b > 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
 
-    while (b != 0) {
-        let m = a % b;
-        a = b;
-        b = m;
+    //atribuindo os valores para outro variável afim de evitar efeito colateral.
+    let numero1 = a;
+    let numero2 = b;
+
+    while (numero2 != 0) {
+        let resto = numero1 % numero2;
+        numero1 = numero2;
+        numero2 = resto;
     }
 
     return a;
@@ -317,15 +321,19 @@ function MDC2(a, b) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
 
-    while (a != b) {
-        if (a > b) {
-            a = a - b;
+    //atribuindo os valores para outro variável afim de evitar efeito colateral.
+    let numero1 = a;
+    let numero2 = b;
+
+    while (numero1 != numero2) {
+        if (numero1 > numero2) {
+            numero1 = numero1 - numero2;
         } else {
-            b = b - a;
+            numero2 = numero2 - numero1;
         }
     }
 
-    return a;
+    return numero1;
 }
 
 //18. Regra de Horner para avaliação de polinômio
@@ -407,8 +415,8 @@ function CPF2(d) {
         c = c - 1;
     }
 
-    j = (s % 11) % 10;
-    k = ((s - p + 9 * parseInt(d[9])) % 11) % 10;
+    let j = (s % 11) % 10;
+    let k = ((s - p + 9 * parseInt(d[9])) % 11) % 10;
 
     return (j == parseInt(d[9]) && k == parseInt(d[10]));
 
