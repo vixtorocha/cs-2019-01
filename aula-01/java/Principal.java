@@ -3,7 +3,7 @@ import java.lang.*;
 public class Principal {
 
     public static void main(String[] args) {
-        // função main usada para testar as funções
+        // funcao main usada para testar as funções
         System.out.println("Chame uma função aqui");
     }
 
