@@ -1,3 +1,5 @@
+package com.github.vixtorocha.ufg.cs.aula01;
+
 import java.lang.*;
 
 public class Principal {
@@ -7,8 +9,17 @@ public class Principal {
         System.out.println("Chame uma função aqui");
     }
 
-    // 1. Função que verifica se a propriedade 3025 é verdade para um número.
-    public static boolean Propriedade3025(int n) {
+    /**
+     * Verifica se o argumento fornecido é um número que satisfaz a
+     * "Propriedade 3025".
+     *
+     * @param n Número que possivelmente satisfaz a propriedade.
+     * @return {@code true} se e somente se o argumento fornecido satisfaz a
+     * "propriedade 3025".
+     * @throws IllegalArgumentException Se o argumento fornecido não está na
+     *                                  faixa permitida.
+     */
+    public static boolean propriedade3025(int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
         }
@@ -20,15 +31,15 @@ public class Principal {
     }
 
     // 2. Função que verifica se a propriedade 153 é verdade para um inteiro.
-    public static boolean Propriedade153(int n) {
+    public static boolean Propriedade153(final int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
         }
 
-        int c = n / 100;
-        int du = n % 100;
-        int d = du / 10;
-        int u = du % 10;
+        final int c = n / 100;
+        final int du = n % 100;
+        final int d = du / 10;
+        final int u = du % 10;
 
         return (c * c * c) + (d * d * d) + (u * u * u) == n;
     }
@@ -36,7 +47,7 @@ public class Principal {
     // 3. Função que retorna o dia da semana. Começando por 0, que ´se
     // segunda-feira.
     public static int DiaDaSemana(int d, int m, int a) {
-        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1753) {
+        if (dataInvalida(d, m, a)) {
             throw new IllegalArgumentException("a data não está no formato correto");
         }
 
@@ -49,11 +60,17 @@ public class Principal {
         return s % 7;
     }
 
+    private static boolean dataInvalida(int d, int m, int a) {
+        // FIXME retorna true para 31/04/2019
+        return d < 1 || d > 31 || m < 1 || m > 12 || a < 1753;
+    }
+
     // 4 Calcula o resto da divisão de X por Y.
     public static int Mod(int x, int y) {
         if (y < 0 || x <= 0) {
             throw new IllegalArgumentException(
-                    "O primeiro valor deve ser maior que zero e o segundo deve ser maior ou igual a zero.");
+                    "O primeiro valor deve ser maior que zero e o segundo "
+                            + "deve ser maior ou igual a zero.");
         }
 
         int s = x;
@@ -74,9 +91,9 @@ public class Principal {
         int i = 2;
         int s = 1;
 
-        while (n >= i) {
-            s += i;
-            i += 1;
+        while (i <= n) {
+            s = s + i;
+            i = i + 1;
         }
 
         return s;
@@ -84,7 +101,7 @@ public class Principal {
 
     // 6. Retorna o Fatorial de um número n
     public static int Fatorial(int n) {
-        if (!(n >= 1)) {
+        if (n < 1) {
             throw new IllegalArgumentException("O parâmetro deve ser maior ou igual a 1");
         }
 
@@ -101,7 +118,7 @@ public class Principal {
 
     // 7. Produto de inteiros usando somas
     public static int Produto(int a, int b) {
-        if (!(a >= 0 || b >= 0)) {
+        if (a < 0 && b < 0) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maior ou igual a zero.");
         }
 

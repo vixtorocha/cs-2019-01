@@ -1,15 +1,19 @@
-console.log(Propriedade3025('3025'));
-
-//1. Propriedade 3025.
-function Propriedade3025(n) {
+/**
+ * Verifica ...
+ *
+ * @param {number} n Pode até copiar da versão em Java...
+ * @returns {boolean} Se o argumento ...
+ *
+ * @throws {RangeError} Se ...
+ */
+function propriedade3025(n) {
     if (!(n >= 0 || n <= 9999)) {
         throw new RangeError("O parâmetro deve estar entre 0 e 9999.");
     }
 
-    let i, j;
-
-    i = parseInt(n / 100);
-    j = parseInt(n % 100);
+    const i = Math.floor(n / 100);
+    const j = Math.floor(n % 100);
+    
     return (i + j) * (i + j) == n;
 }
 
@@ -44,9 +48,6 @@ function DiaDaSemana(d, m, a) {
 
     return (s % 7);
 
-}
-
-return false;
 }
 
 // 4. Resto da Divisão inteira
@@ -373,12 +374,17 @@ function Fibonacci(n) {
 
 //20. Cadastro de Pessoas Físicas. d é lido como uma string.
 function CPF(d) {
-    // Checar se o vetor d tem 11 casas. D precisa ser uma string.
-    if (d.length != 11) {
+    if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
+    if (typeof d != "string") {
+        throw new TypeError("string é esperada");
+    }
 
+    // FIXME nao foi feita verificacao se são dígitos 0..9????
+
+    // TODO fazer conversao apenas uma vez por digito
     let j = parseInt(d[0]) + 2 * parseInt(d[1]) + 3 * parseInt(d[2]) + 4 * parseInt(d[3]) + 5 * parseInt(d[4]) + 6 * parseInt(d[5]) + 7 * parseInt(d[6]) + 8 * parseInt(d[7]) + 9 * parseInt(d[8]);
     let k = parseInt(d[1]) + 2 * parseInt(d[2]) + 3 * parseInt(d[3]) + 4 * parseInt(d[4]) + 5 * parseInt(d[5]) + 6 * parseInt(d[6]) + 7 * parseInt(d[7]) + 8 * parseInt(d[8]) + 9 * parseInt(d[9]);
 
