@@ -31,7 +31,7 @@ public class Principal {
     }
 
     // 2. Função que verifica se a propriedade 153 é verdade para um inteiro.
-    public static boolean Propriedade153(final int n) {
+    public static boolean propriedade153(final int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
         }
@@ -46,7 +46,7 @@ public class Principal {
 
     // 3. Função que retorna o dia da semana. Começando por 0, que ´se
     // segunda-feira.
-    public static int DiaDaSemana(int d, int m, int a) {
+    public static int diaDaSemana(int d, int m, int a) {
         if (dataInvalida(d, m, a)) {
             throw new IllegalArgumentException("a data não está no formato correto");
         }
@@ -61,12 +61,12 @@ public class Principal {
     }
 
     private static boolean dataInvalida(int d, int m, int a) {
-        // FIXME retorna true para 31/04/2019
+        // FIXME: retorna true para 31/04/2019
         return d < 1 || d > 31 || m < 1 || m > 12 || a < 1753;
     }
 
     // 4 Calcula o resto da divisão de X por Y.
-    public static int Mod(int x, int y) {
+    public static int mod(int x, int y) {
         if (y < 0 || x <= 0) {
             throw new IllegalArgumentException(
                     "O primeiro valor deve ser maior que zero e o segundo " + "deve ser maior ou igual a zero.");
@@ -82,7 +82,7 @@ public class Principal {
     }
 
     // 5. Realiza a soma dos primeiros número naturais, de 1 até n.
-    public static int SomaNaturais(int n) {
+    public static int somaNaturais(int n) {
         if (n < 1) {
             throw new IllegalArgumentException("O número deve ser um inteiro positivo maior que 0.");
         }
@@ -99,7 +99,7 @@ public class Principal {
     }
 
     // 6. Retorna o Fatorial de um número n
-    public static int Fatorial(int n) {
+    public static int fatorial(int n) {
         if (n < 1) {
             throw new IllegalArgumentException("O parâmetro deve ser maior ou igual a 1");
         }
@@ -116,7 +116,7 @@ public class Principal {
     }
 
     // 7. Produto de inteiros usando somas
-    public static int Produto(int a, int b) {
+    public static int produto(int a, int b) {
         if (a < 0 && b < 0) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maior ou igual a zero.");
         }
@@ -142,7 +142,7 @@ public class Principal {
     }
 
     // 8. Potências Usando Somas
-    public static int Potencia(int x, int y) {
+    public static int potencia(int x, int y) {
         if (!(x >= 0 || y >= 0)) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maiores ou iguals a 0");
         }
@@ -151,7 +151,7 @@ public class Principal {
         int i = 1;
 
         while (y >= i) {
-            potencia = Produto(potencia, x);
+            potencia = produto(potencia, x);
             i = i + 1;
         }
 
@@ -159,7 +159,7 @@ public class Principal {
     }
 
     // 9. Valor de pi com n termos somatórios
-    public static float Pi(float n) {
+    public static float pi(float n) {
         if (!(n >= 1)) {
             throw new IllegalArgumentException(
                     "Para calcular o valor de pi, N deve ter um input de maior ou igual a 1.");
@@ -181,7 +181,7 @@ public class Principal {
     }
 
     // 10. Logaritmo Natural
-    public static float LogaritmoNatural(float n, float k) {
+    public static float logaritmoNatural(float n, float k) {
         if (!(n >= 1 || k >= 2)) {
             throw new IllegalArgumentException("N deve ser maior ou igual a 1 e k deve ser maior ou igual a 2.");
         }
@@ -201,7 +201,7 @@ public class Principal {
     }
 
     // 11. Razão áurea. quanto maior o k maior a precisão.
-    public static float RazaoAurea(float x, float y, float k) {
+    public static float razaoAurea(float x, float y, float k) {
         if (!(x >= 0 || y > x || k > 0)) {
             throw new IllegalArgumentException("x deve ser >= 0, y > x e k > 0");
         }
@@ -222,7 +222,7 @@ public class Principal {
     }
 
     // 12. Checa se um número é um quadrado perfeito;
-    public static boolean QuadradoPerfeito(int n) {
+    public static boolean quadradoPerfeito(int n) {
         if (!(n >= 1)) {
             throw new IllegalArgumentException("O número deve ser igual ou maior que 1.");
         }
@@ -239,7 +239,7 @@ public class Principal {
     }
 
     // 13. Calcula a raiz de um número 'n' com 'i' de precisão
-    public static float Raiz(float n, float i) {
+    public static float raiz(float n, float i) {
         if (!(n > 0)) {
             throw new IllegalArgumentException("Para calcular a raiz, n deve ser maior que 0");
         }
@@ -255,7 +255,7 @@ public class Principal {
     }
 
     // 14. Numero Primo, checa se um número é primo
-    public static boolean Primo(int n) {
+    public static boolean primo(int n) {
         if (!(n > 1)) {
             throw new IllegalArgumentException();
         }
@@ -273,7 +273,7 @@ public class Principal {
     }
 
     // 15. Crivo de Eratóstenes
-    public static int[] CrivoEratostenes(int a[]) {
+    public static int[] crivoEratostenes(int a[]) {
         if (a.length > 1) {
             throw new IllegalArgumentException("O tamanho da Array deve ser maior que 1.");
         }
@@ -303,7 +303,7 @@ public class Principal {
     }
 
     // 16. Maior Divisor Comum.
-    public static int MDC(int a, int b) {
+    public static int mdc(int a, int b) {
         if (!(a >= b || b > 0)) {
             throw new IllegalArgumentException("B deve ser > 0 e a >= b");
         }
@@ -320,7 +320,7 @@ public class Principal {
     }
 
     // 17. Outro método de MDC.
-    public static int MDC2(int a, int b) {
+    public static int mdc2(int a, int b) {
         if (!(a >= b || b > 0)) {
             throw new IllegalArgumentException("B deve ser > 0 e a >= b");
         }
@@ -337,7 +337,7 @@ public class Principal {
     }
 
     // 18. Regra de Horner para avaliação de um polinômio
-    public static int Horner(int x, int g, int a[]) {
+    public static int horner(int x, int g, int a[]) {
         int p = a[g];
         int i = g - 1;
 
@@ -350,7 +350,7 @@ public class Principal {
     }
 
     // 19. Fibonacci, retorna o n-ésimo número da sequência.
-    public static int Fibonacci(int n) {
+    public static int fibonacci(int n) {
         if (!(n >= 0)) {
             throw new IllegalArgumentException("N deve ser maior ou igual a 0.");
         }
@@ -377,7 +377,7 @@ public class Principal {
 
     // 20. Checa CPF.
 
-    public static boolean CPF(String d) {
+    public static boolean cpf(String d) {
 
         if (!(d.length() == 11)) {
             throw new IllegalArgumentException("O CPF deve ter 11 dígitos");
@@ -405,7 +405,7 @@ public class Principal {
     }
 
     // 21. Outro método pra checar o CPF
-    public static boolean CPF2(String d) {
+    public static boolean cpf2(String d) {
 
         // Checar se o vetor d tem 11 casas
         if (d.length() != 11) {
