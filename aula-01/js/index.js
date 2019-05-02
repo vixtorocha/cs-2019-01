@@ -24,10 +24,10 @@ function propriedade153(n) {
         throw new RangeError("O parâmetro deve estar entre 100 e 999.");
     }
 
-    c = Math.floor(n / 100);
-    du = Math.floor(n % 100);
-    d = Math.floor(du / 10);
-    u = Math.floor(du % 10);
+    const c = Math.floor(n / 100);
+    const du = Math.floor(n % 100);
+    const d = Math.floor(du / 10);
+    const u = Math.floor(du % 10);
 
     return (c * c * c) + (d * d * d) + (u * u * u) == n;
 }
