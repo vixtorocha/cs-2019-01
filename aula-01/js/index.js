@@ -19,7 +19,7 @@ function propriedade3025(n) {
 }
 
 //2. Propriedade 153
-function Propriedade153(n) {
+function propriedade153(n) {
     if (!(n >= 100 || n <= 999)) {
         throw new RangeError("O parâmetro deve estar entre 100 e 999.");
     }
@@ -33,7 +33,7 @@ function Propriedade153(n) {
 }
 
 //3. Calcula o dia da semana, começando por 0 (segunda-feira)
-function DiaDaSemana(d, m, a) {
+function diaDaSemana(d, m, a) {
     if (!(d >= 1 && d <= 31 && m >= 1 && m <= 12 && a > 1753)) {
         throw new RangeError("d deve estar entre 1 e 31. m deve estar entre 1 e 12. e o ano deve ser maior que 1753");
     }
@@ -52,7 +52,7 @@ function DiaDaSemana(d, m, a) {
 }
 
 // 4. Resto da Divisão inteira
-function Mod(x, y) {
+function mod(x, y) {
     if (!(y >= 0 || x > 0)) {
         throw new RangeError("Y deve ser ser maior ou igual a 0, X deve ser maior que 0");
     }
@@ -67,7 +67,7 @@ function Mod(x, y) {
 }
 
 //5. Soma dos números naturais até n
-function SomaNaturais(n) {
+function somaNaturais(n) {
     if (!(n >= 1)) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
@@ -84,7 +84,7 @@ function SomaNaturais(n) {
 }
 
 //6. Fatorial de um número n
-function Fatorial(n) {
+function fatorial(n) {
     if (!(n >= 1)) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
@@ -101,7 +101,7 @@ function Fatorial(n) {
 }
 
 //7. Produto de inteiros usando soma.
-function Produto(a, b) {
+function produto(a, b) {
     if (!(a >= 0 && b >= 0)) {
         throw new RangeError("A e B devem ser maior ou igual a 0");
     }
@@ -126,7 +126,7 @@ function Produto(a, b) {
 }
 
 //8. Potências usando soma.
-function Potencia(x, y) {
+function potencia(x, y) {
     if (!(x >= 0 && y >= 0)) {
         throw new RangeError("X e Y devem ser maior ou igual a 0");
     }
@@ -143,7 +143,7 @@ function Potencia(x, y) {
 }
 
 //9. Calcula o pi, 'n' determina a precisão.
-function Pi(n) {
+function pi(n) {
     if (!(n >= 1)) {
         throw new RangeError("n deve ser maior ou igual a 1.");
     }
@@ -165,7 +165,7 @@ function Pi(n) {
 
 
 // 10. Logaritmo Natural - NÃO FUNCIONA
-function LogaritmoNatural(n, k) {
+function logaritmoNatural(n, k) {
     if (!(n >= 1 && k >= 2)) {
         throw new RangeError("n deve ser maior ou igual a >= 1 e k >= 2.");
     }
@@ -186,7 +186,7 @@ function LogaritmoNatural(n, k) {
 }
 
 // 11. Razão Áurea
-function RazaoAurea(x, y, k) {
+function razaoAurea(x, y, k) {
     if (!(x >= 0, x < y, k > 0)) {
         throw new RangeError("X deve ser maior ou igual a 0, x > y, e k > 0.");
     }
@@ -205,7 +205,7 @@ function RazaoAurea(x, y, k) {
 }
 
 // 12. Quadrado Perfeito. Checa se um número é um quadrado perfeito.
-function QuadradoPerfeito(n) {
+function quadradoPerfeito(n) {
     if (!(n >= 1)) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
@@ -222,7 +222,7 @@ function QuadradoPerfeito(n) {
 }
 
 // 13. Raíz Quadrada. n é o radicando e i é a precisão
-function Raiz(n, i) {
+function raiz(n, i) {
     if (n > 0) {
         throw new RangeError("n deve ser maior que 0.");
     }
@@ -238,7 +238,7 @@ function Raiz(n, i) {
 }
 
 //14. Número Primo. Checa se um número n é primo
-function Primo(n) {
+function primo(n) {
     if (!(n > 1)) {
         throw new RangeError("n deve ser maior que 1.");
     }
@@ -256,7 +256,7 @@ function Primo(n) {
 }
 
 // 15. Crivo de Eratóstenes ????? PERGUNTAR PRO PROFESSOR SOBRE O RETURN.
-function CrivoEratostenes(s, n) {
+function crivoEratostenes(s, n) {
     if (s.length > 1) {
         throw new Error("O tamanho da Array deve ser maior que 1.");
     }
@@ -299,7 +299,7 @@ function CrivoEratostenes(s, n) {
 
 //16. Maior Divisor Comum
 
-function MDC(a, b) {
+function mdc(a, b) {
     if (a >= b && b > 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
@@ -314,7 +314,7 @@ function MDC(a, b) {
 }
 
 //17. mdc 2
-function MDC2(a, b) {
+function mdc2(a, b) {
     if (a >= b && b > 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
@@ -331,7 +331,7 @@ function MDC2(a, b) {
 }
 
 //18. Regra de Horner para avaliação de polinômio
-function Horner(x, g, a) {
+function horner(x, g, a) {
     if (!(g >= 1)) {
         throw new Error('G deve ser maior ou igual a 1.');
     }
@@ -346,7 +346,7 @@ function Horner(x, g, a) {
 }
 
 //19. Fibonacci. obtém o n-ésimo número de fibonacci
-function Fibonacci(n) {
+function fibonacci(n) {
 
     if (n >= 0) {
         throw new Error("O valor deve ser maior ou igual a 0")
@@ -374,7 +374,7 @@ function Fibonacci(n) {
 }
 
 //20. Cadastro de Pessoas Físicas. d é lido como uma string.
-function CPF(d) {
+function cpf(d) {
     if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
@@ -397,7 +397,7 @@ function CPF(d) {
 }
 
 //21. Outro método para o CPF.
-function CPF2(d) {
+function cpf2(d) {
 
     // Checar se o vetor d tem 11 casas
     if (d.length != 11) {
