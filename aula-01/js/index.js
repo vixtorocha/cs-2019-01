@@ -8,7 +8,7 @@
  */
 
 function propriedade3025(n) {
-    if (!(n >= 0 || n <= 9999)) {
+    if (n < 0 || n > 9999) {
         throw new RangeError("O parâmetro deve estar entre 0 e 9999.");
     }
 
@@ -20,7 +20,7 @@ function propriedade3025(n) {
 
 //2. Propriedade 153
 function propriedade153(n) {
-    if (!(n >= 100 || n <= 999)) {
+    if (n < 100 || n > 999) {
         throw new RangeError("O parâmetro deve estar entre 100 e 999.");
     }
 
@@ -34,10 +34,13 @@ function propriedade153(n) {
 
 //3. Calcula o dia da semana, começando por 0 (segunda-feira)
 function diaDaSemana(d, m, a) {
-    if (!(d >= 1 && d <= 31 && m >= 1 && m <= 12 && a > 1753)) {
-        throw new RangeError("d deve estar entre 1 e 31. m deve estar entre 1 e 12. e o ano deve ser maior que 1753");
+    if (dataInvalida(d, m, a)) {
+        throw new RangeError("a data não está no formato correto");
     }
 
+    let dia = d;
+    let mes = m;
+    let ano = a;
     let s;
 
     if (m == 1 || m == 2) {
@@ -45,15 +48,59 @@ function diaDaSemana(d, m, a) {
         a = a - 1;
     }
 
-    s = d + (2 * m) + (3 * (m + 1) / 5) + a + (a / 4) - (a / 100) + (a / 400);
+    s = dia + (2 * mes) + (3 * (mes + 1) / 5) + ano + (ano / 4) - (ano / 100) + (ano / 400);
 
     return (s % 7);
 
 }
 
+function dataInvalida(d, m, a) {
+
+    if (m < 1 || m > 12) {
+        return false;
+    }
+
+    if (d < 1 || d > 31) {
+        return false;
+    }
+
+    switch (m) {
+        case 2:
+            if (d != 28) {
+                return false;
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (d != 30) {
+                return false;
+            }
+            break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            if (d != 31) {
+                return false;
+            }
+            break;
+    }
+
+    if (a < 1753) {
+        return false;
+    }
+
+    return true;
+}
+
 // 4. Resto da Divisão inteira
 function mod(x, y) {
-    if (!(y >= 0 || x > 0)) {
+    if (y < 0 || x <= 0) {
         throw new RangeError("Y deve ser ser maior ou igual a 0, X deve ser maior que 0");
     }
 
@@ -68,7 +115,7 @@ function mod(x, y) {
 
 //5. Soma dos números naturais até n
 function somaNaturais(n) {
-    if (!(n >= 1)) {
+    if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
 
@@ -85,7 +132,7 @@ function somaNaturais(n) {
 
 //6. Fatorial de um número n
 function fatorial(n) {
-    if (!(n >= 1)) {
+    if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
 
@@ -102,7 +149,7 @@ function fatorial(n) {
 
 //7. Produto de inteiros usando soma.
 function produto(a, b) {
-    if (!(a >= 0 && b >= 0)) {
+    if (a < 0 || b < 0) {
         throw new RangeError("A e B devem ser maior ou igual a 0");
     }
 
@@ -127,7 +174,7 @@ function produto(a, b) {
 
 //8. Potências usando soma.
 function potencia(x, y) {
-    if (!(x >= 0 && y >= 0)) {
+    if (x < 0 || y < 0) {
         throw new RangeError("X e Y devem ser maior ou igual a 0");
     }
 
@@ -144,7 +191,7 @@ function potencia(x, y) {
 
 //9. Calcula o pi, 'n' determina a precisão.
 function pi(n) {
-    if (!(n >= 1)) {
+    if (n < 1) {
         throw new RangeError("n deve ser maior ou igual a 1.");
     }
 
@@ -166,7 +213,7 @@ function pi(n) {
 
 // 10. Logaritmo Natural - NÃO FUNCIONA
 function logaritmoNatural(n, k) {
-    if (!(n >= 1 && k >= 2)) {
+    if (n < 1 || k < 2) {
         throw new RangeError("n deve ser maior ou igual a >= 1 e k >= 2.");
     }
 
@@ -187,7 +234,7 @@ function logaritmoNatural(n, k) {
 
 // 11. Razão Áurea
 function razaoAurea(x, y, k) {
-    if (!(x >= 0, x < y, k > 0)) {
+    if (x < 0 || x >= y || k <= 0) {
         throw new RangeError("X deve ser maior ou igual a 0, x > y, e k > 0.");
     }
 
@@ -206,7 +253,7 @@ function razaoAurea(x, y, k) {
 
 // 12. Quadrado Perfeito. Checa se um número é um quadrado perfeito.
 function quadradoPerfeito(n) {
-    if (!(n >= 1)) {
+    if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
 
@@ -223,7 +270,7 @@ function quadradoPerfeito(n) {
 
 // 13. Raíz Quadrada. n é o radicando e i é a precisão
 function raiz(n, i) {
-    if (n > 0) {
+    if (n < 0) {
         throw new RangeError("n deve ser maior que 0.");
     }
 
@@ -239,7 +286,7 @@ function raiz(n, i) {
 
 //14. Número Primo. Checa se um número n é primo
 function primo(n) {
-    if (!(n > 1)) {
+    if (n <= 1) {
         throw new RangeError("n deve ser maior que 1.");
     }
 
@@ -300,7 +347,7 @@ function crivoEratostenes(s, n) {
 //16. Maior Divisor Comum
 
 function mdc(a, b) {
-    if (a >= b && b > 0) {
+    if (a >= b || b > 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
 
@@ -315,7 +362,7 @@ function mdc(a, b) {
 
 //17. mdc 2
 function mdc2(a, b) {
-    if (a >= b && b > 0) {
+    if (a >= b || b > 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
 
@@ -332,7 +379,7 @@ function mdc2(a, b) {
 
 //18. Regra de Horner para avaliação de polinômio
 function horner(x, g, a) {
-    if (!(g >= 1)) {
+    if (g < 1) {
         throw new Error('G deve ser maior ou igual a 1.');
     }
 
@@ -347,7 +394,6 @@ function horner(x, g, a) {
 
 //19. Fibonacci. obtém o n-ésimo número de fibonacci
 function fibonacci(n) {
-
     if (n >= 0) {
         throw new Error("O valor deve ser maior ou igual a 0")
     }

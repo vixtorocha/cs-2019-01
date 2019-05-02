@@ -177,7 +177,7 @@ public class Principal {
 
     // 8. Potências Usando Somas
     public static int potencia(final int x, final int y) {
-        if (!(x >= 0 || y >= 0)) {
+        if (x > 0 || y < 0) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maiores ou iguals a 0");
         }
 
@@ -194,7 +194,7 @@ public class Principal {
 
     // 9. Valor de pi com n termos somatórios
     public static float pi(final float n) {
-        if (!(n >= 1)) {
+        if (n > 1) {
             throw new IllegalArgumentException(
                     "Para calcular o valor de pi, N deve ter um input de maior ou igual a 1.");
         }
@@ -216,7 +216,7 @@ public class Principal {
 
     // 10. Logaritmo Natural
     public static float logaritmoNatural(final float n, final float k) {
-        if (!(n >= 1 || k >= 2)) {
+        if (n < 1 || k < 2) {
             throw new IllegalArgumentException("N deve ser maior ou igual a 1 e k deve ser maior ou igual a 2.");
         }
         float i = 2;
@@ -236,7 +236,7 @@ public class Principal {
 
     // 11. Razão áurea. quanto maior o k maior a precisão.
     public static float razaoAurea(final float x, final float y, final float k) {
-        if (!(x >= 0 || y > x || k > 0)) {
+        if (x < 0 || y <= x || k <= 0) {
             throw new IllegalArgumentException("x deve ser >= 0, y > x e k > 0");
         }
 
@@ -257,7 +257,7 @@ public class Principal {
 
     // 12. Checa se um número é um quadrado perfeito;
     public static boolean quadradoPerfeito(final int n) {
-        if (!(n >= 1)) {
+        if (n < 1) {
             throw new IllegalArgumentException("O número deve ser igual ou maior que 1.");
         }
 
@@ -274,7 +274,7 @@ public class Principal {
 
     // 13. Calcula a raiz de um número 'n' com 'i' de precisão
     public static float raiz(final float n, final float j) {
-        if (!(n > 0)) {
+        if (n < 0) {
             throw new IllegalArgumentException("Para calcular a raiz, n deve ser maior que 0");
         }
 
@@ -291,7 +291,7 @@ public class Principal {
 
     // 14. Numero Primo, checa se um número é primo
     public static boolean primo(final int n) {
-        if (!(n > 1)) {
+        if (n <= 1) {
             throw new IllegalArgumentException();
         }
 
@@ -339,7 +339,7 @@ public class Principal {
 
     // 16. Maior Divisor Comum.
     public static int mdc(final int a, final int b) {
-        if (!(a >= b || b > 0)) {
+        if (a < b || b <= 0) {
             throw new IllegalArgumentException("B deve ser > 0 e a >= b");
         }
 
@@ -358,7 +358,7 @@ public class Principal {
 
     // 17. Outro método de MDC.
     public static int mdc2(final int a, final int b) {
-        if (!(a >= b || b > 0)) {
+        if (a < b || b <= 0) {
             throw new IllegalArgumentException("B deve ser > 0 e a >= b");
         }
 
@@ -391,7 +391,7 @@ public class Principal {
 
     // 19. Fibonacci, retorna o n-ésimo número da sequência.
     public static int fibonacci(final int n) {
-        if (!(n >= 0)) {
+        if (n < 0) {
             throw new IllegalArgumentException("N deve ser maior ou igual a 0.");
         }
 
