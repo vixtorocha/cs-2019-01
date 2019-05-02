@@ -9,16 +9,7 @@ public class Principal {
         System.out.println("Chame uma função aqui");
     }
 
-    /**
-     * Verifica se o argumento fornecido é um número que satisfaz a "Propriedade
-     * 3025".
-     *
-     * @param n Número que possivelmente satisfaz a propriedade.
-     * @return {@code true} se e somente se o argumento fornecido satisfaz a
-     *         "propriedade 3025".
-     * @throws IllegalArgumentException Se o argumento fornecido não está na faixa
-     *                                  permitida.
-     */
+    // 1. Checa a propriedade 3025
     public static boolean propriedade3025(int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
@@ -51,18 +42,61 @@ public class Principal {
             throw new IllegalArgumentException("a data não está no formato correto");
         }
 
-        if (m == 1 || m == 2) {
-            m = m + 12;
-            a = a - 1;
+        int dia = d;
+        int mes = m;
+        int ano = a;
+
+        if (mes == 1 || mes == 2) {
+            mes = mes + 12;
+            ano = ano - 1;
         }
 
-        int s = d + (2 * m) + (3 * (m + 1)) / 5 + a + (a / 4) - (a / 100) + (a / 400);
+        int s = dia + (2 * mes) + (3 * (mes + 1)) / 5 + ano + (ano / 4) - (ano / 100) + (ano / 400);
         return s % 7;
     }
 
     private static boolean dataInvalida(int d, int m, int a) {
-        // FIXME: retorna true para 31/04/2019
-        return d < 1 || d > 31 || m < 1 || m > 12 || a < 1753;
+
+        if (m < 1 || m > 12) {
+            return false;
+        }
+
+        if (d < 1 || d > 31) {
+            return false;
+        }
+
+        switch (m) {
+        case 2:
+            if (d != 28) {
+                return false;
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (d != 30) {
+                return false;
+            }
+            break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            if (d != 31) {
+                return false;
+            }
+            break;
+        }
+
+        if (a < 1753) {
+            return false;
+        }
+
+        return true;
     }
 
     // 4 Calcula o resto da divisão de X por Y.
