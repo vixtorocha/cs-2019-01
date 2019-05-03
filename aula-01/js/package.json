@@ -1,0 +1,21 @@
+{
+  "name": "projeto-js",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "doc": "jsdoc .",
+    "lint": "eslint \"./**/*.js\""
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jest": "^24.5.0",
+    "jsdoc": "^3.5.5"
+  },
+  "description": "Projeto mínimo que usaremos",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vixtorocha/cs-2019-01"
+  },
+  "license": "ISC"
+}
