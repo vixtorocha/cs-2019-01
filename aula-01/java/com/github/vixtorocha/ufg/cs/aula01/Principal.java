@@ -1,12 +1,12 @@
-package com.github.vixtorocha.ufg.cs.aula01;
+
+// package com.github.vixtorocha.ufg.cs.aula01;
 
 import java.lang.*;
 
 public class Principal {
 
     public static void main(String[] args) {
-        // função main usada para testar as funções
-        System.out.println("Chame uma função aqui");
+        System.out.println(cpf2("06569683110"));
     }
 
     // 1. Checa a propriedade 3025
@@ -416,56 +416,58 @@ public class Principal {
     }
 
     // 20. Checa CPF.
+    public static int[] cpfStringToArray(final String d) {
+        int[] cpf = new int[11];
 
-    public static boolean cpf(final String d) {
+        for (int i = 0; i < d.length(); i++) {
+            cpf[i] = Character.getNumericValue(d.charAt(i));
+        }
 
-        if (!(d.length() == 11)) {
+        return cpf;
+    }
+
+    public static boolean cpf(final String cpf) {
+
+        if (!(cpf.length() == 11)) {
             throw new IllegalArgumentException("O CPF deve ter 11 dígitos");
         }
 
-        int j = Character.getNumericValue(d.charAt(0)) + 2 * Character.getNumericValue(d.charAt(1))
-                + 3 * Character.getNumericValue(d.charAt(2)) + 4 * Character.getNumericValue(d.charAt(3))
-                + 5 * Character.getNumericValue(d.charAt(4)) + 6 * Character.getNumericValue(d.charAt(5))
-                + 7 * Character.getNumericValue(d.charAt(6)) + 8 * Character.getNumericValue(d.charAt(7))
-                + 9 * Character.getNumericValue(d.charAt(8));
+        int[] d = cpfStringToArray(cpf);
 
-        System.out.println(j);
-        int k = Character.getNumericValue(d.charAt(1)) + 2 * Character.getNumericValue(d.charAt(2))
-                + 3 * Character.getNumericValue(d.charAt(3)) + 4 * Character.getNumericValue(d.charAt(4))
-                + 5 * Character.getNumericValue(d.charAt(5)) + 6 * Character.getNumericValue(d.charAt(6))
-                + 7 * Character.getNumericValue(d.charAt(7)) + 8 * Character.getNumericValue(d.charAt(8))
-                + 9 * Character.getNumericValue(d.charAt(9));
-        System.out.println(k);
+        final int j = d[0] + 2 * d[1] + 3 * d[2] + 4 * d[3] + 5 * d[4] + 6 * d[5] + 7 * d[6] + 8 * d[7] + 9 * d[8];
+        final int k = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5] + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
 
         int dj = (j % 11) % 10;
         int dk = (k % 11) % 10;
 
-        return dj == Character.getNumericValue(d.charAt(9)) && dk == Character.getNumericValue(d.charAt(10));
+        return (dj == d[9] && dk == d[10]);
 
     }
 
     // 21. Outro método pra checar o CPF
-    public static boolean cpf2(final String d) {
+    public static boolean cpf2(final String cpf) {
 
         // Checar se o vetor d tem 11 casas
-        if (d.length() != 11) {
+        if (cpf.length() != 11) {
             throw new IllegalArgumentException("O CPF deve ser uma string que contem 11 dígitos");
         }
 
+        int[] d = cpfStringToArray(cpf);
+
         int c = 7;
-        int p = Character.getNumericValue(d.charAt(8));
-        int s = Character.getNumericValue(d.charAt(8));
+        int p = d[8];
+        int s = d[8];
 
         while (c >= 0) {
-            p = p + Character.getNumericValue(d.charAt(c));
+            p = p + d[c];
             s = s + p;
             c = c - 1;
         }
 
         int j = (s % 11) % 10;
-        int k = ((s - p + 9 * Character.getNumericValue(d.charAt(9))) % 11) % 10;
+        int k = ((s - p + 9 * d[9]) % 11) % 10;
 
-        return (j == Character.getNumericValue(d.charAt(9)) && k == Character.getNumericValue(d.charAt(10)));
+        return (j == d[9] && k == d[10]);
 
     }
 

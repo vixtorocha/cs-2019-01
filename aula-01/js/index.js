@@ -420,6 +420,17 @@ function fibonacci(n) {
 }
 
 //20. Cadastro de Pessoas Físicas. d é lido como uma string.
+
+function cpfStringToArray(d) {
+    let cpf = [];
+
+    for (let i = 0; i < d.length; i++) {
+        cpf[i] = parseInt(d[i]);
+    }
+
+    return cpf;
+}
+
 function cpf(d) {
     if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
@@ -429,40 +440,46 @@ function cpf(d) {
         throw new TypeError("string é esperada");
     }
 
-    //FIXME: nao foi feita verificacao se são dígitos 0..9????
+    const cpf = cpfStringToArray(d);
 
-    //TODO: fazer conversao apenas uma vez por digito
-    let j = parseInt(d[0]) + 2 * parseInt(d[1]) + 3 * parseInt(d[2]) + 4 * parseInt(d[3]) + 5 * parseInt(d[4]) + 6 * parseInt(d[5]) + 7 * parseInt(d[6]) + 8 * parseInt(d[7]) + 9 * parseInt(d[8]);
-    let k = parseInt(d[1]) + 2 * parseInt(d[2]) + 3 * parseInt(d[3]) + 4 * parseInt(d[4]) + 5 * parseInt(d[5]) + 6 * parseInt(d[6]) + 7 * parseInt(d[7]) + 8 * parseInt(d[8]) + 9 * parseInt(d[9]);
+    let j = cpf[0] + 2 * cpf[1] + 3 * cpf[2] + 4 * cpf[3] + 5 * cpf[4] + 6 * cpf[5] + 7 * cpf[6] + 8 * cpf[7] + 9 * cpf[8];
+    let k = cpf[1] + 2 * cpf[2] + 3 * cpf[3] + 4 * cpf[4] + 5 * cpf[5] + 6 * cpf[6] + 7 * cpf[7] + 8 * cpf[8] + 9 * cpf[9];
 
     let dj = (j % 11) % 10;
     let dk = (k % 11) % 10;
 
-    return (dj == parseInt(d[9]) && dk == parseInt(d[10]));
+    return (dj == cpf[9] && dk == cpf[10]);
 
 }
 
 //21. Outro método para o CPF.
 function cpf2(d) {
 
-    // Checar se o vetor d tem 11 casas
-    if (d.length != 11) {
-        throw new RangeError("O CPF deve ser uma string que contem 11 dígitos");
+    // Checar se o vetor d tem 11 casas.
+    if (d == null || d.length != 11) {
+        throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
+    // Checa de D é uma string.
+    if (typeof d != "string") {
+        throw new TypeError("string é esperada");
+    }
+
+    const cpf = cpfStringToArray(d);
+
     let c = 7;
-    let p = parseInt(d[8]);
-    let s = parseInt(d[8]);
+    let p = cpf[8];
+    let s = cpf[8];
 
     while (c >= 0) {
-        p = p + parseInt(d[c]);
+        p = p + cpf[c];
         s = s + p;
         c = c - 1;
     }
 
     j = (s % 11) % 10;
-    k = ((s - p + 9 * parseInt(d[9])) % 11) % 10;
+    k = ((s - p + 9 * cpf[9]) % 11) % 10;
 
-    return (j == parseInt(d[9]) && k == parseInt(d[10]));
+    return (j == cpf[9] && k == cpf[10]);
 
 }
