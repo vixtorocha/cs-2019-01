@@ -1,5 +1,4 @@
-
-// package com.github.vixtorocha.ufg.cs.aula01;
+package com.github.vixtorocha.ufg.cs.aula01;
 
 import java.lang.*;
 
