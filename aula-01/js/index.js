@@ -1,10 +1,11 @@
 /**
- * Verifica ...
+ * 1. Verifica se um número respeita a propriedade 3025
  *
- * @param {number} n Pode até copiar da versão em Java...
- * @returns {boolean} Se o argumento ...
+ * @param {number} n O número a ser testado
+ * 
+ * @returns {boolean} Se o argumento respeita a propriedade ou não.
  *
- * @throws {RangeError} Se ...
+ * @throws {RangeError} Se o parâmetro não estiver entre 0 e 9999
  */
 
 function propriedade3025(n) {
@@ -18,7 +19,16 @@ function propriedade3025(n) {
     return (i + j) * (i + j) == n;
 }
 
-//2. Propriedade 153
+/**
+ * 2. Verifica se um número respeita a propriedade 153
+ *
+ * @param {number} n O número a ser testado
+ * 
+ * @returns {boolean} Se o argumento respeita a propriedade ou não.
+ *
+ * @throws {RangeError} Se o parâmetro não estiver entre 100 e 999.
+ */
+
 function propriedade153(n) {
     if (n < 100 || n > 999) {
         throw new RangeError("O parâmetro deve estar entre 100 e 999.");
@@ -32,9 +42,20 @@ function propriedade153(n) {
     return (c * c * c) + (d * d * d) + (u * u * u) == n;
 }
 
-//3. Calcula o dia da semana, começando por 0 (segunda-feira)
+/**
+ * 3. Calcula o dia da semana.
+ *
+ * @param {number} d O dia
+ * @param {number} m O mês
+ * @param {number} a O ano
+ * 
+ * @returns {number} Um número equivalente ao dia da semana. 0 = Segunda.
+ *
+ * @throws {RangeError} Se a data não existir ou se o ano for menor que 1753.
+ */
+
 function diaDaSemana(d, m, a) {
-    if (dataInvalida(d, m, a)) {
+    if (dataInvalida(d, m, a) == false) {
         throw new RangeError("a data não está no formato correto");
     }
 
@@ -53,6 +74,16 @@ function diaDaSemana(d, m, a) {
     return (s % 7);
 
 }
+
+/**
+ *  Calcula se a data é válida.
+ *
+ * @param {number} d O dia
+ * @param {number} m O mês
+ * @param {number} a O ano
+ * 
+ * @returns {boolean} Se a data é válida ou não.
+ */
 
 function dataInvalida(d, m, a) {
 
@@ -98,7 +129,17 @@ function dataInvalida(d, m, a) {
     return true;
 }
 
-// 4. Resto da Divisão inteira
+/**
+ * 4. Resto da Divisão inteira
+ *
+ * @param {number} x O dividendo
+ * @param {number} y O divisor
+ * 
+ * @returns {number} O resto.
+ *
+ * @throws {RangeError} Se y for negativo ou se x for negativo ou zero.
+ */
+
 function mod(x, y) {
     if (y < 0 || x <= 0) {
         throw new RangeError("Y deve ser ser maior ou igual a 0, X deve ser maior que 0");
@@ -113,7 +154,16 @@ function mod(x, y) {
     return s;
 }
 
-//5. Soma dos números naturais até n
+/**
+ * 5. Soma dos números naturais até n
+ *
+ * @param {number} n Até onde os números serão somados
+ * 
+ * @returns {number} A soma.
+ *
+ * @throws {RangeError} Se n for menor que 1.
+ */
+
 function somaNaturais(n) {
     if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
@@ -130,7 +180,15 @@ function somaNaturais(n) {
     return s;
 }
 
-//6. Fatorial de um número n
+/**
+ * 6. Fatorial de um número n
+ *
+ * @param {number} n O fatorial.
+ * 
+ * @returns {number} O resultado do fatorial.
+ *
+ * @throws {RangeError} Se n for menor que 1.
+ */
 function fatorial(n) {
     if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
@@ -147,7 +205,16 @@ function fatorial(n) {
     return f;
 }
 
-//7. Produto de inteiros usando soma.
+/**
+ * 7. Produto de inteiros usando soma.
+ *
+ * @param {number} a O primeiro número.
+ * @param {number} b O segundo número.
+ * 
+ * @returns {number} O resultado da multiplicação.
+ *
+ * @throws {RangeError} Se A e B forem menores que 0.
+ */
 function produto(a, b) {
     if (a < 0 || b < 0) {
         throw new RangeError("A e B devem ser maior ou igual a 0");
@@ -172,7 +239,16 @@ function produto(a, b) {
     return s;
 }
 
-//8. Potências usando soma.
+/**
+ * 8. Potências usando soma.
+ *
+ * @param {number} x A base.
+ * @param {number} y O expoente.
+ * 
+ * @returns {number} O resultado da potência.
+ *
+ * @throws {RangeError} Se A e B forem menores que 0.
+ */
 function potencia(x, y) {
     if (x < 0 || y < 0) {
         throw new RangeError("X e Y devem ser maior ou igual a 0");
@@ -189,7 +265,15 @@ function potencia(x, y) {
     return potencia;
 }
 
-//9. Calcula o pi, 'n' determina a precisão.
+/**
+ * 9. Calcula o pi, 'n' determina a precisão.
+ *
+ * @param {number} n A precisão.
+ * 
+ * @returns {number} O valor de pi de acordo com a precisão.
+ *
+ * @throws {RangeError} Se n for menor que 1.
+ */
 function pi(n) {
     if (n < 1) {
         throw new RangeError("n deve ser maior ou igual a 1.");
@@ -210,8 +294,16 @@ function pi(n) {
     return p;
 }
 
-
-// 10. Logaritmo Natural - NÃO FUNCIONA
+/**
+ * 10. Logaritmo Natural
+ *
+ * @param {number} n O logaritmando.
+ * @param {number} k A precisão.
+ * 
+ * @returns {number} O valor do logaritmo natural de acordo com a precisão.
+ *
+ * @throws {RangeError} Se n for menor que 1 ou k menor que 2.
+ */
 function logaritmoNatural(n, k) {
     if (n < 1 || k < 2) {
         throw new RangeError("n deve ser maior ou igual a >= 1 e k >= 2.");
@@ -232,7 +324,17 @@ function logaritmoNatural(n, k) {
     return e;
 }
 
-// 11. Razão Áurea
+/**
+ * 11. Razão Áurea
+ *
+ * @param {number} x
+ * @param {number} y
+ * @param {number} k
+ * 
+ * @returns {number} 
+ *
+ * @throws {RangeError} Se x for menor que 0, x maior ou igual a y ou se k for menor ou igual a 0.
+ */
 function razaoAurea(x, y, k) {
     if (x < 0 || x >= y || k <= 0) {
         throw new RangeError("X deve ser maior ou igual a 0, x > y, e k > 0.");
