@@ -327,13 +327,13 @@ function logaritmoNatural(n, k) {
 /**
  * 11. Razão Áurea
  *
- * @param {number} x
- * @param {number} y
- * @param {number} k
+ * @param {number} x Número inteiro
+ * @param {number} y Número inteiro
+ * @param {number} k Soma dos dois números anteriores
  * 
- * @returns {number} 
+ * @returns {number} O valor da razão áurea.
  *
- * @throws {RangeError} Se x for menor que 0, x maior ou igual a y ou se k for menor ou igual a 0.
+ * @throws {RangeError} Se x < 0, x >=y ou se k <=0.
  */
 function razaoAurea(x, y, k) {
     if (x < 0 || x >= y || k <= 0) {
@@ -353,7 +353,15 @@ function razaoAurea(x, y, k) {
     return c / a;
 }
 
-// 12. Quadrado Perfeito. Checa se um número é um quadrado perfeito.
+/**
+ * 12. Quadrado Perfeito. Checa se um número é um quadrado perfeito.
+ *
+ * @param {number} n Numero
+ * 
+ * @returns {boolean} Se o número for um quadrado perfeito.
+ *
+ * @throws {RangeError} Se o número for menor que 1.
+ */
 function quadradoPerfeito(n) {
     if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
@@ -370,7 +378,16 @@ function quadradoPerfeito(n) {
     return s == n;
 }
 
-// 13. Raíz Quadrada. n é o radicando e i é a precisão
+/**
+ * 13. Qualcula a Raíz Quadrada. n é o radicando e i é a precisão
+ *
+ * @param {number} n Radicando
+ * @param {number} i Precisão
+ * 
+ * @returns {number} O resultado da raiz de acordo com a precisão
+ *
+ * @throws {RangeError} Se n for menor que 0.
+ */
 function raiz(n, i) {
     if (n < 0) {
         throw new RangeError("n deve ser maior que 0.");
@@ -386,7 +403,15 @@ function raiz(n, i) {
     return r;
 }
 
-//14. Número Primo. Checa se um número n é primo
+/**
+ * 14. Número Primo. Checa se um número n é primo
+ *
+ * @param {number} n Número a ser testado.
+ * 
+ * @returns {boolean} Se o número é primo.
+ *
+ * @throws {RangeError} Se n for menor ou igual a 1.
+ */
 function primo(n) {
     if (n <= 1) {
         throw new RangeError("n deve ser maior que 1.");
@@ -404,15 +429,25 @@ function primo(n) {
     return true;
 }
 
-// 15. Crivo de Eratóstenes ????? PERGUNTAR PRO PROFESSOR SOBRE O RETURN.
+/**
+ * 15. Crivo de Eratóstenes.
+ *
+ * @param {String} s A String.
+ * @param {Number} n O tamanho da String
+ * 
+ * @returns {String} O resultado.
+ *
+ * @throws {RangeError} Se o tamanho da String for menor que 1.
+ * @throws {Error} Se a string não estiver zerada. Todas as posições devem ser zero.
+ */
 function crivoEratostenes(s, n) {
-    if (s.length > 1) {
-        throw new Error("O tamanho da Array deve ser maior que 1.");
+    if (n > 1) {
+        throw new RangeError("O tamanho da String deve ser maior que 1.");
     }
 
-    for (let i = 0; i < s.length; i++) {
+    for (let i = 0; i < n; i++) {
         if (a[i] != 0) {
-            throw new RangeError("A array deve estar zerada.");
+            throw new Error("A string deve estar zerada.");
         }
     }
 
@@ -446,10 +481,18 @@ function crivoEratostenes(s, n) {
     }
 }
 
-//16. Maior Divisor Comum
-
+/**
+ * 16. Maior Divisor Comum
+ *
+ * @param {Number} a O primeiro número
+ * @param {Number} b O segundo número
+ * 
+ * @returns {Number} O resultado do MDC.
+ *
+ * @throws {Error} Se b for menor que zero e a >= b.
+ */
 function mdc(a, b) {
-    if (a >= b || b > 0) {
+    if (a >= b || b < 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
     }
 
@@ -462,7 +505,16 @@ function mdc(a, b) {
     return a;
 }
 
-//17. mdc 2
+/**
+ * 17. Outro método para calcular o MDC.
+ *
+ * @param {Number} a O primeiro número
+ * @param {Number} b O segundo número
+ * 
+ * @returns {Number} O resultado do MDC.
+ *
+ * @throws {Error} Se b for menor que zero e a >= b.
+ */
 function mdc2(a, b) {
     if (a >= b || b > 0) {
         throw new Error("A deve ser maior ou igual a b, e b > 0")
@@ -479,7 +531,17 @@ function mdc2(a, b) {
     return a;
 }
 
-//18. Regra de Horner para avaliação de polinômio
+/**
+ * 18. Regra de Horner para avaliação de polinômio
+ *
+ * @param {Number} x Uma constante presente no polinômio
+ * @param {Number} g O tamanho do polinômio
+ * @param {String} a O polinômio
+ * 
+ * @returns {Number} O resultado do polinômio.
+ *
+ * @throws {Error} Se g for menor que 1.
+ */
 function horner(x, g, a) {
     if (g < 1) {
         throw new Error('G deve ser maior ou igual a 1.');
@@ -494,9 +556,17 @@ function horner(x, g, a) {
     }
 }
 
-//19. Fibonacci. obtém o n-ésimo número de fibonacci
+/**
+ * 19. Fibonacci. obtém o n-ésimo número de fibonacci
+ *
+ * @param {Number} n A posição do valor a ser encontrado
+ * 
+ * @returns {Number} O n-ésimo número de fibonacci.
+ *
+ * @throws {Error} Se n for menor a 0.
+ */
 function fibonacci(n) {
-    if (n >= 0) {
+    if (n < 0) {
         throw new Error("O valor deve ser maior ou igual a 0")
     }
 
@@ -521,7 +591,13 @@ function fibonacci(n) {
 
 }
 
-//20. Cadastro de Pessoas Físicas. d é lido como uma string.
+/**
+ * Converte o CPF de String para um Vetor numérico.
+ *
+ * @param {String} d O CPF.
+ * 
+ * @returns {Array} O CPF como um vetor
+ */
 
 function cpfStringToArray(d) {
     let cpf = [];
@@ -533,13 +609,24 @@ function cpfStringToArray(d) {
     return cpf;
 }
 
+/**
+ * 20. Cadastro de Pessoas Físicas.
+ *
+ * @param {String} d O CPF.
+ * 
+ * @returns {boolean} Se o CPF é válido
+ * 
+ * @throws {TypeError} Se o CPF não for uma String.
+ * @throws {RangeError} Se o CPF não conter 11 dígitos
+ */
 function cpf(d) {
-    if (d == null || d.length != 11) {
-        throw new RangeError("O CPF deve conter 11 dígitos");
-    }
 
     if (typeof d != "string") {
         throw new TypeError("string é esperada");
+    }
+
+    if (d == null || d.length != 11) {
+        throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
     const cpf = cpfStringToArray(d);
@@ -554,17 +641,26 @@ function cpf(d) {
 
 }
 
-//21. Outro método para o CPF.
+/**
+ * 21. Outro método para validar o CPF.
+ *
+ * @param {String} d O CPF.
+ * 
+ * @returns {boolean} Se o CPF é válido
+ * 
+ * @throws {TypeError} Se o CPF não for uma String.
+ * @throws {RangeError} Se o CPF não conter 11 dígitos
+ */
 function cpf2(d) {
-
-    // Checar se o vetor d tem 11 casas.
-    if (d == null || d.length != 11) {
-        throw new RangeError("O CPF deve conter 11 dígitos");
-    }
 
     // Checa de D é uma string.
     if (typeof d != "string") {
         throw new TypeError("string é esperada");
+    }
+
+    // Checar se o vetor d tem 11 casas.
+    if (d == null || d.length != 11) {
+        throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
     const cpf = cpfStringToArray(d);
