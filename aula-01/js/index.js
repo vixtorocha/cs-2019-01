@@ -228,8 +228,8 @@ function produto(a, b) {
         parcela = a;
     }
 
-    i = 1;
-    s = 0;
+    let i = 1;
+    let s = 0;
 
     while (i <= totalParcelas) {
         s = s + parcela;
@@ -340,9 +340,11 @@ function razaoAurea(x, y, k) {
         throw new RangeError("X deve ser maior ou igual a 0, x > y, e k > 0.");
     }
 
-    c = y;
-    a = x;
-    i = 1;
+    let c = y;
+    let a = x;
+    let i = 1;
+    let t;
+
     while (k >= i) {
         t = c;
         c = c + a;
@@ -397,7 +399,7 @@ function raiz(n, i) {
 
     while (i >= 0) {
         r = (r + n / r) / 2;
-        i = i - 1
+        i = i - 1;
     }
 
     return r;
@@ -417,13 +419,13 @@ function primo(n) {
         throw new RangeError("n deve ser maior que 1.");
     }
 
-    i = 2;
+    let i = 2;
 
     while (n > i) {
         if (n % i == 0) {
             return false;
         }
-        i = i + 1
+        i = i + 1;
     }
 
     return true;
@@ -445,6 +447,7 @@ function crivoEratostenes(s, n) {
         throw new RangeError("O tamanho da String deve ser maior que 1.");
     }
 
+    let a;
     for (let i = 0; i < n; i++) {
         if (a[i] != 0) {
             throw new Error("A string deve estar zerada.");
@@ -462,7 +465,7 @@ function crivoEratostenes(s, n) {
         }
 
         let i = 2;
-        limite = Math.floor(Math.sqrt(n));
+        let limite = Math.floor(Math.sqrt(n));
         let multiplo;
 
         while (i <= limite) {
@@ -493,7 +496,7 @@ function crivoEratostenes(s, n) {
  */
 function mdc(a, b) {
     if (a >= b || b < 0) {
-        throw new Error("A deve ser maior ou igual a b, e b > 0")
+        throw new Error("A deve ser maior ou igual a b, e b > 0");
     }
 
     while (b != 0) {
@@ -517,7 +520,7 @@ function mdc(a, b) {
  */
 function mdc2(a, b) {
     if (a >= b || b > 0) {
-        throw new Error("A deve ser maior ou igual a b, e b > 0")
+        throw new Error("A deve ser maior ou igual a b, e b > 0");
     }
 
     while (a != b) {
@@ -544,7 +547,7 @@ function mdc2(a, b) {
  */
 function horner(x, g, a) {
     if (g < 1) {
-        throw new Error('G deve ser maior ou igual a 1.');
+        throw new Error("G deve ser maior ou igual a 1.");
     }
 
     let p = a[g];
@@ -567,17 +570,17 @@ function horner(x, g, a) {
  */
 function fibonacci(n) {
     if (n < 0) {
-        throw new Error("O valor deve ser maior ou igual a 0")
+        throw new Error("O valor deve ser maior ou igual a 0");
     }
 
-    a = 0;
-    c = 1;
+    let a = 0;
+    let c = 1;
 
     if (n == 0 || n == 1) {
-        return n
+        return n;
     }
 
-    i = 2;
+    let i = 2;
     let t;
 
     while (i <= n) {
@@ -675,8 +678,8 @@ function cpf2(d) {
         c = c - 1;
     }
 
-    j = (s % 11) % 10;
-    k = ((s - p + 9 * cpf[9]) % 11) % 10;
+    let j = (s % 11) % 10;
+    let k = ((s - p + 9 * cpf[9]) % 11) % 10;
 
     return (j == cpf[9] && k == cpf[10]);
 
