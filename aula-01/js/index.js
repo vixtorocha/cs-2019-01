@@ -79,7 +79,7 @@ function propriedade153(n) {
  */
 
 function diaDaSemana(d, m, a) {
-    if (dataInvalida(d, m, a) == false) {
+    if (dataInvalida(d, m, a)) {
         throw new RangeError("a data não está no formato correto");
     }
 
@@ -95,7 +95,7 @@ function diaDaSemana(d, m, a) {
 
     s = dia + (2 * mes) + (3 * (mes + 1) / 5) + ano + (ano / 4) - (ano / 100) + (ano / 400);
 
-    return (s % 7);
+    return (Math.floor(s % 7));
 
 }
 
@@ -112,25 +112,27 @@ function diaDaSemana(d, m, a) {
 function dataInvalida(d, m, a) {
 
     if (m < 1 || m > 12) {
-        return false;
+        console.log("1");
+        return true;
     }
 
     if (d < 1 || d > 31) {
-        return false;
+        console.log("1");
+        return true;
     }
 
     switch (m) {
         case 2:
-            if (d != 28) {
-                return false;
+            if (d > 28) {
+                return true;
             }
             break;
         case 4:
         case 6:
         case 9:
         case 11:
-            if (d != 30) {
-                return false;
+            if (d > 30) {
+                return true;
             }
             break;
         case 1:
@@ -140,17 +142,16 @@ function dataInvalida(d, m, a) {
         case 8:
         case 10:
         case 12:
-            if (d != 31) {
-                return false;
+            if (d > 31) {
+                return true;
             }
             break;
     }
 
     if (a < 1753) {
-        return false;
+        return true;
     }
-
-    return true;
+    return false;
 }
 
 /**
