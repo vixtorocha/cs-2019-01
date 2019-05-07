@@ -1,3 +1,10 @@
+module.exports = {
+    propriedade3025: propriedade3025,
+    propriedade153: propriedade153,
+    diaDaSemana: diaDaSemana,
+    dataInvalida: dataInvalida,
+};
+
 /**
  * 1. Verifica se um número respeita a propriedade 3025
  *
