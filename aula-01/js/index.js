@@ -163,8 +163,8 @@ function dataInvalida(d, m, a) {
  */
 
 function mod(x, y) {
-    if (y < 0 || x <= 0) {
-        throw new RangeError("Y deve ser ser maior ou igual a 0, X deve ser maior que 0");
+    if (x < 0 || y <= 0) {
+        throw new RangeError("Y deve ser ser maior que 0, X deve ser maior ou igual a 0");
     }
 
     let s = x;
