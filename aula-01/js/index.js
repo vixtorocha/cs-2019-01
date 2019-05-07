@@ -73,11 +73,10 @@ function propriedade153(n) {
  * @param {number} m O mês
  * @param {number} a O ano
  * 
- * @returns {number} Um número equivalente ao dia da semana. 0 = Segunda.
+ * @returns {number} Um número equivalente ao dia da semana. 0 = Domingo.
  *
  * @throws {RangeError} Se a data não existir ou se o ano for menor que 1753.
  */
-
 function diaDaSemana(d, m, a) {
     if (dataInvalida(d, m, a)) {
         throw new RangeError("a data não está no formato correto");
