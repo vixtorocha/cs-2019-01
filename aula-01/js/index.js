@@ -111,12 +111,10 @@ function diaDaSemana(d, m, a) {
 function dataInvalida(d, m, a) {
 
     if (m < 1 || m > 12) {
-        console.log("1");
         return true;
     }
 
     if (d < 1 || d > 31) {
-        console.log("1");
         return true;
     }
 
