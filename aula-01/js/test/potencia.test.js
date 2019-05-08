@@ -16,7 +16,7 @@ test("argumento null/undefined", () => {
 
 test("argumento nao numerico", () => {
     expect(() => {
-        funcao("abcd");
+        funcao("abcd", 3);
     }).toThrow(TypeError);
 });
 

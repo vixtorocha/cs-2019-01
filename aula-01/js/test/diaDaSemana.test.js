@@ -23,13 +23,13 @@ test("01/30/1500 A função não aceita o ano 1500", () => {
 test("argumento null/undefined", () => {
     expect(() => {
         funcao();
-    }).toThrow();
+    }).toThrow(TypeError);
 });
 
 test("argumento nao numerico", () => {
     expect(() => {
-        funcao("abcd");
-    }).toThrow();
+        funcao("abcd", 5, 2019);
+    }).toThrow(TypeError);
 });
 
 

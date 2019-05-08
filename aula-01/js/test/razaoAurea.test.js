@@ -1,7 +1,7 @@
-const funcao = require("../index.js").logaritmoNatural;
+const funcao = require("../index.js").razaoAurea;
 
 test("Satisfaz.", () => {
-    expect(funcao(3, 2)).toBe(8.5);
+    expect(funcao(1, 2, 10)).toBe(1.6180339901755971);
 });
 
 test("argumento null/undefined", () => {
@@ -12,18 +12,18 @@ test("argumento null/undefined", () => {
 
 test("argumento nao numerico", () => {
     expect(() => {
-        funcao("abcd", 2);
+        funcao("abcd", 3, 10);
     }).toThrow(TypeError);
 });
 
 test("valor negativo fora da faixa", () => {
     expect(() => {
-        funcao(-1, 2);
+        funcao(-1, 2, 10);
     }).toThrow(RangeError);
 });
 
 test("argumento deve ser inteiro", () => {
     expect(() => {
-        funcao(2.45, 2);
+        funcao(2.45, 2, 10);
     }).toThrow(RangeError);
 });

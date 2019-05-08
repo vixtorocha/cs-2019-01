@@ -15,13 +15,13 @@ test("Divisor menor que 0", () => {
 test("argumento null/undefined", () => {
     expect(() => {
         funcao();
-    }).toThrow();
+    }).toThrow(TypeError);
 });
 
 test("argumento nao numerico", () => {
     expect(() => {
-        funcao("abcd");
-    }).toThrow();
+        funcao("abcd", 3);
+    }).toThrow(TypeError);
 });
 
 test("valor deve ser inteiro", () => {

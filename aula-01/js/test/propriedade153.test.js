@@ -11,13 +11,13 @@ test("155 nao satisfaz", () => {
 test("argumento null/undefined", () => {
     expect(() => {
         funcao.propriedade153();
-    }).toThrow();
+    }).toThrow(TypeError);
 });
 
 test("argumento nao numerico", () => {
     expect(() => {
         funcao.propriedade153("abcd");
-    }).toThrow();
+    }).toThrow(TypeError);
 });
 
 
