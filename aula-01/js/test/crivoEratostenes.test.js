@@ -1,7 +1,7 @@
 const funcao = require("../index.js").crivoEratostenes;
 
 test("Satisfaz. Retorna verdadeiro", () => {
-    expect(funcao([0, 0, 0, 0, 0, 0], 6)).toBe([0, 0, 0, 0, 1, 0, 1]);
+    expect(funcao([0, 0, 0, 0, 0, 0], 6)).toEqual([0, 0, 0, 0, 1, 0, 1]);
 });
 
 test("argumento null/undefined", () => {
