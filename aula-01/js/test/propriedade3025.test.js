@@ -1,36 +1,36 @@
-const funcao = require("../index.js");
+const funcao = require("../index.js").propriedade3025;
 
 test("3025 satisfaz (caso classico)", () => {
-    expect(funcao.propriedade3025(3025)).toBe(true);
+    expect(funcao(3025)).toBe(true);
 });
 
 test("3024 nao satisfaz", () => {
-    expect(funcao.propriedade3025(3024)).toBe(false);
+    expect(funcao(3024)).toBe(false);
 });
 
 test("argumento null/undefined", () => {
     expect(() => {
-        funcao.propriedade3025();
+        funcao();
     }).toThrow(TypeError);
 });
 
 test("argumento nao numerico", () => {
     expect(() => {
-        funcao.propriedade3025("abcd");
+        funcao("abcd");
     }).toThrow(TypeError);
 });
 
 
 test("valor negativo fora da faixa", () => {
     expect(() => {
-        funcao.propriedade3025(-1);
+        funcao(-1);
     }).toThrow(RangeError);
 });
 
 test("valor com mais de 4 digitos fora da faixa", () => {
-    expect(() => funcao.propriedade3025(10000)).toThrow(RangeError);
+    expect(() => funcao(10000)).toThrow(RangeError);
 });
 
 test("valor deve ser inteiro", () => {
-    expect(() => funcao.propriedade3025(10.3)).toThrow(RangeError);
+    expect(() => funcao(10.3)).toThrow(RangeError);
 });
