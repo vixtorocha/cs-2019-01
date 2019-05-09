@@ -23,10 +23,6 @@ test("valor negativo fora da faixa", () => {
     }).toThrow(RangeError);
 });
 
-test("valor com mais de 4 digitos fora da faixa", () => {
-    expect(() => funcao(10000)).toThrow(RangeError);
-});
-
 test("valor deve ser inteiro", () => {
     expect(() => funcao(10.3)).toThrow(RangeError);
 });
