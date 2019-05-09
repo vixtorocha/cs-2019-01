@@ -456,36 +456,28 @@ function primo(n) {
 /**
  * 15. Crivo de Eratóstenes.
  *
- * @param {String} s A String.
- * @param {Number} n O tamanho da String
+ * @param {String} s O vetor.
+ * @param {Number} n O tamanho do vetor.
  * 
  * @returns {String} O resultado.
  *
- * @throws {RangeError} Se o tamanho da String for menor que 1.
- * @throws {Error} Se a string não estiver zerada. Todas as posições devem ser zero.
+ * @throws {RangeError} Se o tamanho do Vetor for menor que 1.
+ * @throws {Error} Se o Vetor não estiver zerado. Todas as posições devem ser zero.
  */
 function crivoEratostenes(s, n) {
-    if (n > 1) {
-        throw new RangeError("O tamanho da String deve ser maior que 1.");
+    if (n < 1) {
+        throw new RangeError("O tamanho do Vetor deve ser maior que 1.");
     }
 
-    let a;
     for (let i = 0; i < n; i++) {
-        if (a[i] != 0) {
-            throw new Error("A string deve estar zerada.");
+        if (s[i] != 0) {
+            throw new Error("O vetor deve estar zerado.");
         }
     }
 
     if (n > 1) {
 
-        a = s;
-        // Checar se o vetor está zerado.
-        for (i = 2; i <= n; i++) {
-            if (a[i] == 0) {
-                return false;
-            }
-        }
-
+        let a = s;
         let i = 2;
         let limite = Math.floor(Math.sqrt(n));
         let multiplo;
