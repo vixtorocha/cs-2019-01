@@ -1,7 +1,7 @@
 const funcao = require("../index.js").razaoAurea;
 
 test("Satisfaz.", () => {
-    expect(funcao(1, 2, 10)).toBe(1.6180339901755971);
+    expect(funcao(1, 2, 20)).toBe(1.6180339901755971);
 });
 
 test("argumento null/undefined", () => {
