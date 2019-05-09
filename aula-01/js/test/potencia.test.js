@@ -5,7 +5,7 @@ test("Satisfaz. Caso comum de 2^3", () => {
 });
 
 test("Satisfaz com 0, 4^0", () => {
-    expect(funcao(4, 0)).toBe(0);
+    expect(funcao(4, 0)).toBe(1);
 });
 
 test("argumento null/undefined", () => {
