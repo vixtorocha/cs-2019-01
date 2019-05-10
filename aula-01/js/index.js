@@ -33,7 +33,6 @@ module.exports = {
  * @throws {RangeError} Se o argumento é um número não inteiro.
  * @throws {RangeError} Se o parâmetro não estiver entre 0 e 9999
  */
-
 function propriedade3025(n) {
     if (isNaN(n)) {
         throw new TypeError("O argumento não é um número");
@@ -62,7 +61,6 @@ function propriedade3025(n) {
  * @throws {RangeError} Se o argumento é um número não inteiro.
  * @throws {RangeError} Se o parâmetro não estiver entre 100 e 999.
  */
-
 function propriedade153(n) {
     if (isNaN(n)) {
         throw new TypeError("O argumento não é um número");
@@ -131,7 +129,6 @@ function diaDaSemana(d, m, a) {
  * 
  * @returns {boolean} Se a data é válida ou não.
  */
-
 function dataInvalida(d, m, a) {
 
     if (m < 1 || m > 12) {
@@ -187,7 +184,6 @@ function dataInvalida(d, m, a) {
  * @throws {RangeError} Se um dos argumento for um número não inteiro
  * @throws {RangeError} Se y for negativo ou se x for negativo ou zero.
  */
-
 function mod(x, y) {
     if (isNaN(x) || isNaN(y)) {
         throw new TypeError("O argumento não é um número");
@@ -219,7 +215,6 @@ function mod(x, y) {
  * @throws {RangeError} Se o argumento for um número não inteiro.
  * @throws {RangeError} Se n for menor que 1.
  */
-
 function somaNaturais(n) {
     if (isNaN(n)) {
         throw new TypeError("O argumento não é um número");
@@ -757,7 +752,6 @@ function fibonacci(n) {
  * 
  * @returns {Array} O CPF como um vetor
  */
-
 function cpfStringToArray(d) {
     let cpf = [];
 
