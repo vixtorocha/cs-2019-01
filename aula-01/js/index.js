@@ -29,12 +29,20 @@ module.exports = {
  * 
  * @returns {boolean} Se o argumento respeita a propriedade ou não.
  *
+ * @throws {TypeError} Se o argumento não for um número
+ * @throws {RangeError} Se o argumento é um número não inteiro.
  * @throws {RangeError} Se o parâmetro não estiver entre 0 e 9999
  */
 
 function propriedade3025(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 0 || n > 9999) {
-        throw new RangeError("O parâmetro deve estar entre 0 e 9999.");
+        throw new RangeError("O argumento deve estar entre 0 e 9999.");
     }
 
     const i = Math.floor(n / 100);
@@ -50,10 +58,18 @@ function propriedade3025(n) {
  * 
  * @returns {boolean} Se o argumento respeita a propriedade ou não.
  *
+ * @throws {TypeError} Se o argumento não for um número
+ * @throws {RangeError} Se o argumento é um número não inteiro.
  * @throws {RangeError} Se o parâmetro não estiver entre 100 e 999.
  */
 
 function propriedade153(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 100 || n > 999) {
         throw new RangeError("O parâmetro deve estar entre 100 e 999.");
     }
@@ -75,9 +91,17 @@ function propriedade153(n) {
  * 
  * @returns {number} Um número equivalente ao dia da semana. 0 = Domingo.
  *
+ * @throws {TypeError} Se o argumento não for um número
+ * @throws {RangeError} Se o argumento é um número não inteiro.
  * @throws {RangeError} Se a data não existir ou se o ano for menor que 1753.
  */
 function diaDaSemana(d, m, a) {
+    if (isNaN(d) || isNaN(m) || isNaN(a)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(d) || !Number.isInteger(m) || !Number.isInteger(a)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (dataInvalida(d, m, a)) {
         throw new RangeError("a data não está no formato correto");
     }
@@ -99,7 +123,7 @@ function diaDaSemana(d, m, a) {
 }
 
 /**
- *  Calcula se a data é válida.
+ * Calcula se a data é válida.
  *
  * @param {number} d O dia
  * @param {number} m O mês
@@ -159,10 +183,18 @@ function dataInvalida(d, m, a) {
  * 
  * @returns {number} O resto.
  *
+ * @throws {TypeError} Se um dos argumentos não for um número
+ * @throws {RangeError} Se um dos argumento for um número não inteiro
  * @throws {RangeError} Se y for negativo ou se x for negativo ou zero.
  */
 
 function mod(x, y) {
+    if (isNaN(x) || isNaN(y)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(x) || !Number.isInteger(y)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (x < 0 || y <= 0) {
         throw new RangeError("Y deve ser ser maior que 0, X deve ser maior ou igual a 0");
     }
@@ -183,10 +215,18 @@ function mod(x, y) {
  * 
  * @returns {number} A soma.
  *
+ * @throws {TypeError} Se o argumento não for numérico
+ * @throws {RangeError} Se o argumento for um número não inteiro.
  * @throws {RangeError} Se n for menor que 1.
  */
 
 function somaNaturais(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
@@ -209,9 +249,17 @@ function somaNaturais(n) {
  * 
  * @returns {number} O resultado do fatorial.
  *
+ * @throws {TypeError} Se o argumento não for numérico
+ * @throws {RangeError} Se o argumento for um número não inteiro.
  * @throws {RangeError} Se n for menor que 1.
  */
 function fatorial(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
@@ -235,9 +283,17 @@ function fatorial(n) {
  * 
  * @returns {number} O resultado da multiplicação.
  *
+ * @throws {TypeError} Se um dos argumentos não for numérico
+ * @throws {RangeError} Se um dos argumentos não for um número inteiro.
  * @throws {RangeError} Se A e B forem menores que 0.
  */
 function produto(a, b) {
+    if (isNaN(a) || isNaN(b)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(a) || !Number.isInteger(b)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (a < 0 || b < 0) {
         throw new RangeError("A e B devem ser maior ou igual a 0");
     }
@@ -268,10 +324,18 @@ function produto(a, b) {
  * @param {number} y O expoente.
  * 
  * @returns {number} O resultado da potência.
- *
+ * 
+ * @throws {TypeError} Se um dos argumentos não for numérico
+ * @throws {RangeError} Se um dos argumentos não for um número inteiro.
  * @throws {RangeError} Se A e B forem menores que 0.
  */
 function potencia(x, y) {
+    if (isNaN(x) || isNaN(y)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(x) || !Number.isInteger(y)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (x < 0 || y < 0) {
         throw new RangeError("X e Y devem ser maior ou igual a 0");
     }
@@ -280,7 +344,7 @@ function potencia(x, y) {
     let i = 1;
 
     while (i <= y) {
-        potencia = Produto(potencia, x);
+        potencia = produto(potencia, x);
         i = i + 1;
     }
 
@@ -294,9 +358,17 @@ function potencia(x, y) {
  * 
  * @returns {number} O valor de pi de acordo com a precisão.
  *
+ * @throws {TypeError} Quando o argumento de precisão não for numérico
+ * @throws {RangeError} Se o argumento não for inteiro.
  * @throws {RangeError} Se n for menor que 1.
  */
 function pi(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 1) {
         throw new RangeError("n deve ser maior ou igual a 1.");
     }
@@ -324,9 +396,17 @@ function pi(n) {
  * 
  * @returns {number} O valor do logaritmo natural de acordo com a precisão.
  *
+ * @throws {TypeError} Se um dos argumentos não for numérico
+ * @throws {RangeError} Se um dos argumentos não for inteiro
  * @throws {RangeError} Se n for menor que 1 ou k menor que 2.
  */
 function logaritmoNatural(n, k) {
+    if (isNaN(n) || isNaN(k)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n) || !Number.isInteger(k)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 1 || k < 2) {
         throw new RangeError("n deve ser maior ou igual a >= 1 e k >= 2.");
     }
@@ -355,9 +435,17 @@ function logaritmoNatural(n, k) {
  * 
  * @returns {number} O valor da razão áurea.
  *
+ * @throws {TypeError} Se um dos argumentos não for numérico.
+ * @throws {RangeError} Se um dos argumentos não for inteiro.
  * @throws {RangeError} Se x < 0, x >=y ou se k <=0.
  */
 function razaoAurea(x, y, k) {
+    if (isNaN(x) || isNaN(y) || isNaN(k)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(x) || !Number.isInteger(y) || !Number.isInteger(k)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (x < 0 || x >= y || k <= 0) {
         throw new RangeError("X deve ser maior ou igual a 0, x > y, e k > 0.");
     }
@@ -384,9 +472,17 @@ function razaoAurea(x, y, k) {
  * 
  * @returns {boolean} Se o número for um quadrado perfeito.
  *
+ * @throws {TypeError} Se o argumento não for numérico.
+ * @throws {RangeError} Se o argumento não for inteiro.
  * @throws {RangeError} Se o número for menor que 1.
  */
 function quadradoPerfeito(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n < 1) {
         throw new RangeError("N deve ser maior ou igual a 1");
     }
@@ -410,11 +506,19 @@ function quadradoPerfeito(n) {
  * 
  * @returns {number} O resultado da raiz de acordo com a precisão
  *
+ * @throws {TypeError} Se um dos argumentos não for numérico.
+ * @throws {RangeError} Se um dos argumentos não for inteiro.
  * @throws {RangeError} Se n for menor que 0.
  */
 function raiz(n, i) {
-    if (n < 0) {
-        throw new RangeError("n deve ser maior que 0.");
+    if (isNaN(n) || isNaN(i)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n) || !Number.isInteger(i)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
+    if (n <= 0) {
+        throw new RangeError("O argumento deve ser maior que 0.");
     }
 
     let r = 1;
@@ -434,9 +538,17 @@ function raiz(n, i) {
  * 
  * @returns {boolean} Se o número é primo.
  *
+ * @throws {TypeError} Se o argumento não for numérico.
+ * @throws {RangeError} Se o argumento não for inteiro.
  * @throws {RangeError} Se n for menor ou igual a 1.
  */
 function primo(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
     if (n <= 1) {
         throw new RangeError("n deve ser maior que 1.");
     }
@@ -461,17 +573,25 @@ function primo(n) {
  * 
  * @returns {String} O resultado.
  *
- * @throws {RangeError} Se o tamanho do Vetor for menor que 1.
- * @throws {Error} Se o Vetor não estiver zerado. Todas as posições devem ser zero.
+ * @throws {TypeError} Se n não for um argumento numérico
+ * @throws {TypeError} Se s não receber um vetor.
+ * @throws {RangeError} Se o tamanho do vetor for menor ou igual a 1.
+ * @throws {RangeError} Se o Vetor não estiver zerado. Todas as posições devem ser zero.
  */
 function crivoEratostenes(s, n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Array.isArray(s)) {
+        throw new TypeError("O argumento não é um vetor");
+    }
     if (n < 1) {
         throw new RangeError("O tamanho do Vetor deve ser maior que 1.");
     }
 
     for (let i = 0; i < n; i++) {
         if (s[i] != 0) {
-            throw new Error("O vetor deve estar zerado.");
+            throw new RangeError("O vetor deve estar zerado.");
         }
     }
 
@@ -501,19 +621,27 @@ function crivoEratostenes(s, n) {
 /**
  * 16. Maior Divisor Comum
  *
- * @param {Number} a O primeiro número
- * @param {Number} b O segundo número
+ * @param {Number} a O primeiro número.
+ * @param {Number} b O segundo número.
  * 
  * @returns {Number} O resultado do MDC.
  *
- * @throws {Error} Se b for menor que zero e a >= b.
+ * @throws {TypeError} Se o argumento não for numérico.
+ * @throws {RangeError} Se o argumento não for inteiro.
+ * @throws {Error} Se b for menor que zero e a for menor que b.
  */
 function mdc(a, b) {
-    if (a >= b || b < 0) {
-        throw new Error("A deve ser maior ou igual a b, e b > 0");
+    if (isNaN(a) || isNaN(b)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(a) || !Number.isInteger(b)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
+    if (a < b || b <= 0) {
+        throw new RangeError("A deve ser maior ou igual a b, e b > 0");
     }
 
-    while (b != 0) {
+    while (b > 0) {
         let m = a % b;
         a = b;
         b = m;
@@ -530,11 +658,19 @@ function mdc(a, b) {
  * 
  * @returns {Number} O resultado do MDC.
  *
- * @throws {Error} Se b for menor que zero e a >= b.
+ * @throws {TypeError} Se o argumento não for numérico.
+ * @throws {RangeError} Se o argumento não for inteiro.
+ * @throws {Error} Se b for menor que zero e a for menor que b.
  */
 function mdc2(a, b) {
-    if (a >= b || b > 0) {
-        throw new Error("A deve ser maior ou igual a b, e b > 0");
+    if (isNaN(a) || isNaN(b)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Number.isInteger(a) || !Number.isInteger(b)) {
+        throw new RangeError("O argumento deve ser inteiro.");
+    }
+    if (a < b || b <= 0) {
+        throw new RangeError("A deve ser maior ou igual a b, e b > 0");
     }
 
     while (a != b) {
@@ -583,8 +719,14 @@ function horner(x, g, a) {
  * @throws {Error} Se n for menor a 0.
  */
 function fibonacci(n) {
+    if (isNaN(n)) {
+        throw new TypeError("O argumento n não é um número");
+    }
+    if (!Number.isInteger(n)) {
+        throw new RangeError("O argumento n deve ser inteiro");
+    }
     if (n < 0) {
-        throw new Error("O valor deve ser maior ou igual a 0");
+        throw new RangeError("O valor deve ser maior ou igual a 0");
     }
 
     let a = 0;
@@ -634,14 +776,16 @@ function cpfStringToArray(d) {
  * @returns {boolean} Se o CPF é válido
  * 
  * @throws {TypeError} Se o CPF não for uma String.
+ * @throws {TypeError} Se a string não for numérica.
  * @throws {RangeError} Se o CPF não conter 11 dígitos
  */
 function cpf(d) {
-
     if (typeof d != "string") {
         throw new TypeError("string é esperada");
     }
-
+    if (isNaN(d)) {
+        throw new TypeError("A string não é numérica");
+    }
     if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
@@ -666,16 +810,16 @@ function cpf(d) {
  * @returns {boolean} Se o CPF é válido
  * 
  * @throws {TypeError} Se o CPF não for uma String.
+ * @throws {TypeError} Se a string não for numérica.
  * @throws {RangeError} Se o CPF não conter 11 dígitos
  */
 function cpf2(d) {
-
-    // Checa de D é uma string.
     if (typeof d != "string") {
         throw new TypeError("string é esperada");
     }
-
-    // Checar se o vetor d tem 11 casas.
+    if (isNaN(d)) {
+        throw new TypeError("A string não é numérica");
+    }
     if (d == null || d.length != 11) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
