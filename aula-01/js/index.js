@@ -23,7 +23,7 @@ module.exports = {
 };
 
 /**
- * 1. Verifica se um número respeita a propriedade 3025
+ * Verifica se um número respeita a propriedade 3025
  *
  * @param {number} n O número a ser testado
  * 
@@ -52,7 +52,7 @@ function propriedade3025(n) {
 }
 
 /**
- * 2. Verifica se um número respeita a propriedade 153
+ * Verifica se um número respeita a propriedade 153
  *
  * @param {number} n O número a ser testado
  * 
@@ -83,7 +83,7 @@ function propriedade153(n) {
 }
 
 /**
- * 3. Calcula o dia da semana.
+ * Calcula o dia da semana.
  *
  * @param {number} d O dia
  * @param {number} m O mês
@@ -176,7 +176,7 @@ function dataInvalida(d, m, a) {
 }
 
 /**
- * 4. Resto da Divisão inteira
+ * Resto da Divisão inteira
  *
  * @param {number} x O dividendo
  * @param {number} y O divisor
@@ -209,7 +209,7 @@ function mod(x, y) {
 }
 
 /**
- * 5. Soma dos números naturais até n
+ * Soma dos números naturais até n
  *
  * @param {number} n Até onde os números serão somados
  * 
@@ -243,7 +243,7 @@ function somaNaturais(n) {
 }
 
 /**
- * 6. Fatorial de um número n
+ * Fatorial de um número n
  *
  * @param {number} n O fatorial.
  * 
@@ -276,7 +276,7 @@ function fatorial(n) {
 }
 
 /**
- * 7. Produto de inteiros usando soma.
+ * Produto de inteiros usando soma.
  *
  * @param {number} a O primeiro número.
  * @param {number} b O segundo número.
@@ -318,7 +318,7 @@ function produto(a, b) {
 }
 
 /**
- * 8. Potências usando soma.
+ * Potências usando soma.
  *
  * @param {number} x A base.
  * @param {number} y O expoente.
@@ -352,7 +352,7 @@ function potencia(x, y) {
 }
 
 /**
- * 9. Calcula o pi, 'n' determina a precisão.
+ * Calcula o pi, 'n' determina a precisão.
  *
  * @param {number} n A precisão.
  * 
@@ -389,7 +389,7 @@ function pi(n) {
 }
 
 /**
- * 10. Logaritmo Natural
+ * Logaritmo Natural
  *
  * @param {number} n O logaritmando.
  * @param {number} k A precisão.
@@ -427,7 +427,7 @@ function logaritmoNatural(n, k) {
 }
 
 /**
- * 11. Razão Áurea
+ * Razão Áurea
  *
  * @param {number} x Número inteiro
  * @param {number} y Número inteiro
@@ -466,7 +466,7 @@ function razaoAurea(x, y, k) {
 }
 
 /**
- * 12. Quadrado Perfeito. Checa se um número é um quadrado perfeito.
+ * Quadrado Perfeito. Checa se um número é um quadrado perfeito.
  *
  * @param {number} n Numero
  * 
@@ -499,7 +499,7 @@ function quadradoPerfeito(n) {
 }
 
 /**
- * 13. Qualcula a Raíz Quadrada. n é o radicando e i é a precisão
+ * Calcula a Raíz Quadrada. n é o radicando e i é a precisão
  *
  * @param {number} n Radicando
  * @param {number} i Precisão
@@ -532,7 +532,7 @@ function raiz(n, i) {
 }
 
 /**
- * 14. Número Primo. Checa se um número n é primo
+ * Número Primo. Checa se um número n é primo
  *
  * @param {number} n Número a ser testado.
  * 
@@ -566,7 +566,7 @@ function primo(n) {
 }
 
 /**
- * 15. Crivo de Eratóstenes.
+ * Crivo de Eratóstenes.
  *
  * @param {String} s O vetor.
  * @param {Number} n O tamanho do vetor.
@@ -619,7 +619,7 @@ function crivoEratostenes(s, n) {
 }
 
 /**
- * 16. Maior Divisor Comum
+ * Maior Divisor Comum
  *
  * @param {Number} a O primeiro número.
  * @param {Number} b O segundo número.
@@ -651,7 +651,7 @@ function mdc(a, b) {
 }
 
 /**
- * 17. Outro método para calcular o MDC.
+ * Outro método para calcular o MDC.
  *
  * @param {Number} a O primeiro número
  * @param {Number} b O segundo número
@@ -685,7 +685,7 @@ function mdc2(a, b) {
 }
 
 /**
- * 18. Regra de Horner para avaliação de polinômio
+ * Regra de Horner para avaliação de polinômio
  *
  * @param {Number} x Uma constante presente no polinômio
  * @param {Number} g O tamanho do polinômio
@@ -710,7 +710,7 @@ function horner(x, g, a) {
 }
 
 /**
- * 19. Fibonacci. obtém o n-ésimo número de fibonacci
+ * Fibonacci. obtém o n-ésimo número de fibonacci
  *
  * @param {Number} n A posição do valor a ser encontrado
  * 
@@ -769,7 +769,7 @@ function cpfStringToArray(d) {
 }
 
 /**
- * 20. Cadastro de Pessoas Físicas.
+ * Cadastro de Pessoas Físicas.
  *
  * @param {String} d O CPF.
  * 
@@ -803,7 +803,7 @@ function cpf(d) {
 }
 
 /**
- * 21. Outro método para validar o CPF.
+ * Outro método para validar o CPF.
  *
  * @param {String} d O CPF.
  * 
