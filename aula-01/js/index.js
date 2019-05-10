@@ -127,48 +127,28 @@ function diaDaSemana(d, m, a) {
  * @param {number} m O mês
  * @param {number} a O ano
  * 
- * @returns {boolean} Se a data é válida ou não.
+ * @returns {boolean} True se a data for inválida.
  */
 function dataInvalida(d, m, a) {
+    if (a < 1753) {
+        return true;
+    }
 
     if (m < 1 || m > 12) {
         return true;
     }
 
-    if (d < 1 || d > 31) {
+    let numeroMaxDias = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    //Se o ano for bissexto muda o max para fevereiro
+    if ((a % 4 == 0) && ((a % 100 != 0) || (a % 400 == 0))) {
+        numeroMaxDias[2] = 29;
+    }
+
+    if (d < 0 || d > numeroMaxDias[m]) {
         return true;
     }
 
-    switch (m) {
-        case 2:
-            if (d > 28) {
-                return true;
-            }
-            break;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            if (d > 30) {
-                return true;
-            }
-            break;
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            if (d > 31) {
-                return true;
-            }
-            break;
-    }
-
-    if (a < 1753) {
-        return true;
-    }
     return false;
 }
 
