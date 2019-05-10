@@ -769,11 +769,11 @@ function cpf(d) {
 
     const cpf = Array(d.length).fill().map((v, i) => parseInt(d[i]));
 
-    let j = cpf[0] + 2 * cpf[1] + 3 * cpf[2] + 4 * cpf[3] + 5 * cpf[4] + 6 * cpf[5] + 7 * cpf[6] + 8 * cpf[7] + 9 * cpf[8];
-    let k = cpf[1] + 2 * cpf[2] + 3 * cpf[3] + 4 * cpf[4] + 5 * cpf[5] + 6 * cpf[6] + 7 * cpf[7] + 8 * cpf[8] + 9 * cpf[9];
+    const j = cpf[0] + 2 * cpf[1] + 3 * cpf[2] + 4 * cpf[3] + 5 * cpf[4] + 6 * cpf[5] + 7 * cpf[6] + 8 * cpf[7] + 9 * cpf[8];
+    const k = cpf[1] + 2 * cpf[2] + 3 * cpf[3] + 4 * cpf[4] + 5 * cpf[5] + 6 * cpf[6] + 7 * cpf[7] + 8 * cpf[8] + 9 * cpf[9];
 
-    let dj = (j % 11) % 10;
-    let dk = (k % 11) % 10;
+    const dj = (j % 11) % 10;
+    const dk = (k % 11) % 10;
 
     return (dj == cpf[9] && dk == cpf[10]);
 
@@ -813,8 +813,8 @@ function cpf2(d) {
         c = c - 1;
     }
 
-    let j = (s % 11) % 10;
-    let k = ((s - p + 9 * cpf[9]) % 11) % 10;
+    const j = (s % 11) % 10;
+    const k = ((s - p + 9 * cpf[9]) % 11) % 10;
 
     return (j == cpf[9] && k == cpf[10]);
 
