@@ -1,7 +1,7 @@
 const funcao = require("../index.js").fibonacci;
 
 test("Encontra corretamente o quarto termo", () => {
-    expect(funcao(4)).toBe(2);
+    expect(funcao(4)).toBe(3);
 });
 
 test("argumento null/undefined", () => {

@@ -1,7 +1,7 @@
 const funcao = require("../index.js").mdc;
 
-test("Satisfaz. Retorna verdadeiro", () => {
-    expect(funcao(6, 9)).toBe(3);
+test("Satisfaz.", () => {
+    expect(funcao(9, 6)).toBe(3);
 });
 
 test("argumento null/undefined", () => {
