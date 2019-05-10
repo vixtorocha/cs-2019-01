@@ -746,23 +746,6 @@ function fibonacci(n) {
 }
 
 /**
- * Converte o CPF de String para um Vetor numérico.
- *
- * @param {String} d O CPF.
- * 
- * @returns {Array} O CPF como um vetor
- */
-function cpfStringToArray(d) {
-    let cpf = [];
-
-    for (let i = 0; i < d.length; i++) {
-        cpf[i] = parseInt(d[i]);
-    }
-
-    return cpf;
-}
-
-/**
  * Cadastro de Pessoas Físicas.
  *
  * @param {String} d O CPF.
@@ -784,7 +767,7 @@ function cpf(d) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
-    const cpf = cpfStringToArray(d);
+    const cpf = Array(d.length).fill().map((v, i) => parseInt(d[i]));
 
     let j = cpf[0] + 2 * cpf[1] + 3 * cpf[2] + 4 * cpf[3] + 5 * cpf[4] + 6 * cpf[5] + 7 * cpf[6] + 8 * cpf[7] + 9 * cpf[8];
     let k = cpf[1] + 2 * cpf[2] + 3 * cpf[3] + 4 * cpf[4] + 5 * cpf[5] + 6 * cpf[6] + 7 * cpf[7] + 8 * cpf[8] + 9 * cpf[9];
@@ -818,7 +801,7 @@ function cpf2(d) {
         throw new RangeError("O CPF deve conter 11 dígitos");
     }
 
-    const cpf = cpfStringToArray(d);
+    const cpf = Array(d.length).fill().map((v, i) => parseInt(d[i]));
 
     let c = 7;
     let p = cpf[8];
