@@ -1,14 +1,21 @@
 package com.github.vixtorocha.ufg.cs.aula01;
 
-import java.lang.*;
-
+/**
+ * Implementação de algumas funções matemáticas.
+ */
 public class Principal {
 
     public static void main(String[] args) {
-        System.out.println(cpf2("06569683110"));
+        System.out.println(diaDaSemana(10, 5, 2019));
     }
 
-    // 1. Checa a propriedade 3025
+    /**
+     * Verifica se a Propriedade 3025 é válida para um inteiro.
+     * 
+     * @param n O inteiro.
+     * @return Se o número satisfaz a propriedade.
+     * @throws IllegalArgumentException Se o número estiver fora da faixa aceita.
+     */
     public static boolean propriedade3025(final int n) {
         if (n < 0 || n > 9999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
@@ -20,9 +27,15 @@ public class Principal {
         return (i + j) * (i + j) == n;
     }
 
-    // 2. Função que verifica se a propriedade 153 é verdade para um inteiro.
+    /**
+     * Verifica se a propriedade 153 é válida para um inteiro.
+     * 
+     * @param n O inteiro.
+     * @return Se o inteiro satisfaz a propriedade
+     * @throws IllegalArgumentException Se o número está fora da faixa aceita.
+     */
     public static boolean propriedade153(final int n) {
-        if (n < 0 || n > 9999) {
+        if (n < 0 || n > 999) {
             throw new IllegalArgumentException("O número deve estar entre 0 e 9999");
         }
 
@@ -34,8 +47,15 @@ public class Principal {
         return (c * c * c) + (d * d * d) + (u * u * u) == n;
     }
 
-    // 3. Função que retorna o dia da semana. Começando por 0, que se
-    // segunda-feira.
+    /**
+     * Função que retorna o Dia da Semana.
+     * 
+     * @param d O dia
+     * @param m O mês
+     * @param a O ano
+     * @return O dia da semana. Começando por 0 (Domingo).
+     * @throws IllegalArgumentException Se a data não estive no formato correto.
+     */
     public static int diaDaSemana(final int d, final int m, final int a) {
         if (dataInvalida(d, m, a)) {
             throw new IllegalArgumentException("a data não está no formato correto");
@@ -54,6 +74,14 @@ public class Principal {
         return s % 7;
     }
 
+    /**
+     * Verifica se a data é válida
+     * 
+     * @param d O dia.
+     * @param m O mês.
+     * @param a O ano.
+     * @return Se a data é inválida
+     */
     private static boolean dataInvalida(final int d, final int m, final int a) {
 
         if (m < 1 || m > 12) {
@@ -64,6 +92,7 @@ public class Principal {
             return false;
         }
 
+        // FIXME mudar a abordagem do switch.
         switch (m) {
         case 2:
             if (d != 28) {
@@ -98,11 +127,19 @@ public class Principal {
         return true;
     }
 
-    // 4 Calcula o resto da divisão de X por Y.
+    /**
+     * Calcula o resto da divisão de um inteiro por outro.
+     * 
+     * @param x O dividendo
+     * @param y O divisor
+     * @return O resultado da divisão
+     * @throws IllegalArgumentException Se o divisor for menor que zero ou se o
+     *                                  dividendo for menor ou igual a 0.
+     */
     public static int mod(final int x, final int y) {
         if (y < 0 || x <= 0) {
             throw new IllegalArgumentException(
-                    "O primeiro valor deve ser maior que zero e o segundo " + "deve ser maior ou igual a zero.");
+                    "O primeiro valor deve ser maior que zero e o segundo deve ser maior ou igual a zero.");
         }
 
         int s = x;
@@ -114,10 +151,16 @@ public class Principal {
         return s;
     }
 
-    // 5. Realiza a soma dos primeiros número naturais, de 1 até n.
+    /**
+     * Realiza a soma dos primeiros números naturais, de 1 a n.
+     * 
+     * @param n O inteiro
+     * @return O valor da soma dos naturais até n.
+     * @throws IllegalArgumentException se O número for menor que 1.
+     */
     public static int somaNaturais(final int n) {
         if (n < 1) {
-            throw new IllegalArgumentException("O número deve ser um inteiro positivo maior que 0.");
+            throw new IllegalArgumentException("O número deve ser maior que 1.");
         }
 
         int i = 2;
