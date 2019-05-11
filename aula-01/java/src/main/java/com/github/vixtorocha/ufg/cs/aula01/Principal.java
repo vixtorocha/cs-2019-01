@@ -174,7 +174,13 @@ public class Principal {
         return s;
     }
 
-    // 6. Retorna o Fatorial de um número n
+    /**
+     * Retorna o fatorial de um número inteiro
+     * 
+     * @param n O inteiro
+     * @return O fatorial
+     * @throws IllegalArgumentEception se i inteiro não for maior que 1.
+     */
     public static int fatorial(final int n) {
         if (n < 1) {
             throw new IllegalArgumentException("O parâmetro deve ser maior ou igual a 1");
@@ -191,9 +197,16 @@ public class Principal {
         return f;
     }
 
-    // 7. Produto de inteiros usando somas
+    /**
+     * Produto de dois inteiros usando somas
+     * 
+     * @param a Um inteiro
+     * @param b Um inteiro
+     * @return O produto dos dois inteiros
+     * @throws IllegalArgumentException se um dos dois inteiros forem menor que 1.
+     */
     public static int produto(final int a, final int b) {
-        if (a < 0 && b < 0) {
+        if (a < 0 || b < 0) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maior ou igual a zero.");
         }
 
@@ -217,9 +230,16 @@ public class Principal {
         return s;
     }
 
-    // 8. Potências Usando Somas
+    /**
+     * Faz um calculo de potência usando somas.
+     * 
+     * @param x A base
+     * @param y A potência
+     * @return O resultado
+     * @throws IllegalArgumentException se um dos dois argumentos for menor que 1.
+     */
     public static int potencia(final int x, final int y) {
-        if (x > 0 || y < 0) {
+        if (x < 0 || y < 0) {
             throw new IllegalArgumentException("Ambos os valores precisam ser maiores ou iguals a 0");
         }
 
@@ -234,9 +254,15 @@ public class Principal {
         return potencia;
     }
 
-    // 9. Valor de pi com n termos somatórios
+    /**
+     * Calcula o valor de pi com uma precisão de n
+     * 
+     * @param n A precisão
+     * @return O valor de pi obtido
+     * @throws IllegalArgumentException se a precisão for menor que 1.
+     */
     public static float pi(final float n) {
-        if (n > 1) {
+        if (n < 1) {
             throw new IllegalArgumentException(
                     "Para calcular o valor de pi, N deve ter um input de maior ou igual a 1.");
         }
@@ -256,7 +282,14 @@ public class Principal {
         return p;
     }
 
-    // 10. Logaritmo Natural
+    /**
+     * Calcula o Logaritmo Natural de um n com precisão de k
+     * 
+     * @param n O logaritmando
+     * @param k A precisão
+     * @return O resultado
+     * @throws IllegalArgumentException se n for menor que 1 e k menor que 2.
+     */
     public static float logaritmoNatural(final float n, final float k) {
         if (n < 1 || k < 2) {
             throw new IllegalArgumentException("N deve ser maior ou igual a 1 e k deve ser maior ou igual a 2.");
@@ -276,7 +309,16 @@ public class Principal {
         return e;
     }
 
-    // 11. Razão áurea. quanto maior o k maior a precisão.
+    /**
+     * Calcula a razão áurea usando uma sequência
+     * 
+     * @param x O primeiro termo da sequência
+     * @param y O segundo termo
+     * @param k A precisão
+     * @return A razão aurea.
+     * @throws IllegalArgumentException se x for menor que 0, y menor ou igual que
+     *                                  x, ou se k for menor ou igual a zero.
+     */
     public static float razaoAurea(final float x, final float y, final float k) {
         if (x < 0 || y <= x || k <= 0) {
             throw new IllegalArgumentException("x deve ser >= 0, y > x e k > 0");
@@ -297,7 +339,13 @@ public class Principal {
         return c / a;
     }
 
-    // 12. Checa se um número é um quadrado perfeito;
+    /**
+     * Checa se um inteiro é um quadrado perfeito.
+     * 
+     * @param n O inteiro
+     * @return True se for um quadrado perfeito.
+     * @throws IllegalArgumentException Se o número for menor que 1.
+     */
     public static boolean quadradoPerfeito(final int n) {
         if (n < 1) {
             throw new IllegalArgumentException("O número deve ser igual ou maior que 1.");
@@ -314,7 +362,14 @@ public class Principal {
         return s == n;
     }
 
-    // 13. Calcula a raiz de um número 'n' com 'i' de precisão
+    /**
+     * Calcula a raiz quadrada de um número.
+     * 
+     * @param n O número.
+     * @param j A precisão do cálculo.
+     * @return A raiz quadrada.
+     * @throws IllegalArgumentException se o número for menor que zero.
+     */
     public static float raiz(final float n, final float j) {
         if (n < 0) {
             throw new IllegalArgumentException("Para calcular a raiz, n deve ser maior que 0");
@@ -331,10 +386,16 @@ public class Principal {
         return r;
     }
 
-    // 14. Numero Primo, checa se um número é primo
+    /**
+     * Checa se um inteiro é primo.
+     * 
+     * @param n O inteiro
+     * @return True se ele for primo
+     * @throws IllegalArgumentException se o argumento for menor ou igual a 1.
+     */
     public static boolean primo(final int n) {
         if (n <= 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("O argumento deve ser maior que 1.");
         }
 
         int i = 2;
@@ -349,7 +410,15 @@ public class Principal {
         return true;
     }
 
-    // 15. Crivo de Eratóstenes
+    /**
+     * Crivo de Erastóstenes
+     * 
+     * @param a Um vetor de zeros com o tamanho do número a ser checado
+     * @return Um vetor com o resultado.
+     * @throws IllegalArgumentException se o tamanho do vetor for menor ou igual a
+     *                                  1.
+     * @throws IllegalArgumentException Se o vetor não estiver zerado.
+     */
     public static int[] crivoEratostenes(final int a[]) {
         if (a.length > 1) {
             throw new IllegalArgumentException("O tamanho da Array deve ser maior que 1.");
@@ -379,7 +448,16 @@ public class Principal {
         return a;
     }
 
-    // 16. Maior Divisor Comum.
+    /**
+     * Máximo divisor comum de dois inteiros.
+     * 
+     * @param a O primeiro número.
+     * @param b O segundo número
+     * @return O máximo divisor.
+     * @throws IllegalArgumentException Se o segundo argumento for zero ou menor, ou
+     *                                  se o primeiro argumento for menor que o
+     *                                  segundo.
+     */
     public static int mdc(final int a, final int b) {
         if (a < b || b <= 0) {
             throw new IllegalArgumentException("B deve ser > 0 e a >= b");
@@ -398,7 +476,16 @@ public class Principal {
         return a;
     }
 
-    // 17. Outro método de MDC.
+    /**
+     * Máximo divisor comum de dois inteiros.
+     * 
+     * @param a O primeiro número.
+     * @param b O segundo número
+     * @return O máximo divisor.
+     * @throws IllegalArgumentException Se o segundo argumento for zero ou menor, ou
+     *                                  se o primeiro argumento for menor que o
+     *                                  segundo.
+     */
     public static int mdc2(final int a, final int b) {
         if (a < b || b <= 0) {
             throw new IllegalArgumentException("B deve ser > 0 e a >= b");
@@ -418,8 +505,20 @@ public class Principal {
         return a;
     }
 
-    // 18. Regra de Horner para avaliação de um polinômio
+    /**
+     * Regra de Horner para avaliação de um polinômio.
+     * 
+     * @param x A constante do polinômio.
+     * @param g O tamanho.
+     * @param a O vetor com o valor 'a' de cada termo.
+     * @return O resultado.
+     * @throws IllegalArgumentException Se g for menor que 1.
+     */
     public static int horner(final int x, final int g, final int a[]) {
+        if (g < 1) {
+            throw new IllegalArgumentException("g deve ser maior ou igual a 1.");
+        }
+
         int p = a[g];
         int i = g - 1;
 
@@ -431,7 +530,13 @@ public class Principal {
         return p;
     }
 
-    // 19. Fibonacci, retorna o n-ésimo número da sequência.
+    /**
+     * Obtêm um número da sequência de fibonacci
+     * 
+     * @param n A posição do número
+     * @return O número
+     * @throws IllegalArgumentException se o argumento for menor que n.
+     */
     public static int fibonacci(final int n) {
         if (n < 0) {
             throw new IllegalArgumentException("N deve ser maior ou igual a 0.");
@@ -457,7 +562,12 @@ public class Principal {
         return c;
     }
 
-    // 20. Checa CPF.
+    /**
+     * Transforma o cpf de String para Vetor
+     * 
+     * @param d o cpf como string.
+     * @return o cpf como vetor
+     */
     public static int[] cpfStringToArray(final String d) {
         int[] cpf = new int[11];
 
@@ -468,9 +578,16 @@ public class Principal {
         return cpf;
     }
 
+    /**
+     * Checa a validade de um CPF.
+     * 
+     * @param cpf O cpf
+     * @return Se é válido
+     * @throws IllegalArgumentException Se a string não tiver 11 casas.
+     */
     public static boolean cpf(final String cpf) {
 
-        if (!(cpf.length() == 11)) {
+        if (cpf.length() != 11) {
             throw new IllegalArgumentException("O CPF deve ter 11 dígitos");
         }
 
@@ -486,7 +603,13 @@ public class Principal {
 
     }
 
-    // 21. Outro método pra checar o CPF
+    /**
+     * Checa a validade de um CPF.
+     * 
+     * @param cpf O cpf
+     * @return Se é válido
+     * @throws IllegalArgumentException Se a string não tiver 11 casas.
+     */
     public static boolean cpf2(final String cpf) {
 
         // Checar se o vetor d tem 11 casas
