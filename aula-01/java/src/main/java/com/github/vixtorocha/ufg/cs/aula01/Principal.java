@@ -158,7 +158,7 @@ public class Principal {
      * 
      * @param n O inteiro
      * @return O fatorial
-     * @throws IllegalArgumentEception se i inteiro não for maior que 1.
+     * @throws IllegalArgumentException se i inteiro não for maior que 1.
      */
     public static int fatorial(final int n) {
         if (n < 1) {
