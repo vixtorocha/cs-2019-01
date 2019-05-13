@@ -6,7 +6,7 @@ package com.github.vixtorocha.ufg.cs.aula01;
 public class Principal {
 
     public static void main(String[] args) {
-        System.out.println(diaDaSemana(10, 5, 2019));
+        System.out.println();
     }
 
     /**
@@ -84,47 +84,26 @@ public class Principal {
      */
     private static boolean dataInvalida(final int d, final int m, final int a) {
 
-        if (m < 1 || m > 12) {
-            return false;
-        }
-
-        if (d < 1 || d > 31) {
-            return false;
-        }
-
-        // FIXME mudar a abordagem do switch.
-        switch (m) {
-        case 2:
-            if (d != 28) {
-                return false;
-            }
-            break;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            if (d != 30) {
-                return false;
-            }
-            break;
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            if (d != 31) {
-                return false;
-            }
-            break;
-        }
-
         if (a < 1753) {
-            return false;
+            return true;
         }
 
-        return true;
+        if (m < 1 || m > 12) {
+            return true;
+        }
+
+        int[] numeroMaxDias = new int[] { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+        // Se o ano for bissexto muda o max para fevereiro
+        if ((a % 4 == 0) && ((a % 100 != 0) || (a % 400 == 0))) {
+            numeroMaxDias[2] = 29;
+        }
+
+        if (d < 0 || d > numeroMaxDias[m]) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
