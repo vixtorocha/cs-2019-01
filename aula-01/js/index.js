@@ -114,7 +114,7 @@ function diaDaSemana(d, m, a) {
         a = a - 1;
     }
 
-    s = dia + (2 * mes) + (3 * (mes + 1) / 5) + ano + (ano / 4) - (ano / 100) + (ano / 400);
+    s = dia + (2 * mes) + Math.floor(3 * (mes + 1) / 5) + ano + Math.floor(ano / 4) - Math.floor(ano / 100) + Math.floor(ano / 400);
 
     return (Math.floor(s % 7));
 
