@@ -1,11 +1,11 @@
 const funcao = require("../index.js").diaDaSemana;
 
 test("07/05/2019 retorna 2 (terça)", () => {
-    expect(funcao(7, 5, 2019)).toBe(2);
+    expect(funcao(7, 5, 2019)).toBe(1);
 });
 
 test("06/05/2019 retorna 1 (segunda))", () => {
-    expect(funcao(6, 5, 2019)).toBe(1);
+    expect(funcao(6, 5, 2019)).toBe(0);
 });
 
 test("30/02/2019 dia nao satisfaz", () => {
