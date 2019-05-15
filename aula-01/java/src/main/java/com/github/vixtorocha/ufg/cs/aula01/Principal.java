@@ -99,7 +99,7 @@ public class Principal {
             numeroMaxDias[2] = 29;
         }
 
-        if (d < 0 || d > numeroMaxDias[m]) {
+        if (d <= 0 || d > numeroMaxDias[m]) {
             return true;
         }
 
@@ -116,7 +116,7 @@ public class Principal {
      *                                  dividendo for menor ou igual a 0.
      */
     public static int mod(final int x, final int y) {
-        if (y < 0 || x <= 0) {
+        if (x <= 0 || y <= 0) {
             throw new IllegalArgumentException(
                     "O primeiro valor deve ser maior que zero e o segundo deve ser maior ou igual a zero.");
         }
