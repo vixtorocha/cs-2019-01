@@ -278,7 +278,7 @@ public class Principal {
         float numerador = n;
         float denominador = 1;
 
-        while (k >= 1) {
+        while (k >= i) {
             numerador = numerador * numerador;
             denominador = denominador * i;
             e = e + numerador / denominador;
