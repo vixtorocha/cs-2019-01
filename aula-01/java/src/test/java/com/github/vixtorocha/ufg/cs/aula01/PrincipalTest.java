@@ -123,4 +123,105 @@ public class PrincipalTest {
     public void modXIgualAZero() {
         assertThrows(IllegalArgumentException.class, () -> Principal.mod(4, 0));
     }
+
+    /**
+     * Testes para somaNaturais
+     */
+    @Test
+    public void somaNaturalCasoComum() {
+        assertEquals(15, Principal.somaNaturais(5));
+    }
+
+    @Test
+    public void somaNaturaisForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.somaNaturais(0));
+    }
+
+    /**
+     * Testes para Principal.fatorial
+     */
+    @Test
+    public void fatorialCasoComum() {
+        assertEquals(120, Principal.fatorial(5));
+    }
+
+    @Test
+    public void fatorialForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.fatorial(0));
+    }
+
+    /**
+     * Testes para Principal.fatorial
+     */
+    @Test
+    public void produtoCasoComum() {
+        assertEquals(6, Principal.produto(3, 2));
+    }
+
+    @Test
+    public void produtoAForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.produto(-1, 2));
+    }
+
+    @Test
+    public void produtoBForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.produto(2, -3));
+    }
+
+    /**
+     * Testes para Principal.potencia
+     */
+    @Test
+    public void potenciaCasoComum() {
+        assertEquals(9, Principal.potencia(3, 2));
+    }
+
+    @Test
+    public void potenciaXForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.potencia(-1, 2));
+    }
+
+    @Test
+    public void potenciaYForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.potencia(2, -3));
+    }
+
+    /**
+     * Testes para Principal.pi
+     */
+    @Test
+    public void piCasoComum() {
+        assertEquals(3.3396823, Principal.pi(5), 0.0000009);
+    }
+
+    @Test
+    public void piPrecisaoForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.pi(0));
+    }
+
+    /**
+     * Testes para Principal.logaritmoNatural
+     */
+    @Test
+    public void logaritmoNaturalCasoComum() {
+        assertEquals(8.5, Principal.logaritmoNatural(3, 2));
+    }
+
+    @Test
+    public void logaritmoNaturalNForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.logaritmoNatural(0, 2));
+    }
+
+    @Test
+    public void logaritmoNaturalKForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.logaritmoNatural(3, 1));
+    }
+
+    /**
+     * Testes para razaoAurea
+     */
+    @Test
+    public void razaoAureaCasoCoum() {
+        assertEquals(1.618034, Principal.razaoAurea(1, 2, 20), 0.000001);
+    }
 }
