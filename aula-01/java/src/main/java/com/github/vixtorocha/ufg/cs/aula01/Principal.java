@@ -446,13 +446,13 @@ public class Principal {
         int numero2 = b;
         int m;
 
-        while (b != 0) {
-            m = numero1 % b;
+        while (numero2 > 0) {
+            m = numero1 % numero2;
             numero1 = numero2;
             numero2 = m;
         }
 
-        return a;
+        return numero1;
     }
 
     /**
