@@ -1,7 +1,11 @@
 package com.github.vixtorocha.ufg.cs.aula01;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -223,5 +227,219 @@ public class PrincipalTest {
     @Test
     public void razaoAureaCasoCoum() {
         assertEquals(1.618034, Principal.razaoAurea(1, 2, 20), 0.000001);
+    }
+
+    @Test
+    public void razaoAureaXForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.razaoAurea(-1, 2, 20));
+    }
+
+    @Test
+    public void razaoAureaYMenorQueX() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.razaoAurea(4, 2, 20));
+    }
+
+    @Test
+    public void razaoAureaKForadaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.razaoAurea(1, 2, 0));
+    }
+
+    /**
+     * Testes para quadradoPerfeito
+     */
+    @Test
+    public void quadradoPerfeitoIsTrue() {
+        assertEquals(true, Principal.quadradoPerfeito(9));
+    }
+
+    @Test
+    public void quadradoPerfeitoIsFalse() {
+        assertEquals(false, Principal.quadradoPerfeito(8));
+    }
+
+    @Test
+    public void quadradoPerfeitoPequeno() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.quadradoPerfeito(-2));
+    }
+
+    /**
+     * Testes para raiz
+     */
+
+    @Test
+    public void raizCasoClassico() {
+        assertEquals(2, Principal.raiz(4, 25));
+    }
+
+    @Test
+    public void raizPequena() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.raiz(-2, 25));
+    }
+
+    /**
+     * Testes para primo
+     */
+
+    @Test
+    public void primoCasoClassico() {
+        assertEquals(true, Principal.primo(7));
+    }
+
+    @Test
+    public void primoFalso() {
+        assertEquals(false, Principal.primo(4));
+    }
+
+    @Test
+    public void primoNForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.primo(1));
+    }
+
+    /**
+     * Testes para o Crivo
+     */
+    @Test
+    public void crivoEratostenes() {
+        int correto[] = { 0, 0, 0, 0, 1, 0, 1 };
+        int vetor[] = { 0, 0, 0, 0, 0, 0, 0 };
+        assertArrayEquals(correto, Principal.crivoEratostenes(vetor));
+    }
+
+    @Test
+    public void crivoArrayNaoZerada() {
+        int vetor[] = { 0, 1, 0, 0, 1, 0, 1 };
+        assertThrows(IllegalArgumentException.class, () -> Principal.crivoEratostenes(vetor));
+    }
+
+    @Test
+    public void crivoTamanhoInvalido() {
+        int vetor[] = {};
+        assertThrows(IllegalArgumentException.class, () -> Principal.crivoEratostenes(vetor));
+    }
+
+    /**
+     * Testes para mdc
+     */
+    @Test
+    public void mdcCasoComum() {
+        assertEquals(3, Principal.mdc(9, 6));
+    }
+
+    @Test
+    public void mdcBForaDeFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.mdc(9, -1));
+    }
+
+    @Test
+    public void mdcAMenorQueB() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.mdc(4, 8));
+    }
+
+    /**
+     * Testes para mdc2
+     */
+    @Test
+    public void mdc2CasoComum() {
+        assertEquals(3, Principal.mdc2(9, 6));
+    }
+
+    @Test
+    public void mdc2BForaDeFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.mdc2(9, -1));
+    }
+
+    @Test
+    public void mdc2AMenorQueB() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.mdc2(4, 8));
+    }
+
+    /**
+     * Teste para o horner
+     */
+    @Test
+    public void Horner() {
+        int vetor[] = { 0, 1, 2 };
+        assertEquals(3, Principal.horner(1, 2, vetor));
+    }
+
+    @Test
+    public void HornerGForaDaFaixa() {
+        int vetor[] = { 0, 1, 2 };
+        assertThrows(IllegalArgumentException.class, () -> Principal.horner(1, -2, vetor));
+    }
+
+    /**
+     * Testes para fibonacci
+     */
+
+    @Test
+    public void fibonacciCasoComum() {
+        assertEquals(3, Principal.fibonacci(4));
+    }
+
+    @Test
+    public void fibonacciUm() {
+        assertEquals(1, Principal.fibonacci(1));
+    }
+
+    @Test
+    public void fibonacciZero() {
+        assertEquals(0, Principal.fibonacci(0));
+    }
+
+    @Test
+    public void fibonacciForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.fibonacci(-4));
+    }
+
+    /**
+     * Teste para cpf
+     */
+    @Test
+    public void cpfCasoComum() {
+        assertTrue(Principal.cpf("85813526005"));
+    }
+
+    @Test
+    public void cpfCasoFalso() {
+        assertFalse(Principal.cpf("85813526010"));
+    }
+
+    @Test
+    public void cpfCasoFalso2() {
+        assertFalse(Principal.cpf("85813526006"));
+    }
+
+    @Test
+    public void cpfForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.cpf("8581352601"));
+    }
+
+    /**
+     * Teste para cpf2
+     */
+    @Test
+    public void cpf2CasoComum() {
+        assertTrue(Principal.cpf2("85813526005"));
+    }
+
+    @Test
+    public void cpf2CasoFalso() {
+        assertFalse(Principal.cpf2("85813526010"));
+    }
+
+    @Test
+    public void cpf2CasoFalso2() {
+        assertFalse(Principal.cpf2("85813526006"));
+    }
+
+    @Test
+    public void cpf2ForaDaFaixa() {
+        assertThrows(IllegalArgumentException.class, () -> Principal.cpf2("8581352601"));
+    }
+
+    @Test
+    public void coberturaCemPorCento() {
+        assertNotNull(new Principal());
     }
 }
