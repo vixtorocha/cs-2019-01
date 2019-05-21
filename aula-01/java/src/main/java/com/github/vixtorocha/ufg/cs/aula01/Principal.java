@@ -4,11 +4,6 @@ package com.github.vixtorocha.ufg.cs.aula01;
  * Implementação de algumas funções matemáticas.
  */
 public class Principal {
-
-    public static void main(String[] args) {
-        System.out.println(horner(3, 3, {1 , 2, 3}));
-    }
-
     /**
      * Verifica se a Propriedade 3025 é válida para um inteiro.
      * 
