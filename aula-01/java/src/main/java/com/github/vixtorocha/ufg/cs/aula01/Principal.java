@@ -6,7 +6,7 @@ package com.github.vixtorocha.ufg.cs.aula01;
 public class Principal {
 
     public static void main(String[] args) {
-        System.out.println();
+        System.out.println(horner(3, 3, {1 , 2, 3}));
     }
 
     /**
@@ -481,7 +481,7 @@ public class Principal {
             }
         }
 
-        return a;
+        return numero1;
     }
 
     /**
