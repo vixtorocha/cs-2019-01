@@ -4,6 +4,7 @@ package com.github.vixtorocha.ufg.cs.aula01;
  * Implementação de algumas funções matemáticas.
  */
 public class Principal {
+
     /**
      * Verifica se a Propriedade 3025 é válida para um inteiro.
      * 
@@ -394,7 +395,7 @@ public class Principal {
      * @throws IllegalArgumentException Se o vetor não estiver zerado.
      */
     public static int[] crivoEratostenes(final int a[]) {
-        if (a.length > 1) {
+        if (a.length < 1) {
             throw new IllegalArgumentException("O tamanho da Array deve ser maior que 1.");
         }
 
@@ -409,12 +410,10 @@ public class Principal {
         int multiplo;
 
         while (i <= limite) {
-            if (a[i] == 0) {
-                multiplo = i + i;
-                while (multiplo <= a.length) {
-                    a[multiplo] = 1;
-                    multiplo = multiplo + i;
-                }
+            multiplo = i + i;
+            while (multiplo < a.length) {
+                a[multiplo] = 1;
+                multiplo = multiplo + i;
             }
             i = i + 1;
         }
