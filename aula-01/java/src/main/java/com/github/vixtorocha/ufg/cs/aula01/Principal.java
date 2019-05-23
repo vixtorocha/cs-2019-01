@@ -278,7 +278,7 @@ public final class Principal {
      * @throws IllegalArgumentException se n for menor que 1 e k menor que 2.
      */
     public static float logaritmoNatural(final float n, final float k) {
-        if (n < 1 || k < 2) {
+        if (n < 1) {
             throw new IllegalArgumentException(
                     "O primeiro argumento ser maior ou igual a 1");
         }
