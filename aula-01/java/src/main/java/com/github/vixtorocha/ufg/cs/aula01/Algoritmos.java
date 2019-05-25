@@ -3,7 +3,7 @@ package com.github.vixtorocha.ufg.cs.aula01;
 /**
  * Implementação de algumas funções matemáticas.
  */
-public final class Principal {
+public final class Algoritmos {
 
     /**
      * Verifica se a Propriedade 3025 é válida para um inteiro.
@@ -642,7 +642,7 @@ public final class Principal {
     /**
      * Método construtor privado para que a classe não possa ser instânciada.
      */
-    private Principal() {
+    private Algoritmos() {
 
     }
 
