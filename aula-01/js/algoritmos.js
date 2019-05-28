@@ -91,7 +91,7 @@ function diaDaSemana(d, m, a) {
 
     const s = dia + (2 * mes) + Math.floor(3 * (mes + 1) / 5) + ano + Math.floor(ano / 4) - Math.floor(ano / 100) + Math.floor(ano / 400);
 
-    return (Math.floor(s % 7));
+    return s % 7;
 
 }
 
@@ -115,16 +115,12 @@ function dataInvalida(d, m, a) {
 
     let numeroMaxDias = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    //Se o ano for bissexto muda o max para fevereiro
+    //Se o ano for bissexto muda o max de fevereiro
     if ((a % 4 == 0) && ((a % 100 != 0) || (a % 400 == 0))) {
         numeroMaxDias[2] = 29;
     }
 
-    if (d < 0 || d > numeroMaxDias[m]) {
-        return true;
-    }
-
-    return false;
+    return d < 0 || d > numeroMaxDias[m];
 }
 
 /**
@@ -152,7 +148,7 @@ function mod(x, y) {
 
     let s = x;
 
-    while (y <= s) {
+    while (s >= y) {
         s = s - y;
     }
 
@@ -184,7 +180,7 @@ function somaNaturais(n) {
     let i = 2;
     let s = 1;
 
-    while (i <= n) {
+    while (n >= i) {
         s = s + i;
         i = i + 1;
     }
@@ -217,7 +213,7 @@ function fatorial(n) {
     let i = 2;
     let f = 1;
 
-    while (i <= n) {
+    while (n >= i) {
         f = f * i;
         i = i + 1;
     }
@@ -259,7 +255,7 @@ function produto(a, b) {
     let i = 1;
     let s = 0;
 
-    while (i <= totalParcelas) {
+    while (totalParcelas >= i) {
         s = s + parcela;
         i = i + 1;
     }
@@ -293,7 +289,7 @@ function potencia(x, y) {
     let potencia = 1;
     let i = 1;
 
-    while (i <= y) {
+    while (y >= i) {
         potencia = produto(potencia, x);
         i = i + 1;
     }
@@ -328,7 +324,7 @@ function pi(n) {
     let d = -1;
     let p = 0;
 
-    while (i <= n) {
+    while (n >= i) {
         d = d + 2;
         s = -1 * s;
         p = p + 4 * s / d;
@@ -366,7 +362,7 @@ function logaritmoNatural(n, k) {
     let numerador = n;
     let denominador = 1;
 
-    while (i <= k) {
+    while (k >= i) {
         numerador = numerador * numerador;
         denominador = denominador * i;
         e = e + numerador / denominador;
@@ -552,10 +548,10 @@ function crivoEratostenes(s, n) {
         let limite = Math.floor(Math.sqrt(n));
         let multiplo;
 
-        while (i <= limite) {
+        while (limite >= i) {
             if (a[i] == 0) {
                 multiplo = i + i;
-                while (multiplo <= n) {
+                while (n >= multiplo) {
                     a[multiplo] = 1;
                     multiplo = multiplo + i;
                 }
@@ -689,7 +685,7 @@ function fibonacci(n) {
     let i = 2;
     let t;
 
-    while (i <= n) {
+    while (n >= i) {
         t = c;
         c = c + a;
         a = t;
