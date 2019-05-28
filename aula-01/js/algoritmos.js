@@ -83,14 +83,13 @@ function diaDaSemana(d, m, a) {
     let dia = d;
     let mes = m;
     let ano = a;
-    let s;
 
-    if (m == 1 || m == 2) {
-        m = m + 12;
-        a = a - 1;
+    if (mes == 1 || mes == 2) {
+        mes = mes + 12;
+        ano = ano - 1;
     }
 
-    s = dia + (2 * mes) + Math.floor(3 * (mes + 1) / 5) + ano + Math.floor(ano / 4) - Math.floor(ano / 100) + Math.floor(ano / 400);
+    const s = dia + (2 * mes) + Math.floor(3 * (mes + 1) / 5) + ano + Math.floor(ano / 4) - Math.floor(ano / 100) + Math.floor(ano / 400);
 
     return (Math.floor(s % 7));
 
