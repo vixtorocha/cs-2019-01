@@ -25,3 +25,9 @@ test("argumento deve ser numerico", () => {
         funcao("858abc26005");
     }).toThrow(TypeError);
 });
+
+test("argumento deve ter 11 dígitos", () => {
+    expect(() => {
+        funcao("8581352600");
+    }).toThrow(RangeError);
+});

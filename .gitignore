@@ -3,6 +3,7 @@ node_modules/
 out/
 jest_0/
 npm-debug.log
+coverage/
 
 # Visual Code
 .project

@@ -8,6 +8,14 @@ test("06/05/2019 retorna 1 (segunda))", () => {
     expect(funcao(6, 5, 2019)).toBe(0);
 });
 
+test("Teste para janeiro", () => {
+    expect(funcao(1, 1, 2019)).toBe(1);
+});
+
+test("Dia bissexto correto para testar o 400", () => {
+    expect(funcao(29, 2, 2000)).toBe(1);
+});
+
 test("30/02/2019 dia nao satisfaz", () => {
     expect(() => funcao(30, 2, 2019)).toThrow(RangeError);
 });

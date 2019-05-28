@@ -1,7 +1,7 @@
 const funcao = require("../algoritmos.js").crivoEratostenes;
 
 test("Satisfaz. Retorna verdadeiro", () => {
-    expect(funcao([0, 0, 0, 0, 0, 0], 6)).toEqual([0, 0, 0, 0, 1, 0, 1]);
+    expect(funcao([0, 0, 0, 0, 0, 0, 0])).toEqual([0, 0, 0, 0, 1, 0, 1]);
 });
 
 test("argumento null/undefined", () => {
@@ -12,12 +12,12 @@ test("argumento null/undefined", () => {
 
 test("argumento nao numerico", () => {
     expect(() => {
-        funcao("000000", 6);
+        funcao("000000");
     }).toThrow(TypeError);
 });
 
 test("Vetor não está zerado", () => {
     expect(() => {
-        funcao([0, 2, 1, -1, 0, 0], 6);
+        funcao([0, 2, 1, -1, 0, 0]);
     }).toThrow(RangeError);
 });

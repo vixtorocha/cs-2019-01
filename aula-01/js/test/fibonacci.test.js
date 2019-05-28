@@ -4,6 +4,14 @@ test("Encontra corretamente o quarto termo", () => {
     expect(funcao(4)).toBe(3);
 });
 
+test("Argumento 0", () => {
+    expect(funcao(0)).toBe(0);
+});
+
+test("Argumento 1", () => {
+    expect(funcao(1)).toBe(1);
+});
+
 test("argumento null/undefined", () => {
     expect(() => {
         funcao();

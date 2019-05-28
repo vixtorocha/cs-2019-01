@@ -16,6 +16,11 @@ test("argumento nao numerico", () => {
     }).toThrow(TypeError);
 });
 
+test("Vetor não é um vetor", () => {
+    expect(() => {
+        funcao(1, 2, "000000");
+    }).toThrow(TypeError);
+});
 
 test("valor negativo fora da faixa", () => {
     expect(() => {

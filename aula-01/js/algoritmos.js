@@ -524,44 +524,34 @@ function primo(n) {
  * @throws {RangeError} Se o tamanho do vetor for menor ou igual a 1.
  * @throws {RangeError} Se o Vetor não estiver zerado. Todas as posições devem ser zero.
  */
-function crivoEratostenes(s, n) {
-    if (isNaN(n)) {
-        throw new TypeError("O argumento não é um número");
-    }
+function crivoEratostenes(s) {
     if (!Array.isArray(s)) {
         throw new TypeError("O argumento não é um vetor");
     }
-    if (n < 1) {
-        throw new RangeError("O tamanho do Vetor deve ser maior que 1.");
-    }
 
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (s[i] != 0) {
             throw new RangeError("O vetor deve estar zerado.");
         }
     }
 
-    if (n > 1) {
+    let tamanho = s.length;
+    let a = s;
+    let i = 2;
+    let limite = Math.floor(Math.sqrt(tamanho));
+    let multiplo;
 
-        let a = s;
-        let i = 2;
-        let limite = Math.floor(Math.sqrt(n));
-        let multiplo;
-
-        while (limite >= i) {
-            if (a[i] == 0) {
-                multiplo = i + i;
-                while (n >= multiplo) {
-                    a[multiplo] = 1;
-                    multiplo = multiplo + i;
-                }
-            }
-            i = i + 1;
+    while (limite >= i) {
+        multiplo = i + i;
+        while (tamanho > multiplo) {
+            a[multiplo] = 1;
+            multiplo = multiplo + i;
         }
-
-        return a;
-
+        i = i + 1;
     }
+
+    return a;
+
 }
 
 /**
