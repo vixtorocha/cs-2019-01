@@ -1,27 +1,3 @@
-module.exports = {
-    propriedade3025: propriedade3025,
-    propriedade153: propriedade153,
-    diaDaSemana: diaDaSemana,
-    mod: mod,
-    somaNaturais: somaNaturais,
-    fatorial: fatorial,
-    produto: produto,
-    potencia: potencia,
-    pi: pi,
-    logaritmoNatural: logaritmoNatural,
-    razaoAurea: razaoAurea,
-    quadradoPerfeito: quadradoPerfeito,
-    raiz: raiz,
-    primo: primo,
-    crivoEratostenes: crivoEratostenes,
-    mdc: mdc,
-    mdc2: mdc2,
-    horner: horner,
-    fibonacci: fibonacci,
-    cpf: cpf,
-    cpf2: cpf2,
-};
-
 /**
  * Verifica se um número respeita a propriedade 3025
  *
@@ -799,3 +775,27 @@ function cpf2(d) {
     return (j == cpf[9] && k == cpf[10]);
 
 }
+
+module.exports = {
+    propriedade3025: propriedade3025,
+    propriedade153: propriedade153,
+    diaDaSemana: diaDaSemana,
+    mod: mod,
+    somaNaturais: somaNaturais,
+    fatorial: fatorial,
+    produto: produto,
+    potencia: potencia,
+    pi: pi,
+    logaritmoNatural: logaritmoNatural,
+    razaoAurea: razaoAurea,
+    quadradoPerfeito: quadradoPerfeito,
+    raiz: raiz,
+    primo: primo,
+    crivoEratostenes: crivoEratostenes,
+    mdc: mdc,
+    mdc2: mdc2,
+    horner: horner,
+    fibonacci: fibonacci,
+    cpf: cpf,
+    cpf2: cpf2,
+};
