@@ -635,15 +635,21 @@ function mdc2(a, b) {
  *
  * @param {Number} x Uma constante presente no polinômio
  * @param {Number} g O tamanho do polinômio
- * @param {String} a O polinômio
+ * @param {Array} a O polinômio
  * 
  * @returns {Number} O resultado do polinômio.
  *
  * @throws {Error} Se g for menor que 1.
  */
 function horner(x, g, a) {
+    if (isNaN(x) || isNaN(g)) {
+        throw new TypeError("O argumento não é um número");
+    }
+    if (!Array.isArray(a)) {
+        throw new TypeError("O argumento não é um vetor");
+    }
     if (g < 1) {
-        throw new Error("G deve ser maior ou igual a 1.");
+        throw new RangeError("G deve ser maior ou igual a 1.");
     }
 
     let p = a[g];
@@ -653,6 +659,8 @@ function horner(x, g, a) {
         p = p * x + a[i];
         i = i - 1;
     }
+
+    return p;
 }
 
 /**
