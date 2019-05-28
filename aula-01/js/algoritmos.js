@@ -790,5 +790,5 @@ module.exports = {
     horner: horner,
     fibonacci: fibonacci,
     cpf: cpf,
-    cpf2: cpf2,
+    cpf2: cpf2
 };
