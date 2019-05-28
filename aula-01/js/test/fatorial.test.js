@@ -1,4 +1,4 @@
-const funcao = require("../index.js").fatorial;
+const funcao = require("../algoritmos.js").fatorial;
 
 test("Satisfaz. Caso comum", () => {
     expect(funcao(3)).toBe(6);

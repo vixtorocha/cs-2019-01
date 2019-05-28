@@ -1,4 +1,4 @@
-const funcao = require("../index.js").logaritmoNatural;
+const funcao = require("../algoritmos.js").logaritmoNatural;
 
 test("Satisfaz.", () => {
     expect(funcao(3, 2)).toBe(8.5);

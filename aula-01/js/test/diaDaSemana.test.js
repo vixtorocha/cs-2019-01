@@ -1,4 +1,4 @@
-const funcao = require("../index.js").diaDaSemana;
+const funcao = require("../algoritmos.js").diaDaSemana;
 
 test("07/05/2019 retorna 2 (terça)", () => {
     expect(funcao(7, 5, 2019)).toBe(1);

@@ -1,4 +1,4 @@
-const funcao = require("../index.js").somaNaturais;
+const funcao = require("../algoritmos.js").somaNaturais;
 
 test("5 satisfaz (1 + 2 + 3 + 4 + 5)", () => {
     expect(funcao(5)).toBe(15);

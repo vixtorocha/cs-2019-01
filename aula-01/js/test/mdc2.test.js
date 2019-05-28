@@ -1,4 +1,4 @@
-const funcao = require("../index.js").mdc2;
+const funcao = require("../algoritmos.js").mdc2;
 
 test("Satisfaz. Retorna verdadeiro", () => {
     expect(funcao(9, 6)).toBe(3);

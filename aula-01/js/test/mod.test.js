@@ -1,4 +1,4 @@
-const funcao = require("../index.js").mod;
+const funcao = require("../algoritmos.js").mod;
 
 test("Caso válido - 8 dividido por 3", () => {
     expect(funcao(8, 3)).toBe(2);

@@ -1,4 +1,4 @@
-const funcao = require("../index.js").quadradoPerfeito;
+const funcao = require("../algoritmos.js").quadradoPerfeito;
 
 test("Satisfaz. Retorna verdadeiro", () => {
     expect(funcao(9)).toBe(true);

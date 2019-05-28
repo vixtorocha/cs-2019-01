@@ -1,4 +1,4 @@
-const funcao = require("../index.js").pi;
+const funcao = require("../algoritmos.js").pi;
 
 test("Satisfaz.", () => {
     expect(funcao(5)).toBe(3.3396825396825403);

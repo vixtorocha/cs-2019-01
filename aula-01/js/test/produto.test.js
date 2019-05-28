@@ -1,4 +1,4 @@
-const funcao = require("../index.js").produto;
+const funcao = require("../algoritmos.js").produto;
 
 test("Satisfaz. Caso comum", () => {
     expect(funcao(2, 3)).toBe(6);

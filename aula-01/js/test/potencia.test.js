@@ -1,4 +1,4 @@
-const funcao = require("../index.js").potencia;
+const funcao = require("../algoritmos.js").potencia;
 
 test("Satisfaz. Caso comum de 2^3", () => {
     expect(funcao(2, 3)).toBe(8);

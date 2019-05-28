@@ -1,4 +1,4 @@
-const funcao = require("../index.js").cpf2;
+const funcao = require("../algoritmos.js").cpf2;
 
 test("Satisfaz, é um CPF válido (obtido por um gerador)", () => {
     expect(funcao("85813526005")).toBe(true);

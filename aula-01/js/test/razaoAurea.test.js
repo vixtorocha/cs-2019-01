@@ -1,4 +1,4 @@
-const funcao = require("../index.js").razaoAurea;
+const funcao = require("../algoritmos.js").razaoAurea;
 
 test("Satisfaz.", () => {
     expect(funcao(1, 2, 20)).toBe(1.6180339901755971);

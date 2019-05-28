@@ -1,4 +1,4 @@
-const funcao = require("../index.js").raiz;
+const funcao = require("../algoritmos.js").raiz;
 
 test("Satisfaz. Retorna verdadeiro", () => {
     expect(funcao(4, 25)).toBe(2);

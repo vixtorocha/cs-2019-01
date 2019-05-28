@@ -1,4 +1,4 @@
-const funcao = require("../index.js").propriedade3025;
+const funcao = require("../algoritmos.js").propriedade3025;
 
 test("3025 satisfaz (caso classico)", () => {
     expect(funcao(3025)).toBe(true);

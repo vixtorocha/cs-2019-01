@@ -1,4 +1,4 @@
-const funcao = require("../index.js").fibonacci;
+const funcao = require("../algoritmos.js").fibonacci;
 
 test("Encontra corretamente o quarto termo", () => {
     expect(funcao(4)).toBe(3);
