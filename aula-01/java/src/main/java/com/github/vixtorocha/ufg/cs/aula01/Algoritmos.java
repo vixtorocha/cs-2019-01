@@ -13,7 +13,9 @@ public final class Algoritmos {
      * @throws IllegalArgumentException Se estiver fora da faixa aceita.
      */
     public static boolean propriedade3025(final int n) {
-        if (n < 0 || n > 9999) {
+        final int limiteMax = 9999;
+
+        if (n < 0 || n > limiteMax) {
             throw new IllegalArgumentException("Argumento fora da faixa.");
         }
 
@@ -31,7 +33,8 @@ public final class Algoritmos {
      * @throws IllegalArgumentException Se o número está fora da faixa aceita.
      */
     public static boolean propriedade153(final int n) {
-        if (n < 0 || n > 999) {
+        final int limiteMax = 999;
+        if (n < 0 || n > limiteMax) {
             throw new IllegalArgumentException("Argumento fora da faixa.");
         }
 
@@ -61,8 +64,9 @@ public final class Algoritmos {
         int m = mes;
         int a = ano;
 
-        if (m == 1 || m == 2) {
-            m = m + 12;
+        final int mesesEmUmANo;
+        if (m == janeiro || m == fevereiro) {
+            m = m + mesesEmUmANo;
             a = a - 1;
         }
 
@@ -542,15 +546,14 @@ public final class Algoritmos {
                     "N deve ser maior ou igual a 0.");
         }
 
-        int a = 0;
-        int c = 1;
-        int i, t;
-
         if (n == 0 || n == 1) {
             return n;
         }
 
-        i = 2;
+        int a = 0;
+        int c = 1;
+        int i = 2;
+        int t;
 
         while (n >= i) {
             t = c;
