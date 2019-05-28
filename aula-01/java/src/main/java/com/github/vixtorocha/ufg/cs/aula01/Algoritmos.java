@@ -64,9 +64,8 @@ public final class Algoritmos {
         int m = mes;
         int a = ano;
 
-        final int mesesEmUmANo;
-        if (m == janeiro || m == fevereiro) {
-            m = m + mesesEmUmANo;
+        if (m == 1 || m == 2) {
+            m = m + 12;
             a = a - 1;
         }
 
@@ -596,10 +595,17 @@ public final class Algoritmos {
 
         final int[] d = cpfStringToArray(cpf);
 
-        final int j = d[0] + 2 * d[1] + 3 * d[2] + 4 * d[3] + 5 * d[4]
-                + 6 * d[5] + 7 * d[6] + 8 * d[7] + 9 * d[8];
-        final int k = d[1] + 2 * d[2] + 3 * d[3] + 4 * d[4] + 5 * d[5]
-                + 6 * d[6] + 7 * d[7] + 8 * d[8] + 9 * d[9];
+        // Obter o valor de j.
+        int j = 0;
+        for (int i = 0; i < 9; i++) {
+            j += d[i] * (i + 1);
+        }
+
+        // Obter o valor de k.
+        int k = 0;
+        for (int i = 1; i < 10; i++) {
+            k += d[i] * i;
+        }
 
         final int dj = (j % 11) % 10;
         final int dk = (k % 11) % 10;
