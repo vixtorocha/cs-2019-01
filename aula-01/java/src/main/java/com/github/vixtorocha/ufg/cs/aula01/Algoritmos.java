@@ -69,7 +69,7 @@ public final class Algoritmos {
             a = a - 1;
         }
 
-        final int calculoBissexto = (a / 4) - (a / 100) + (a / 400);
+        final int calculoBissexto = a / 4 - a / 100 + a / 400;
         final int s = d + (2 * m) + (3 * (m + 1)) / 5 + a + calculoBissexto;
         return s % 7;
     }
@@ -88,7 +88,8 @@ public final class Algoritmos {
             return true;
         }
 
-        if (m < 1 || m > 12) {
+        final int numeroMesesNoANo = 12;
+        if (m < 1 || m > numeroMesesNoANo) {
             return true;
         }
 
@@ -100,11 +101,7 @@ public final class Algoritmos {
             numeroMaxDias[2] = 29;
         }
 
-        if (d <= 0 || d > numeroMaxDias[m]) {
-            return true;
-        }
-
-        return false;
+        return d <= 0 || d > numeroMaxDias[m];
     }
 
     /**
@@ -198,20 +195,21 @@ public final class Algoritmos {
                     "Ambos os valores precisam ser maior ou igual a zero.");
         }
 
-        int i, s;
+        int i;
+        int s;
         int totalParcelas = a;
-        int parecela = b;
+        int parcela = b;
 
         if (b < a) {
             totalParcelas = b;
-            parecela = a;
+            parcela = a;
         }
 
         i = 1;
         s = 0;
 
         while (i <= totalParcelas) {
-            s = s + parecela;
+            s = s + parcela;
             i = i + 1;
         }
 
@@ -571,7 +569,8 @@ public final class Algoritmos {
      * @return o cpf como vetor
      */
     public static int[] cpfStringToArray(final String d) {
-        final int[] cpf = new int[11];
+        final int tamanhoCPF = 11;
+        final int[] cpf = new int[tamanhoCPF];
 
         for (int i = 0; i < d.length(); i++) {
             cpf[i] = Character.getNumericValue(d.charAt(i));
@@ -585,11 +584,12 @@ public final class Algoritmos {
      *
      * @param cpf O cpf
      * @return Se é válido
-     * @throws IllegalArgumentException Se a string não tiver 11 casas.
+     * @throwmágicos IllegalArgumentException Se a string não tiver 11 casas.
      */
     public static boolean cpf(final String cpf) {
 
-        if (cpf.length() != 11) {
+        final int tamanhoCPF = 11;
+        if (cpf.length() != tamanhoCPF) {
             throw new IllegalArgumentException("O CPF deve ter 11 dígitos");
         }
 
@@ -610,7 +610,7 @@ public final class Algoritmos {
         final int dj = (j % 11) % 10;
         final int dk = (k % 11) % 10;
 
-        return (dj == d[9] && dk == d[10]);
+        return dj == d[9] && dk == d[10];
 
     }
 
@@ -624,7 +624,8 @@ public final class Algoritmos {
     public static boolean cpf2(final String cpf) {
 
         // Checar se o vetor d tem 11 casas
-        if (cpf.length() != 11) {
+        final int tamanhoCPF = 11;
+        if (cpf.length() != tamanhoCPF) {
             throw new IllegalArgumentException(
                     "O CPF deve ser uma string que contem 11 dígitos");
         }
@@ -644,7 +645,7 @@ public final class Algoritmos {
         final int j = (s % 11) % 10;
         final int k = ((s - p + 9 * d[9]) % 11) % 10;
 
-        return (j == d[9] && k == d[10]);
+        return j == d[9] && k == d[10];
 
     }
 
