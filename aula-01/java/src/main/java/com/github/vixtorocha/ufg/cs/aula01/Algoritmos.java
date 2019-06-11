@@ -63,15 +63,23 @@ public final class Algoritmos {
         final int d = dia;
         int m = mes;
         int a = ano;
+        final int mesesEmUmAno = 12;
 
         if (m == 1 || m == 2) {
-            m = m + 12;
+            m = m + mesesEmUmAno;
             a = a - 1;
         }
 
-        final int calculoBissexto = a / 4 - a / 100 + a / 400;
-        final int s = d + (2 * m) + (3 * (m + 1)) / 5 + a + calculoBissexto;
-        return s % 7;
+        final int quatro = 4;
+        final int quatrocentos = 400;
+        final int cem = 100;
+        final int tres = 3;
+        final int cinco = 5;
+        final int diasEmUmaSemana = 7;
+        final int calculoBissexto = a / quatro - a / cem + a / quatrocentos;
+        final int s = d + (2 * m) + (tres * (m + 1)) / cinco + a
+                + calculoBissexto;
+        return s % diasEmUmaSemana;
     }
 
     /**
@@ -83,8 +91,9 @@ public final class Algoritmos {
      * @return Se a data é inválida
      */
     private static boolean dataInvalida(final int d, final int m, final int a) {
+        final int minAno = 1753;
 
-        if (a < 1753) {
+        if (a < minAno) {
             return true;
         }
 
@@ -93,12 +102,30 @@ public final class Algoritmos {
             return true;
         }
 
-        final int[] numeroMaxDias = new int[] {0, 31, 28, 31, 30, 31, 30, 31,
-                31, 30, 31, 30, 31};
+        final int diasEmJaneiro = 31;
+        final int diasEmFevereiro = 28;
+        final int diasEmFevereiroBissexto = 29;
+        final int diasEmMarco = 31;
+        final int diasEmAbril = 30;
+        final int diasEmMaio = 31;
+        final int diasEmJunho = 30;
+        final int diasEmJulho = 31;
+        final int diasEmAgosto = 31;
+        final int diasEmSetembro = 30;
+        final int diasEmOutubro = 31;
+        final int diasEmNovembro = 30;
+        final int diasEmDezembro = 31;
+        final int[] numeroMaxDias = new int[] {0, diasEmJaneiro,
+                diasEmFevereiro, diasEmMarco, diasEmAbril, diasEmMaio,
+                diasEmJunho, diasEmJulho, diasEmAgosto, diasEmSetembro,
+                diasEmOutubro, diasEmNovembro, diasEmDezembro};
+        final int quatro = 4;
+        final int quatrocentos = 400;
+        final int cem = 100;
 
         // Se o ano for bissexto muda o max para fevereiro
-        if ((a % 4 == 0) && ((a % 100 != 0) || (a % 400 == 0))) {
-            numeroMaxDias[2] = 29;
+        if ((a % quatro == 0) && ((a % cem != 0) || (a % quatrocentos == 0))) {
+            numeroMaxDias[2] = diasEmFevereiroBissexto;
         }
 
         return d <= 0 || d > numeroMaxDias[m];
@@ -259,11 +286,12 @@ public final class Algoritmos {
         float s = -1;
         float d = -1;
         float p = 0;
+        final int quatro = 4;
 
         while (n >= i) {
             d = d + 2;
             s = -1 * s;
-            p = p + (4 * s) / d;
+            p = p + (quatro * s) / d;
             i = i + 1;
         }
 
@@ -596,21 +624,23 @@ public final class Algoritmos {
         final int[] d = cpfStringToArray(cpf);
 
         // Obter o valor de j.
+        final int tamCPFSemDigitos = 9;
         int j = 0;
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < tamCPFSemDigitos; i++) {
             j += d[i] * (i + 1);
         }
 
         // Obter o valor de k.
+        final int dez = 10;
         int k = 0;
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < dez; i++) {
             k += d[i] * i;
         }
 
         final int dj = (j % 11) % 10;
         final int dk = (k % 11) % 10;
 
-        return dj == d[9] && dk == d[10];
+        return dj == d[tamCPFSemDigitos] && dk == d[dez];
 
     }
 
