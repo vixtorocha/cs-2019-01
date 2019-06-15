@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     
-    <groupId>com.github.vixtorocha.ufg.cs.aula08</groupId>
+    <groupId>com.github.vixtorocha.ufg.cs.aula07</groupId>
     <artifactId>java</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -23,7 +23,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainClass>
-            com.github.vixtorocha.ufg.cs.aula08.Algoritmos
+            com.github.vixtorocha.ufg.cs.aula07.Algoritmos
         </project.mainClass>
 
         <tools.dir>${project.basedir}/tools</tools.dir>
