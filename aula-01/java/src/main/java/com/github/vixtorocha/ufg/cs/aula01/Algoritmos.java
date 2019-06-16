@@ -60,7 +60,6 @@ public final class Algoritmos {
             throw new IllegalArgumentException("A data é inválida");
         }
 
-        final int d = dia;
         int m = mes;
         int a = ano;
         final int mesesEmUmAno = 12;
@@ -77,7 +76,7 @@ public final class Algoritmos {
         final int cinco = 5;
         final int diasEmUmaSemana = 7;
         final int calculoBissexto = a / quatro - a / cem + a / quatrocentos;
-        final int s = d + (2 * m) + (tres * (m + 1)) / cinco + a
+        final int s = dia + (2 * m) + (tres * (m + 1)) / cinco + a
                 + calculoBissexto;
         return s % diasEmUmaSemana;
     }
@@ -612,7 +611,7 @@ public final class Algoritmos {
      *
      * @param cpf O cpf
      * @return Se é válido
-     * @throwmágicos IllegalArgumentException Se a string não tiver 11 casas.
+     * @throws IllegalArgumentException Se a string não tiver 11 casas.
      */
     public static boolean cpf(final String cpf) {
 
