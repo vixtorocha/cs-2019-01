@@ -11,7 +11,7 @@ public final class Algoritmos {
      * @param vetTemp Vetor de temperaturas.
      * @return A menor temperatura.
      */
-    public static int temperatura(final int[] vetTemp) {
+    public static int menorTemperatura(final int[] vetTemp) {
 
 	if (vetTemp.length < 1) {
 	    throw new IllegalArgumentException(
@@ -28,6 +28,30 @@ public final class Algoritmos {
 	}
 
 	return menorTemp;
+    }
+
+    /**
+     * Soma os números impares em um vetor
+     * 
+     * @param vetNumeros O vetor
+     * @return A soma dos números impares
+     */
+    public static int somaImpares(final int[] vetNumeros) {
+
+	if (vetNumeros.length < 1) {
+	    throw new IllegalArgumentException(
+		    "Deve ser passado um vetor com pelo menos um elemento");
+	}
+
+	int soma = 0;
+
+	for (int num : vetNumeros) {
+	    if (num % 2 != 0) {
+		soma += num;
+	    }
+	}
+
+	return soma;
     }
 
     /**
