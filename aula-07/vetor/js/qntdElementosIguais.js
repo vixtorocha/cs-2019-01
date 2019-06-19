@@ -16,6 +16,7 @@ function qntdElementosIguais(vetor1, vetor2) {
         vetor2.forEach(valor2 => {
             if (valor1 == valor2) {
                 qntdValoresIguais++;
+                break;
             }
         });
     });
