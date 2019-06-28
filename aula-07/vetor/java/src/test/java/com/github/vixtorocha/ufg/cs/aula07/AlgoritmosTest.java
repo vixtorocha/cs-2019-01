@@ -3,6 +3,7 @@ package com.github.vixtorocha.ufg.cs.aula07;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -102,5 +103,14 @@ public class AlgoritmosTest {
     public void fraseVazia() {
         assertThrows(IllegalArgumentException.class,
                 () -> Algoritmos.palavraMaisFrequente(""));
+    }
+
+    /**
+     * Testes para o Algoritmo.numeroMaisSorteado
+     */
+    @Test
+    public void testaRange() {
+        int num = Algoritmos.numeroMaisSorteado();
+        assertTrue(num > 0 && num < 1000);
     }
 }

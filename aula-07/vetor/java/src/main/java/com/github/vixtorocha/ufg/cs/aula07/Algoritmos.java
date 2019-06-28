@@ -1,5 +1,7 @@
 package com.github.vixtorocha.ufg.cs.aula07;
 
+import java.util.Random;
+
 /**
  * Implementação de alguns algoritmos de iteração.
  */
@@ -152,6 +154,40 @@ public final class Algoritmos {
         }
 
         return maisFrequente;
+    }
+
+    /**
+     * Sorteia um milhão de números entre zero e mil e retorna o mais sorteado
+     * 
+     * @return
+     */
+    public static int numeroMaisSorteado() {
+        int valorMaxSorteado = 1000;
+        int qntd = 1000000;
+        int[] contagem = new int[valorMaxSorteado];
+
+        Random random = new Random();
+
+        for (int i = 0; i < qntd; i++) {
+            int numero = random.nextInt(valorMaxSorteado);
+            contagem[numero]++;
+        }
+
+        /**
+         * Procura de acordo com o índice do vetor "contagem", qual foi o número
+         * mais rápido.
+         */
+        int maisFrequente = 0;
+        int indiceFrequente = 0;
+
+        for (int indice = 0; indice < valorMaxSorteado; indice++) {
+            if (contagem[indice] > maisFrequente) {
+                maisFrequente = contagem[indice];
+                indiceFrequente = indice;
+            }
+        }
+
+        return indiceFrequente;
     }
 
     /**
