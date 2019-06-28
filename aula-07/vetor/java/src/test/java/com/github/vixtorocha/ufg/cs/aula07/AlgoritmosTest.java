@@ -88,4 +88,19 @@ public class AlgoritmosTest {
         assertThrows(IllegalArgumentException.class,
                 () -> Algoritmos.qntdLetras(""));
     }
+
+    /**
+     * Testes para Algoritmo.palavraMaisFrequente
+     */
+    @Test
+    public void palavraMaisFrequenteFuncionamentoCorreto() {
+        assertEquals("como", Algoritmos
+                .palavraMaisFrequente("Alo como vai como vai vcs como"));
+    }
+
+    @Test
+    public void fraseVazia() {
+        assertThrows(IllegalArgumentException.class,
+                () -> Algoritmos.palavraMaisFrequente(""));
+    }
 }

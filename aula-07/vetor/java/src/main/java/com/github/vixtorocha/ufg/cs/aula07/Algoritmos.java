@@ -117,11 +117,42 @@ public final class Algoritmos {
         return vetorDeQuantidades;
     }
 
-//    public static String palavraMaisFrequente(final String string) {
-//        String maisFrequente;
-//
-//        return maisFrequente;
-//    }
+    /**
+     * Encontra a palavra mais frequente em uma frase.
+     * 
+     * @param a frase
+     * @return a palavra mais frequente
+     */
+    public static String palavraMaisFrequente(final String frase) {
+
+        if (frase.length() < 1) {
+            throw new IllegalArgumentException(
+                    "A sequencia não pode ser vazia.");
+        }
+
+        String maisFrequente = " ";
+        int maiorfrequencia = 0;
+
+        String palavras[] = frase.split(" ");
+
+        for (String palavra : palavras) {
+            int frequencia = 0;
+
+            for (String palavra2 : palavras) {
+
+                if (palavra.equals(palavra2)) {
+                    frequencia++;
+
+                    if (frequencia > maiorfrequencia) {
+                        maiorfrequencia = frequencia;
+                        maisFrequente = palavra;
+                    }
+                }
+            }
+        }
+
+        return maisFrequente;
+    }
 
     /**
      * Método construtor privado para que a classe não possa ser instânciada.
