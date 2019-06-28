@@ -33,8 +33,8 @@ public final class Algoritmos {
     }
 
     /**
-     * Soma os números impares em um vetor
-     * 
+     * Soma os números impares em um vetor.
+     *
      * @param vetNumeros O vetor
      * @return A soma dos números impares
      */
@@ -59,9 +59,9 @@ public final class Algoritmos {
     /**
      * Conta a quantidade de elementos no primeiro vetor que está no segundo
      * vetor.
-     * 
-     * @param vetor1
-     * @param vetor2
+     *
+     * @param vetor1 O primeiro vetor
+     * @param vetor2 O segundo vetor
      * @return A quantidade elementos do vetor1 repetido no vetor2
      */
     public static int qntElementosIguais(final int[] vetor1,
@@ -85,8 +85,8 @@ public final class Algoritmos {
      * Calcula a quantidade de cada letra em uma sequencia e armazena a
      * quantidade em um vetor em que o indice corresponde com a posição da letra
      * na sequencia.
-     * 
-     * @param sequencia
+     *
+     * @param sequencia A sequencia de letras.
      * @return O vetor com a quantidade de cada letra.
      * @throws IllegalArgumentException se o argumento for uma sequencia vazia.
      */
@@ -121,8 +121,8 @@ public final class Algoritmos {
 
     /**
      * Encontra a palavra mais frequente em uma frase.
-     * 
-     * @param a frase
+     *
+     * @param frase a frase
      * @return a palavra mais frequente
      */
     public static String palavraMaisFrequente(final String frase) {
@@ -135,7 +135,7 @@ public final class Algoritmos {
         String maisFrequente = " ";
         int maiorfrequencia = 0;
 
-        String palavras[] = frase.split(" ");
+        String[] palavras = frase.split(" ");
 
         for (String palavra : palavras) {
             int frequencia = 0;
@@ -157,13 +157,13 @@ public final class Algoritmos {
     }
 
     /**
-     * Sorteia um milhão de números entre zero e mil e retorna o mais sorteado
-     * 
-     * @return
+     * Sorteia um milhão de números entre zero e mil e retorna o mais sorteado.
+     *
+     * @return o numero mais sorteado
      */
     public static int numeroMaisSorteado() {
-        int valorMaxSorteado = 1000;
-        int qntd = 1000000;
+        final int valorMaxSorteado = 1000;
+        final int qntd = 1000000;
         int[] contagem = new int[valorMaxSorteado];
 
         Random random = new Random();
