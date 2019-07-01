@@ -10,10 +10,4 @@ public class ProgramaSaida {
 
     }
 
-    /**
-     * Construtor privado para cobertura
-     */
-    private ProgramaSaida() {
-    }
-
 }
