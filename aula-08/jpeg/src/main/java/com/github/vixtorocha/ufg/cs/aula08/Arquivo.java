@@ -9,9 +9,9 @@ public final class Arquivo {
     /*
      * Checa se um arquivo é jpeg
      */
-    public static boolean checaPNG(String caminho) throws IOException {
+    public static boolean checaPNG(final String caminho) throws IOException {
 
-        final int PRIMEIROBYTE = 0xffd8ffe0;
+        final int primeiroByte = 0xffd8ffe0;
 
         final FileInputStream fis = new FileInputStream(caminho);
         final DataInputStream dis = new DataInputStream(fis);
@@ -21,7 +21,7 @@ public final class Arquivo {
 
         System.out.println(valor);
 
-        if (valor == PRIMEIROBYTE) {
+        if (valor == primeiroByte) {
             return true;
         }
 
