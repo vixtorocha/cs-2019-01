@@ -29,4 +29,11 @@ public class Saida {
         return Integer.toHexString(valor);
     }
 
+    /**
+     * Construtor privado para cobertura
+     */
+    private Saida() {
+
+    }
+
 }
