@@ -4,9 +4,8 @@
  * Creative Commons Attribution 4.0 International License.
  */
 
-package com.github.kyriosdata.exemplo.application.console;
+package com.github.vixtorocha.exemplo.application.console;
 
-import com.github.kyriosdata.exemplo.domain.Calendario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,8 +15,8 @@ import org.apache.logging.log4j.Logger;
  */
 public final class ProgramaCalendario {
 
-    private static final Logger logger =
-            LogManager.getLogger(ProgramaCalendario.class);
+    private static final Logger logger = LogManager
+            .getLogger(ProgramaCalendario.class);
 
     /**
      * Restringe criação de instância.
@@ -27,14 +26,12 @@ public final class ProgramaCalendario {
     }
 
     /**
-     * Ponto de entrada da aplicação. Apenas para ilustra chamada de método.
+     * Ponto de entrada da aplicação. Apenas para ilustrar chamada de método.
      *
      * @param args Ignorados.
      */
     public static void main(final String[] args) {
-
         logger.info("iniciado");
-        System.out.println(Calendario.diaDaSemanaParaHoje());;
     }
 
 }

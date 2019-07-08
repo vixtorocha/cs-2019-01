@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.kyriosdata</groupId>
+    <groupId>com.github.vixtorocha</groupId>
     <artifactId>exemplo</artifactId>
     <packaging>jar</packaging>
     <version>1.0.1</version>
@@ -18,14 +18,7 @@
         necessidades específicas do projeto em questão.
     </description>
 
-    <url>https://github.com/kyriosdata/exemplo</url>
-
-    <organization>
-        <name>Instituto de Informática (UFG) - Fábrica de Software</name>
-        <url>http://www.inf.ufg.br</url>
-    </organization>
-
-    <inceptionYear>2016</inceptionYear>
+    <inceptionYear>2019</inceptionYear>
 
     <licenses>
         <license>
@@ -40,22 +33,12 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <id>kyriosdata</id>
-            <name>Fábio Nogueira de Lucena</name>
-            <email>fabio@inf.ufg.br</email>
-            <organization>Instituto de Informática (UFG)</organization>
-            <organizationUrl>http://www.inf.ufg.br</organizationUrl>
-        </developer>
-    </developers>
-
     <scm>
-        <connection>scm:git:https://github.com/kyriosdata/exemplo.git
+        <connection>scm:git:https://github.com/vixtorocha/cs-2019-01.git
         </connection>
-        <developerConnection>scm:git:https://github.com/kyriosdata/exemplo.git
+        <developerConnection>scm:git:https://github.com/vixtorocha/cs-2019-01.git
         </developerConnection>
-        <url>https://github.com/kyriosdata/exemplo</url>
+        <url>https://github.com/vixtorocha/cs-2019-01</url>
     </scm>
 
     <parent>
@@ -70,7 +53,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainClass>
-            com.github.kyriosdata.exemplo.application.console.ProgramaCalendario
+            com.github.vixtorocha.exemplo.application.console.ProgramaCalendario
         </project.mainClass>
 
         <tools.dir>${project.basedir}/tools</tools.dir>
@@ -573,11 +556,11 @@
                         <configuration>
                             <targetClasses>
                                 <param>
-                                    com.github.kyriosdata.exemplo.domain.Calendario
+                                    com.github.vixtorocha.exemplo.domain.Calendario
                                 </param>
                             </targetClasses>
                             <targetTests>
-                                <param>com.github.kyriosdata.exemplo.*</param>
+                                <param>com.github.vixtorocha.exemplo.*</param>
                             </targetTests>
                         </configuration>
                     </plugin>
@@ -692,7 +675,7 @@
                         <configuration>
                             <apiToken>${snyk.token}</apiToken>
                             <failOnSeverity>low</failOnSeverity>
-                            <org>kyriosdata</org>
+                            <org>vixtorocha</org>
                         </configuration>
                     </plugin>
 

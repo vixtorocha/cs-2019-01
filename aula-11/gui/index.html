@@ -8,31 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         // Path para a requisição (URL)
-        const PATH = "http://localhost:8080/ds?data=";
+        const PATH = "http://localhost:8080/ds?dataInicial=";
 
-        function atualizaDiaDaSemana() {
+        function calculaDiferenca() {
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    let dds = extraiDiaDaSemanaDaResposta(xhttp.responseText);
-                    document.getElementById("resultado").innerHTML = dds;
+                    let diferencaDeDias = extraiDiferencaDaResposta(xhttp.responseText);
+                    document.getElementById("resultado").innerHTML = diferencaDeDias;
                 }
             };
 
-            let dataAnoMesDia = document.getElementById("data").value;
-            let data = formataData(dataAnoMesDia);
-            xhttp.open("GET", PATH + data, true);
+            let dataAnoMesDiaInicial = document.getElementById("dataInicial").value;
+            let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
+            let dataInicial = formataData(dataAnoMesDiaInicial);
+            let dataFinal = formataData(dataAnoMesDiaFinal);
+            xhttp.open("GET", PATH + dataInicial + '&dataFinal=' + dataFinal, true);
             xhttp.send();
         }
 
         function dataCorrente() {
-            document.getElementById("data").valueAsDate = new Date();
+            document.getElementById("dataInicial").valueAsDate = new Date();
+            document.getElementById("dataFinal").valueAsDate = new Date();
         }
 
         // Funções para integração (satisfazer contrato do servidor)
 
-        function extraiDiaDaSemanaDaResposta(resposta) {
-            return JSON.parse(resposta).diaDaSemana;
+        function extraiDiferencaDaResposta(resposta) {
+            json = JSON.parse(resposta);
+            return "Há " + json.diferenca + " dia(s) entre " + json.dataInicial + " e " + json.dataFinal;
         }
 
         // Dia ou mês deve possuir dois dígitos
@@ -60,11 +65,11 @@
 
 <body onload="dataCorrente()" style="text-align: center">
     <h1>Diferença entre dois dias</h1>
-    <label for="data">Mês / Dia / Ano</label><br>
-    <input type="date" id="data" onchange="atualizaDiaDaSemana()"><br>
-    <label for="data">Mês / Dia / Ano</label><br>
-    <input type="date" id="data" onchange="atualizaDiaDaSemana()"><br>
-    <button onclick="atualizaDiaDaSemana();">Calcule a diferença</button><br>
+    <label for="dataInicial">Data inicial:</label><br>
+    <input type="date" id="dataInicial"><br>
+    <label for="dataFinal">Data final:</label><br>
+    <input type="date" id="dataFinal"><br>
+    <button onclick="calculaDiferenca();">Calcule a diferença</button><br>
     <span style="color: blue; font-size: 20pt;" id="resultado"></span>
 </body>
 
