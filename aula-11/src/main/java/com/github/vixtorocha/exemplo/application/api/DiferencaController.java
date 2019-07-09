@@ -18,15 +18,15 @@ import com.github.vixtorocha.exemplo.domain.Calendario;
 import com.github.vixtorocha.exemplo.domain.Diferenca;
 
 @RestController
-public class DiferencaController {
+public final class DiferencaController {
 
     @CrossOrigin
     @RequestMapping("ds")
     public Diferenca diferencaDoisDias(
             @RequestParam(value = "dataInicial",
-                    defaultValue = "não fornecida") String dataInicialArg,
+                    defaultValue = "não fornecida") final String dataInicialArg,
             @RequestParam(value = "dataFinal",
-                    defaultValue = "não fornecida") String dataFinalArg) {
+                    defaultValue = "não fornecida") final String dataFinalArg) {
 
         LocalDate dataInicial = localDateFromString(dataInicialArg);
         LocalDate dataFinal = localDateFromString(dataFinalArg);
@@ -45,7 +45,7 @@ public class DiferencaController {
      * @return Instância de {@link LocalDate} ou {@code null}, se a sequência
      *         não está no formato esperado (por exemplo, "01-01-2018")
      */
-    public LocalDate localDateFromString(String data) {
+    public static LocalDate localDateFromString(final String data) {
         try {
             DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             return LocalDate.parse(data, fmt);

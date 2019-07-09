@@ -17,12 +17,12 @@ public final class Calendario {
     /**
      * Não é esperada criação de instâncias desta classe.
      */
-    protected Calendario() {
+    private Calendario() {
         // Apenas para agradar análise de cobertura
     }
 
-    public static int calculaDiferenca(LocalDate dataInicial,
-            LocalDate dataFinal) {
+    public static int calculaDiferenca(final LocalDate dataInicial,
+            final LocalDate dataFinal) {
 
         Period period = Period.between(dataInicial, dataFinal);
 
