@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dia da Semana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // Path para a requisição (URL)
+        const PATH = "http://localhost:8080/ds?numero=";
+
+        function calculaDiferenca() {
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let diferencaDeDias = extraiResposta(xhttp.responseText);
+                    document.getElementById("resultado").innerHTML = diferencaDeDias;
+                }
+            };
+
+            let dataAnoMesDiaInicial = document.getElementById("numero").value;
+            xhttp.open("GET", PATH + numero, true);
+            xhttp.send();
+        }
+
+        function numPadrao() {
+            document.getElementById("numero").value = 0;
+        }
+
+        // Funções para integração (satisfazer contrato do servidor)
+
+        function extraiResposta(resposta) {
+            json = JSON.parse(resposta);
+            return "Há " + json.diferenca + " dia(s) entre " + json.dataInicial + " e " + json.dataFinal;
+        }
+
+    </script>
+</head>
+
+<body onload="numPadrao()" style="text-align: center">
+    <h1>Obtenha um número por extenso</h1>
+    <label for="numero">Numero:</label><br>
+    <input type="number" id="numero"><br>
+    <button onclick="calculaDiferenca();">Obter</button><br>
+    <span style="color: blue; font-size: 20pt;" id="resultado"></span>
+</body>
+
+</html>
