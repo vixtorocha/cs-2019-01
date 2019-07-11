@@ -1,6 +1,9 @@
 // Path para a requisição (URL)
 const PATH = "http://localhost:8080/ds?dataInicial=";
 
+/**
+ * Chama o API.
+ */
 function calculaDiferenca() {
 
     var xhttp = new XMLHttpRequest();
@@ -15,39 +18,45 @@ function calculaDiferenca() {
     let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
     let dataInicial = formataData(dataAnoMesDiaInicial);
     let dataFinal = formataData(dataAnoMesDiaFinal);
+
     xhttp.open("GET", PATH + dataInicial + '&dataFinal=' + dataFinal, true);
     xhttp.send();
 }
 
+/**
+ * Ajusta a data padrão na página para exibir o dia corrente.
+ */
 function dataCorrente() {
     document.getElementById("dataInicial").valueAsDate = new Date();
     document.getElementById("dataFinal").valueAsDate = new Date();
 }
 
-// Funções para integração (satisfazer contrato do servidor)
-
+/**
+ * Recebe um objeto e extrai a resposta usando json.
+ * @param {Object} resposta
+ * @returns uma String com a resposta.
+ */
 function extraiDiferencaDaResposta(resposta) {
     json = JSON.parse(resposta);
     return "Há " + json.diferenca + " dia(s) entre " + json.dataInicial + " e " + json.dataFinal;
 }
 
-// Dia ou mês deve possuir dois dígitos
-function formataDiaOuMes(n) {
-    return ("00" + n).substr(-2, 2);
-}
-
-// Ano deve possuir quatro dígitos
-function formataAno(n) {
-    return ("0000" + n).substr(-4, 4);
-}
-
-// ENTRADA: ano-mes-dia SAIDA: dd-mm-yyyy
+/**
+ * Ajusta o formato da data.
+ * @param {String} data no formato ano-mes-dia.
+ * @returns uma String da data no formato dia-mes-ano.
+ */
 function formataData(data) {
     let [a, m, d] = data.split("-");
 
-    let dia = formataDiaOuMes(d);
-    let mes = formataDiaOuMes(m);
-    let ano = formataAno(a);
+    //Formata o dia, mês e ano
+    let dia = ("00" + d).substr(-2, 2);
+    let mes = ("00" + m).substr(-2, 2);
+    let ano = ("0000" + a).substr(-4, 4);
 
     return `${d}-${m}-${a}`;
 }
+
+module.exports = {
+    formataData: formataData,
+};
