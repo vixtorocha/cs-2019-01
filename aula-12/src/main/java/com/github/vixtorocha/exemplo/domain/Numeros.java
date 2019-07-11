@@ -32,21 +32,14 @@ public final class Numeros {
             "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove"};
 
     /**
-     * Não é esperada criação de instâncias desta classe.
-     */
-    private Numeros() {
-        // Apenas para agradar análise de cobertura
-    }
-
-    /**
      * Trata da escrita dos Milhares. Também serve de ponto inicial.
      *
      * @param numeroVetor
      * @return
      */
     public static String milhares(int[] numeroVetor) {
-        if (numeroVetor.length < tamanhoMilhar
-                || numeroVetor[casaMilhar] == 0) {
+        // Se não for até milhar, pula para as centenas.
+        if (numeroVetor.length < tamanhoMilhar) {
             return centenas(numeroVetor);
         }
 
@@ -65,9 +58,20 @@ public final class Numeros {
      * @return
      */
     public static String centenas(int[] numeroVetor) {
-        if (numeroVetor[casaCentena] == 0) {
-            return unidade(numeroVetor);
+        // Se não for até as centenas, ou a casa das centenas for 0, pula para
+        // as dezenas
+        if (numeroVetor.length < 3 || numeroVetor[casaCentena] == 0) {
+            return dezenas(numeroVetor);
         }
+
+        if (numeroVetor[casaDezena] == 0 && numeroVetor[casaUnidade] == 0
+                && numeroVetor.length == tamanhoMilhar) {
+            if (numeroVetor[casaCentena] == 1) {
+                return " e Cem";
+            }
+            return " e " + escritaCentena[numeroVetor[casaCentena]];
+        }
+
         if (numeroVetor[casaDezena] == 0 && numeroVetor[casaUnidade] == 0) {
             if (numeroVetor[casaCentena] == 1) {
                 return "Cem";
@@ -75,7 +79,7 @@ public final class Numeros {
             return escritaCentena[numeroVetor[casaCentena]];
         }
 
-        return " e " + escritaCentena[numeroVetor[casaCentena]]
+        return " " + escritaCentena[numeroVetor[casaCentena]]
                 + dezenas(numeroVetor);
     }
 
@@ -86,15 +90,24 @@ public final class Numeros {
      * @return
      */
     public static String dezenas(int[] numeroVetor) {
-        if (numeroVetor[casaDezena] == 0) {
+        // Se não tiver dezena, ou a dezena for zero, chama a unidade.
+        if (numeroVetor.length < 2 || numeroVetor[casaDezena] == 0) {
             return unidade(numeroVetor);
         }
-        if (numeroVetor[casaDezena] == 1) {
-            return escDezAVinte[numeroVetor[casaUnidade]];
-        }
-        if (numeroVetor.length <= 1) {
+
+        // Se o número só for até a dezena, não coloca "e".
+        if (numeroVetor.length == 2) {
+            // Se a casa da dezena for 1, a escrita vai ser diferente
+            if (numeroVetor[casaDezena] == 1) {
+                return escDezAVinte[numeroVetor[casaUnidade]];
+            }
             return escritaDezena[numeroVetor[casaDezena]]
                     + unidade(numeroVetor);
+        }
+
+        // Se a casa da dezena for 1, a escrita vai ser diferente (onze, doze).
+        if (numeroVetor[casaDezena] == 1) {
+            return " e " + escDezAVinte[numeroVetor[casaUnidade]];
         }
 
         return " e " + escritaDezena[numeroVetor[casaDezena]]
@@ -108,15 +121,21 @@ public final class Numeros {
      * @return
      */
     public static String unidade(int[] numeroVetor) {
+        // Se a casa das unidades for 0, mas
         if (numeroVetor.length > 1 && numeroVetor[casaUnidade] == 0) {
             return "";
         }
         if (numeroVetor.length > 1) {
-            return "e" + escritaUnidade[casaUnidade];
+            return " e " + escritaUnidade[numeroVetor[casaUnidade]];
         }
-        return escritaUnidade[casaUnidade];
+        return escritaUnidade[numeroVetor[casaUnidade]];
     }
 
+    /**
+     *
+     * @param numeroArg
+     * @return
+     */
     public static String getExtenso(final int numeroArg) {
         if (numeroArg > 9999) {
             throw new IllegalArgumentException(
@@ -137,11 +156,14 @@ public final class Numeros {
             vetorNumero[vetorNumero.length - (1 + i)] = aux;
         }
 
-        for (int i = 0; i < vetorNumero.length; i++) {
-            System.out.println(vetorNumero[i]);
-        }
-
         return milhares(vetorNumero);
+    }
+
+    /**
+     * Não é esperada criação de instâncias desta classe.
+     */
+    private Numeros() {
+        // Apenas para agradar análise de cobertura
     }
 
 }
