@@ -137,7 +137,7 @@ public final class Numeros {
      * @return
      */
     public static String getExtenso(final int numeroArg) {
-        if (numeroArg > 9999) {
+        if (numeroArg > 9999 || numeroArg < 0) {
             throw new IllegalArgumentException(
                     "O número deve conter no máximo 4 dígitos");
         }

@@ -99,4 +99,9 @@ public class NumerosTest {
                 () -> Numeros.getExtenso(10000));
     }
 
+    @Test
+    void argumentoPequeno() {
+        assertThrows(IllegalArgumentException.class,
+                () -> Numeros.getExtenso(-1));
+    }
 }

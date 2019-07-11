@@ -1,9 +1,6 @@
 // Path para a requisição (URL)
 const PATH = "http://localhost:8080/ds?numero=";
 
-/**
- * Função que chama o API e cuida do XMLHttpRequest
- */
 function calculaDiferenca() {
 
     var xhttp = new XMLHttpRequest();
@@ -19,17 +16,12 @@ function calculaDiferenca() {
     xhttp.send();
 }
 
-/**
- * Exibe o número 0 na interface como padrão.
- */
 function numPadrao() {
     document.getElementById("numero").value = 0;
 }
 
-/**
- * Extrai a resposta de um objeto usando json.
- * @param {Object} resposta O objeto retornado pela API
- */
+// Funções para integração (satisfazer contrato do servidor)
+
 function extraiResposta(resposta) {
     return JSON.parse(resposta).numeroPorExtenso;
 }
