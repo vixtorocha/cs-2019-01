@@ -15,12 +15,12 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    let diferencaDeDias = extraiResposta(xhttp.responseText);
-                    document.getElementById("resultado").innerHTML = diferencaDeDias;
+                    let numeroPorExtenso = extraiResposta(xhttp.responseText);
+                    document.getElementById("resultado").innerHTML = numeroPorExtenso;
                 }
             };
 
-            let dataAnoMesDiaInicial = document.getElementById("numero").value;
+            let numero = document.getElementById("numero").value;
             xhttp.open("GET", PATH + numero, true);
             xhttp.send();
         }
@@ -32,8 +32,7 @@
         // Funções para integração (satisfazer contrato do servidor)
 
         function extraiResposta(resposta) {
-            json = JSON.parse(resposta);
-            return "Há " + json.diferenca + " dia(s) entre " + json.dataInicial + " e " + json.dataFinal;
+            return JSON.parse(resposta).numeroPorExtenso;
         }
 
     </script>
