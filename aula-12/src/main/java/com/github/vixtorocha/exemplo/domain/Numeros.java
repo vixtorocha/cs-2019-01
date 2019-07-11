@@ -123,10 +123,22 @@ public final class Numeros {
                     "O número deve conter no máximo 4 dígitos");
         }
 
+        // Transforma o número em um vetor de dígitos
         String temp = Integer.toString(numeroArg);
         int[] vetorNumero = new int[temp.length()];
         for (int i = 0; i < temp.length(); i++) {
             vetorNumero[i] = temp.charAt(i) - '0';
+        }
+
+        // Inverte o vetor para funcionar com o algoritmo
+        for (int i = 0; i < vetorNumero.length / 2; i++) {
+            int aux = vetorNumero[i];
+            vetorNumero[i] = vetorNumero[vetorNumero.length - (1 + i)];
+            vetorNumero[vetorNumero.length - (1 + i)] = aux;
+        }
+
+        for (int i = 0; i < vetorNumero.length; i++) {
+            System.out.println(vetorNumero[i]);
         }
 
         return milhares(vetorNumero);
