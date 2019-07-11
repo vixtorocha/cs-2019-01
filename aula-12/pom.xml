@@ -451,6 +451,7 @@
                     <excludes>
                         <exclude>**/*Bean.java</exclude>
                         <exclude>**/generated/*.java</exclude>
+                        <exclude>**/*Application.java</exclude>
                     </excludes>
                     <excludeRoots>
                         <excludeRoot>target/generated-sources/stubs
@@ -808,6 +809,9 @@
                                     <goal>check</goal>
                                 </goals>
                                 <configuration>
+                                <excludes>
+      								<exclude>**/Application*.*</exclude>
+   								 </excludes>
                                     <rules>
                                         <rule implementation="org.jacoco.maven.RuleConfiguration">
                                             <element>BUNDLE</element>

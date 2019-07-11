@@ -22,7 +22,7 @@ public final class DiferencaController {
 
     @CrossOrigin
     @RequestMapping("ds")
-    public Diferenca diferencaDoisDias(
+    public static Diferenca diferencaDoisDias(
             @RequestParam(value = "dataInicial",
                     defaultValue = "não fornecida") final String dataInicialArg,
             @RequestParam(value = "dataFinal",
@@ -52,5 +52,12 @@ public final class DiferencaController {
         } catch (Exception exp) {
             return null;
         }
+    }
+
+    /**
+     * Método privado para satisfazer cobertura.
+     */
+    private DiferencaController() {
+
     }
 }

@@ -12,19 +12,19 @@ package com.github.vixtorocha.exemplo.domain;
  */
 public class NumeroPorExtenso {
 
-    private int numeroArg;
-    private String numeroPorExtenso;
+    private static int numeroArg;
+    private static String numeroPorExtenso;
 
-    public NumeroPorExtenso(int numeroArg, String numeroPorExtenso) {
-        this.numeroArg = numeroArg;
-        this.numeroPorExtenso = numeroPorExtenso;
+    public NumeroPorExtenso(int setNumero, String SetNumeroPorExtenso) {
+        numeroArg = setNumero;
+        numeroPorExtenso = SetNumeroPorExtenso;
     }
 
-    public int getNumeroArg() {
+    public static int getNumeroArg() {
         return numeroArg;
     }
 
-    public String getNumeroPorExtenso() {
+    public static String getNumeroPorExtenso() {
         return numeroPorExtenso;
     }
 }

@@ -19,9 +19,16 @@ public class NumeroPorExtensoController {
 
     @CrossOrigin
     @RequestMapping("ds")
-    public NumeroPorExtenso diferencaDoisDias(@RequestParam(value = "numero",
-            defaultValue = "não fornecida") int numeroArg) {
+    public static NumeroPorExtenso numeroPorExtenso(@RequestParam(
+            value = "numero", defaultValue = "não fornecida") int numeroArg) {
 
         return new NumeroPorExtenso(numeroArg, Numeros.getExtenso(numeroArg));
+    }
+
+    /**
+     * Método privado para satisfazer cobertura.
+     */
+    private NumeroPorExtensoController() {
+
     }
 }
