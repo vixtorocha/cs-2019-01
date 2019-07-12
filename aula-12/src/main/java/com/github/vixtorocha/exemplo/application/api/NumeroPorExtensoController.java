@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.vixtorocha.exemplo.domain.NumeroPorExtenso;
 import com.github.vixtorocha.exemplo.domain.Numeros;
 
 @RestController
-public class NumeroPorExtensoController {
+public final class NumeroPorExtensoController {
 
     @CrossOrigin
     @RequestMapping("ds")
-    public static NumeroPorExtenso numeroPorExtenso(@RequestParam(
-            value = "numero", defaultValue = "não fornecida") int numeroArg) {
+    public static NumeroPorExtenso numeroPorExtenso(
+            @RequestParam(value = "numero",
+                    defaultValue = "não fornecida") final int numeroArg) {
 
         return new NumeroPorExtenso(numeroArg, Numeros.getExtenso(numeroArg));
     }
