@@ -10,16 +10,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public final class Application {
+public class Application {
 
     public static void main(final String[] args) {
         SpringApplication.run(Application.class, args);
-    }
-
-    /**
-     * Construtor de classes utilitárias devem ser privados.
-     */
-    private Application() {
-
     }
 }
