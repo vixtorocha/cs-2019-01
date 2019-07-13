@@ -23,7 +23,7 @@ public final class Calendario {
 
     /**
      * Calcula a diferença entre duas datas
-     * 
+     *
      * @param dataInicial A primeira data.
      * @param dataFinal   A segunda data.
      * @return A diferença entre as duas datas.
@@ -33,9 +33,7 @@ public final class Calendario {
 
         Period period = Period.between(dataInicial, dataFinal);
 
-        int diferenca = period.getDays();
-
-        return Math.abs(diferenca);
+        return Math.abs(period.getDays());
     }
 
 }
