@@ -4,7 +4,7 @@ const PATH = "http://localhost:8080/ds?numero=";
 /**
  * Função que chama o API e cuida do XMLHttpRequest
  */
-function calculaDiferenca() {
+function pegaNumExtenso() {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
