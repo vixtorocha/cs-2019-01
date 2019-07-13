@@ -53,11 +53,4 @@ public final class DiferencaController {
             return null;
         }
     }
-
-    /**
-     * Método privado para satisfazer cobertura.
-     */
-    private DiferencaController() {
-
-    }
 }

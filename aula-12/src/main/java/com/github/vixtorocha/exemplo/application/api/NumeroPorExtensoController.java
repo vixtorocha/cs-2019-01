@@ -24,11 +24,4 @@ public final class NumeroPorExtensoController {
 
         return new NumeroPorExtenso(numeroArg, Numeros.getExtenso(numeroArg));
     }
-
-    /**
-     * Método privado para satisfazer cobertura.
-     */
-    private NumeroPorExtensoController() {
-
-    }
 }
