@@ -17,11 +17,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.vixtorocha.exemplo.domain.Calendario;
 import com.github.vixtorocha.exemplo.domain.Diferenca;
 
+/**
+ * Controller da API, usa springboot.
+ *
+ * @author Victor Rocha
+ *
+ */
 @RestController
 public final class DiferencaController {
 
     @CrossOrigin
     @RequestMapping("ds")
+    /**
+     * Método que cuida da API de diferença de datas.
+     *
+     * @param dataInicialArg A data inicial.
+     * @param dataFinalArg   A data final.
+     * @return Uma classe com algumas informações úteis, incluindo a diferença
+     *         entre as duas datas.
+     */
     public static Diferenca diferencaDoisDias(
             @RequestParam(value = "dataInicial",
                     defaultValue = "não fornecida") final String dataInicialArg,

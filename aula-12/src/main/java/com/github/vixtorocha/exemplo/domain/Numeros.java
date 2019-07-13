@@ -7,7 +7,7 @@
 package com.github.vixtorocha.exemplo.domain;
 
 /**
- * Implementação do cálculo de diferença entre dois dias.
+ * Implementação dos algoritmos que retornam a escrita por extenso.
  */
 public final class Numeros {
 

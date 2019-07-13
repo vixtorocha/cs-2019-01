@@ -9,7 +9,7 @@ package com.github.vixtorocha.exemplo.domain;
 import java.time.LocalDate;
 
 /**
- * Reúne uma data e o dia da semana correspondente. Criada exclusivamente para
+ * Reúne duas datas e a diferença de dias delas. Criada exclusivamente para
  * ilustrar a resposta via RESTFul API.
  */
 public final class Diferenca {

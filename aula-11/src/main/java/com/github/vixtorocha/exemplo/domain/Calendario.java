@@ -21,6 +21,13 @@ public final class Calendario {
         // Apenas para agradar análise de cobertura
     }
 
+    /**
+     * Calcula a diferença entre duas datas
+     * 
+     * @param dataInicial A primeira data.
+     * @param dataFinal   A segunda data.
+     * @return A diferença entre as duas datas.
+     */
     public static int calculaDiferenca(final LocalDate dataInicial,
             final LocalDate dataFinal) {
 

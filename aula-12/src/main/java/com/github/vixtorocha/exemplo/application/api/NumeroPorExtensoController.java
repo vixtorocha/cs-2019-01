@@ -16,6 +16,13 @@ import com.github.vixtorocha.exemplo.domain.Numeros;
 @RestController
 public final class NumeroPorExtensoController {
 
+    /**
+     * Método responsável pela API.
+     * 
+     * @param numeroArg Um argumento numérico.
+     * @return uma classe com as informações necessárias( o número e sua escrita
+     *         por extenso).
+     */
     @CrossOrigin
     @RequestMapping("ds")
     public static NumeroPorExtenso numeroPorExtenso(
