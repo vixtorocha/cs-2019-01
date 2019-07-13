@@ -15,11 +15,11 @@ public class NumeroPorExtenso {
     /**
      * O número absoluto.
      */
-    private static int numeroArg;
+    private final int numeroArg;
     /**
      * A escrita por extenso.
      */
-    private static String numeroPorExtenso;
+    private final String numeroPorExtenso;
 
     protected NumeroPorExtenso(final int setNumero,
             final String setNumeroPorExtenso) {
@@ -32,7 +32,7 @@ public class NumeroPorExtenso {
      *
      * @return o número.
      */
-    public static final int getNumeroArg() {
+    public int getNumeroArg() {
         return numeroArg;
     }
 
@@ -41,7 +41,7 @@ public class NumeroPorExtenso {
      *
      * @return o número por extenso
      */
-    public static final String getNumeroPorExtenso() {
+    public String getNumeroPorExtenso() {
         return numeroPorExtenso;
     }
 }
