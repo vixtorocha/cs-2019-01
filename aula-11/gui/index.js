@@ -19,8 +19,15 @@ function calculaDiferenca() {
     let dataInicial = formataData(dataAnoMesDiaInicial);
     let dataFinal = formataData(dataAnoMesDiaFinal);
 
-    xhttp.open("GET", PATH + dataInicial + '&dataFinal=' + dataFinal, true);
+    xhttp.open("GET", construirCaminho(dataInicial, dataFinal), true);
     xhttp.send();
+}
+
+/**
+ * Controi a URL necessária para o API.
+ */
+function construirCaminho(dataInicial, dataFinal) {
+    return PATH + dataInicial + '&dataFinal=' + dataFinal;
 }
 
 /**

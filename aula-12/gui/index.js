@@ -15,10 +15,17 @@ function pegaNumExtenso() {
     };
 
     let numero = document.getElementById("numero").value;
-    xhttp.open("GET", PATH + numero, true);
+
+    xhttp.open("GET", construirCaminho(numero), true);
     xhttp.send();
 }
 
+/**
+ * Controi a URL necessária para o API.
+ */
+function construirCaminho(numero) {
+    return PATH + numero;
+}
 /**
  * Exibe o número 0 na interface como padrão.
  */
