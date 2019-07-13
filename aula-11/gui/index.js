@@ -66,4 +66,5 @@ function formataData(data) {
 
 module.exports = {
     formataData: formataData,
+    construirCaminho: construirCaminho,
 };
