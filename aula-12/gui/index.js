@@ -21,12 +21,6 @@ function pegaNumExtenso() {
 }
 
 /**
- * Controi a URL necessária para o API.
- */
-function construirCaminho(numero) {
-    return PATH + numero;
-}
-/**
  * Exibe o número 0 na interface como padrão.
  */
 function numPadrao() {
@@ -39,4 +33,11 @@ function numPadrao() {
  */
 function extraiResposta(resposta) {
     return JSON.parse(resposta).numeroPorExtenso;
+}
+
+/**
+ * Controi a URL necessária para o API.
+ */
+function construirCaminho(numero) {
+    return PATH + numero;
 }
